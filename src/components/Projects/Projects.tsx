@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#0c2127",
+        backgroundColor: "#24272B",
         padding: "0 20px",
       }}
     >
