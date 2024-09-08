@@ -13,7 +13,7 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Public Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   },
-  palette: {
+  palette: { 
     primary: {
       main: '#24272B', // Adjust the primary color
     },
