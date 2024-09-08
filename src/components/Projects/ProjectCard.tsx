@@ -1,22 +1,24 @@
 import React from 'react';
-import { Card, CardContent, Typography, Box } from '@mui/material';
+import { Card, CardContent, Typography, Box, Button } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 
 const ProjectCard: React.FC<{ title: string, description: string, link: string | undefined, techUsed: string }> = ({ title, description, link, techUsed }) => {
   return (
     <Card
-    sx={{
+      sx={{
         display: 'flex',
         flexDirection: 'column',
-        height: '100%', // Ensure card takes full height of grid item
-        minHeight: '250px', // Set a minimum height for consistent size
+        height: '100%',
+        minHeight: '250px',
         transition: 'transform 0.3s, box-shadow 0.3s',
         '&:hover': {
           transform: 'scale(1.01)',
-          boxShadow: '0 0 0 4px rgba(0, 0, 0, 0.2)', // Subtle outline effect
+          boxShadow: '0px 0px 12px rgba(0, 248, 130, 0.9)',
         },
         backgroundColor: '#30343b',
-        borderRadius: 5,
+        borderRadius: 2,
+        padding: 2,
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
       }}
     >
       <CardContent
@@ -27,30 +29,30 @@ const ProjectCard: React.FC<{ title: string, description: string, link: string |
           height: '100%',
         }}
       >
-        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection:'column', justifyContent:'space-around', textAlign: 'left' }}>
-          <Box sx={{display: 'flex', flexDirection: 'row', alignItems:'center'}}>
-            <CodeIcon sx={{color:'#e0e0e0', border: '1px solid grey', borderRadius: 1, fontSize: '3rem'}}/>
-            <Typography padding="16px" variant="h4" component="div" color='#e0e0e0'>
-                {title}
+        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', textAlign: 'left' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 2 }}>
+            <CodeIcon sx={{ color: '#e0e0e0', border: '1px solid grey', borderRadius: 1, fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' } }} />
+            <Typography padding="16px" variant="h5" component="div" color='#e0e0e0' sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' } }}>
+              {title}
             </Typography>
           </Box>
-          <Box sx={{display: 'flex', flexDirection: 'row', alignItems:'center', pb: 1}}>
-            <CodeIcon sx={{color:'#525252', fontSize: '16px'}}/>
-            <Typography sx={{ fontSize: '16px', px: 1 }} component="div" color='#525252'>
-                {techUsed}
+          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', pb: 1 }}>
+            <CodeIcon sx={{ color: '#525252', fontSize: { xs: '14px', sm: '16px' } }} />
+            <Typography sx={{ fontSize: { xs: '14px', sm: '16px' }, px: 1 }} component="div" color='#525252'>
+              {techUsed}
             </Typography>
           </Box>
-          <Typography variant="body2" color="#b0b0b0" paragraph>
+          <Typography variant="body2" color="#b0b0b0" paragraph sx={{ fontSize: { xs: '0.875rem', sm: '1rem' } }}>
             {description}
           </Typography>
         </Box>
         {link ? 
-            <a href={link} target="_blank" rel="noopener noreferrer">
-            <Typography variant="body2" color="#b0b0b0">
-                View Project
-            </Typography>
-            </a>
-            : <></>
+          <a href={link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            <Button variant="contained" size="small" sx={{ backgroundColor: '#00b0ff', color: '#fff', '&:hover': { backgroundColor: '#0088cc' } }}>
+              View Project
+            </Button>
+          </a>
+          : null
         }
       </CardContent>
     </Card>

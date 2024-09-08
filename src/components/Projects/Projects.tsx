@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
-import { projects } from '../../assets/projectsList';
+import { Box, Typography, Grid, Button } from '@mui/material';
+import { projects } from './projectsList';
 import ProjectCard from './ProjectCard';
 
 const Projects: React.FC = () => {
@@ -17,7 +17,7 @@ const Projects: React.FC = () => {
         padding: "0 20px",
       }}
     >
-      <Box sx={{ textAlign: 'left', width: '100%', maxWidth: '1200px' }}>
+      <Box sx={{ textAlign: 'left', width: '100%', maxWidth: '75vw' }}>
         <Typography variant="h3" gutterBottom sx={{ color: 'white', marginBottom: '40px' }}>
           Featured Projects
         </Typography>
@@ -38,6 +38,11 @@ const Projects: React.FC = () => {
             </Grid>
           ))}
         </Grid>
+      </Box>
+      <Box sx={{p: 2, textAlign: 'right', width: '100%', maxWidth: '75vw'}}>
+        <Button variant="contained" size="small" sx={{ backgroundColor: '#00b0ff', color: '#fff', '&:hover': { backgroundColor: '#0088cc' } }}>
+          More Projects 
+        </Button>
       </Box>
     </Box>
   );

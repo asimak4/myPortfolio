@@ -23,6 +23,12 @@ export const projects = [
       link: 'https://github.com/asimak4/FunProjects/blob/master/AI%20and%20ML%20Practice/Minimaxconnect4.py',
     },
     {
+      title: 'Online Portfolio',
+      description: 'Developed an online portfolio using React and Material-UI. The portfolio features sections for projects, skills, and contact information, showcasing a range of personal and professional projects with responsive design.',
+      techUsed: 'TypeScript',
+      link: 'https://github.com/asimak4/myPortfolio'
+    },
+    {
         title: 'Chess',
         description: 'Developed a Chess game in C with functionality for validating moves, checking for checkmate, and a CPU opponent with random move generation. This console-based game includes a design document explaining the implementation.',
         techUsed: 'C', 
@@ -57,12 +63,6 @@ export const projects = [
       description: 'Built a simple compiler handling arithmetic operations, variables, loops, and conditional statements using Reverse Polish Notation (RPN). This project demonstrates the basics of language parsing and stack-based computation.',
       techUsed: 'https://via.placeholder.com/300', 
       link: '',
-    },
-    {
-        title: 'Online Portfolio',
-        description: 'Developed an online portfolio using React and Material-UI. The portfolio features sections for projects, skills, and contact information, showcasing a range of personal and professional projects with responsive design.',
-        techUsed: 'https://via.placeholder.com/300', // Update with a relevant image URL if available
-        link: 'https://github.com/asimak4/FunProjects/tree/master/my-portfolio', // Update with the actual GitHub repository link if available
     }
   ];
   
