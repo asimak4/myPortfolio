@@ -9,7 +9,6 @@ const ProjectCard: React.FC<{ title: string, description: string, link: string |
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        minHeight: '250px',
         transition: 'transform 0.3s, box-shadow 0.3s',
         '&:hover': {
           transform: 'scale(1.01)',
@@ -17,7 +16,7 @@ const ProjectCard: React.FC<{ title: string, description: string, link: string |
         },
         backgroundColor: '#30343b',
         borderRadius: 2,
-        padding: 2,
+        // padding: 2,
         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
       }}
     >
@@ -29,10 +28,10 @@ const ProjectCard: React.FC<{ title: string, description: string, link: string |
           height: '100%',
         }}
       >
-        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', textAlign: 'left' }}>
-          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', mb: 2 }}>
-            <CodeIcon sx={{ color: '#e0e0e0', border: '1px solid grey', borderRadius: 1, fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' } }} />
-            <Typography padding="16px" variant="h5" component="div" color='#e0e0e0' sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' } }}>
+        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'left' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+            <CodeIcon sx={{ color: '#e0e0e0', border: '1px solid grey', borderRadius: 1, fontSize: { xs: '1rem', sm: '1.5rem', md: '2rem' } }} />
+            <Typography padding="16px" variant="h5" component="div" color='#e0e0e0' sx={{ fontSize: { xs: '1rem', sm: '1.5rem', md: '1.75rem' } }}>
               {title}
             </Typography>
           </Box>
@@ -42,7 +41,7 @@ const ProjectCard: React.FC<{ title: string, description: string, link: string |
               {techUsed}
             </Typography>
           </Box>
-          <Typography variant="body2" color="#b0b0b0" paragraph sx={{ fontSize: { xs: '0.875rem', sm: '1rem' } }}>
+          <Typography variant="body2" color="#b0b0b0" paragraph sx={{ fontSize: { xs: '0.575rem', sm: '.8rem' } }}>
             {description}
           </Typography>
         </Box>

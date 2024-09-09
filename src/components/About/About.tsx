@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-
+import { aboutMeText } from "./aboutMe";
 const About: React.FC = () => {
   return (
     <Box
@@ -15,7 +15,7 @@ const About: React.FC = () => {
         justifyContent: "center",
         backgroundColor: "#f4f4f9",
         padding: "0 20px",
-        textAlign: "center",
+        textAlign: "left",
       }}
     >
       <Typography variant="h2" gutterBottom>
@@ -23,12 +23,9 @@ const About: React.FC = () => {
       </Typography>
       <Typography
         variant="body1"
-        sx={{ maxWidth: "600px", marginBottom: "20px" }}
+        sx={{ maxWidth: "600px", marginBottom: "20px", }}
       >
-        Hi! I'm Alex, a web developer with a passion for building elegant and
-        functional websites. I enjoy working on both frontend and backend
-        technologies, always eager to learn new things and push the boundaries
-        of web development.
+        {aboutMeText}
       </Typography>
       <Button
         variant="contained"

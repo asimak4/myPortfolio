@@ -55,8 +55,8 @@ const Home: React.FC = () => {
           justifyContent: 'center',
           alignItems: 'center',
           width: {
-            xs: '100%',   // Full width on small screens
-            md: 'auto'    // Auto width on medium and larger screens
+            xs: '100%',
+            md: 'auto'
           },
           maxWidth: '400px',
         }}

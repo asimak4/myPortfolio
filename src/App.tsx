@@ -2,13 +2,13 @@ import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Navbar from './components/Navbar';
 import Home from './components/Home/Home';
-import About from './components/About';
+import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Experience from './components/Experience/Experience'
-// index.tsx or App.tsx
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Contact from './components/Contact';
 import Box from '@mui/material/Box';
+import SkillsPage from './components/Skills/SkillsPage';
 
 const theme = createTheme({
   typography: {
@@ -33,6 +33,7 @@ const App: React.FC = () => {
         <About />
         <Projects />
         <Experience />
+        <SkillsPage />
       </Box>
     </ThemeProvider>
   );

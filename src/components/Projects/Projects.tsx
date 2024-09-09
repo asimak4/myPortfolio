@@ -17,7 +17,7 @@ const Projects: React.FC = () => {
         padding: "0 20px",
       }}
     >
-      <Box sx={{ textAlign: 'left', width: '100%', maxWidth: '75vw' }}>
+      <Box sx={{ textAlign: 'left', width: '100%', maxWidth: '75vw', py: 10 }}>
         <Typography variant="h3" gutterBottom sx={{ color: 'white', marginBottom: '40px' }}>
           Featured Projects
         </Typography>
@@ -38,11 +38,11 @@ const Projects: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-      </Box>
-      <Box sx={{p: 2, textAlign: 'right', width: '100%', maxWidth: '75vw'}}>
+        <Box sx={{p: 2, textAlign: 'right', width: '100%', maxWidth: '75vw'}}>
         <Button variant="contained" size="small" sx={{ backgroundColor: '#00b0ff', color: '#fff', '&:hover': { backgroundColor: '#0088cc' } }}>
           More Projects 
         </Button>
+      </Box>
       </Box>
     </Box>
   );
