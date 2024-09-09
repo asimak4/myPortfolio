@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         pt: 10,
         gap: 2, // Adds spacing between the text and image
       }}
-    >
+    > 
       <Box
         sx={{
           maxWidth: '800px',
