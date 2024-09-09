@@ -8,14 +8,15 @@ const Projects: React.FC = () => {
   const [showAllProjs, setShowAllProj] = React.useState(false);
   const [projLen, setProjLen] = React.useState(6);
 
-  React.useEffect(()=>{
+  React.useEffect(()=> {
     if(showAllProjs){
       setProjLen(projects.length);
-    }else {
+      // if prevents page from going to projects on refresh
+    } else if (projLen !== 6) {
       document.querySelector(`#projects`)?.scrollIntoView({ behavior: 'smooth' });
       setProjLen(6);
     }
-  }, [showAllProjs]);
+  }, [showAllProjs, projLen]);
 
   return (
     <Box

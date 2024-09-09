@@ -21,6 +21,7 @@ const Home: React.FC = () => {
           md: "left"    // Aligns text to the left on medium and larger screens
         },
         padding: "0 20px",
+        pt: 10,
         gap: 2, // Adds spacing between the text and image
       }}
     >
