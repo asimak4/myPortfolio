@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Contact from './components/Contact';
 import Box from '@mui/material/Box';
 import SkillsPage from './components/Skills/SkillsPage';
+import ContactForm from './components/Contact/ContactForm';
 
 const theme = createTheme({
   typography: {
@@ -16,7 +17,7 @@ const theme = createTheme({
   },
   palette: { 
     primary: {
-      main: '#24272B', // Adjust the primary color
+      main: '#24272B',
     },
     secondary: {
       main: '#f0a500',
@@ -34,6 +35,7 @@ const App: React.FC = () => {
         <Projects />
         <Experience />
         <SkillsPage />
+        {/* <ContactForm /> */}
       </Box>
     </ThemeProvider>
   );

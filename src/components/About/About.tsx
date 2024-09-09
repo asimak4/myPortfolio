@@ -2,8 +2,11 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { aboutMeText } from "./aboutMe";
+import { aboutMeText, userEmail } from "./aboutMe";
 const About: React.FC = () => {
+
+  const [showEmail, setShowEmail] = React.useState(false); 
+
   return (
     <Box
       id="about"
@@ -27,14 +30,19 @@ const About: React.FC = () => {
       >
         {aboutMeText}
       </Typography>
-      <Button
-        variant="contained"
-        color="primary"
-        href="#contact"
-        sx={{ marginTop: "20px" }}
-      >
-        Get in Touch
-      </Button>
+      {
+        showEmail ? 
+        <Typography>Email me at: <b>{userEmail}</b>! Looking forward to hearing from you! </Typography>
+        :
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setShowEmail(true)}
+          sx={{ marginTop: "20px" }}
+        >
+          Get in Touch
+        </Button>
+      }
     </Box>
   );
 };

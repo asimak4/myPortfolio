@@ -41,7 +41,7 @@ const ProjectCard: React.FC<{ title: string, description: string, link: string |
               {techUsed}
             </Typography>
           </Box>
-          <Typography variant="body2" color="#b0b0b0" paragraph sx={{ fontSize: { xs: '0.575rem', sm: '.8rem' } }}>
+          <Typography variant="body2" color="#b0b0b0" paragraph sx={{ fontSize: { xs: '0.7rem', sm: '.9rem', md: '1.1rem' } }}>
             {description}
           </Typography>
         </Box>
