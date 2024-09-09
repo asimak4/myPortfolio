@@ -6,10 +6,9 @@ import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Experience from './components/Experience/Experience'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Contact from './components/Contact';
 import Box from '@mui/material/Box';
 import SkillsPage from './components/Skills/SkillsPage';
-import ContactForm from './components/Contact/ContactForm';
+// import ContactForm from './components/Contact/ContactForm';
 
 const theme = createTheme({
   typography: {

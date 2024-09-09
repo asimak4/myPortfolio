@@ -49,20 +49,18 @@ export const projects = [
     {
       title: 'Image Classification (Dogs vs Cats)',
       description: 'Built an image classifier using Keras to distinguish between images of dogs and cats. The project introduces computer vision concepts and neural networks, demonstrating the use of supervised learning for image recognition.',
-      techUsed: 'https://via.placeholder.com/300', 
+      techUsed: 'Python, Jupyter Notebook', 
       link: 'https://github.com/asimak4/FunProjects/blob/master/AI%20and%20ML%20Practice/ImageClassification-%20Alex%20Simak.ipynb',
     },
     {
       title: 'Database Management System',
       description: 'Collaborated on developing a database for faculty members using SQL and Python. Created a simple interface for users to query and update the database, ensuring efficient data management and user interaction with SQL tables.',
-      techUsed: 'https://via.placeholder.com/300', 
-      link: 'https://github.com/your-repo/portfolio',
+      techUsed: 'Python, SQL', 
     },
     {
       title: 'Sally Forth Compiler in C++',
       description: 'Built a simple compiler handling arithmetic operations, variables, loops, and conditional statements using Reverse Polish Notation (RPN). This project demonstrates the basics of language parsing and stack-based computation.',
-      techUsed: 'https://via.placeholder.com/300', 
-      link: '',
+      techUsed: 'C++', 
     }
   ];
   
