@@ -23,17 +23,23 @@ export const projects = [
       link: 'https://github.com/asimak4/FunProjects/blob/master/AI%20and%20ML%20Practice/Minimaxconnect4.py',
     },
     {
+      title: 'Workout Tracking App',
+      description: "A React Native app that allows users to track workouts, including sets, weights, reps, and RPE. Features include a dynamic calendar, workout plan uploads from JSON or Excel files, and integration with a backend API for saving and retrieving data.",
+      techUsed: "TypeScript, React Native, MongoDB, Docker, Node.js",
+      link: 'https://github.com/asimak4/myPortfolio' 
+    },
+    {
+      title: 'Chess',
+      description: 'Developed a Chess game in C with functionality for validating moves, checking for checkmate, and a CPU opponent with random move generation. This console-based game includes a design document explaining the implementation.',
+      techUsed: 'C', 
+      link: 'https://github.com/asimak4/FunProjects/tree/master/Chess%20Module',
+    },
+    {
       title: 'Online Portfolio',
       description: 'Developed an online portfolio using React and Material-UI. The portfolio features sections for projects, skills, and contact information, showcasing a range of personal and professional projects with responsive design.',
       techUsed: 'TypeScript',
       link: 'https://github.com/asimak4/myPortfolio'
     },
-    {
-        title: 'Chess',
-        description: 'Developed a Chess game in C with functionality for validating moves, checking for checkmate, and a CPU opponent with random move generation. This console-based game includes a design document explaining the implementation.',
-        techUsed: 'C', 
-        link: 'https://github.com/asimak4/FunProjects/tree/master/Chess%20Module',
-      },
       {
         title: 'Tic Tac Toe',
         description: 'Implemented a Tic Tac Toe game in C with options for two players or CPU opponents. The program includes mutex locking and basic OS requirements, with a console-based UI for easy playability.',
