@@ -26,7 +26,7 @@ export const projects = [
       title: 'Workout Tracking App',
       description: "A React Native app that allows users to track workouts, including sets, weights, reps, and RPE. Features include a dynamic calendar, workout plan uploads from JSON or Excel files, and integration with a backend API for saving and retrieving data.",
       techUsed: "TypeScript, React Native, MongoDB, Docker, Node.js",
-      link: 'https://github.com/asimak4/myPortfolio' 
+      link: 'https://github.com/asimak4/WorkoutPro' 
     },
     {
       title: 'Chess',
