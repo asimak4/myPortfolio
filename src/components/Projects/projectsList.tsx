@@ -34,7 +34,7 @@ export const projects = [
       techUsed: 'C', 
       link: 'https://github.com/asimak4/FunProjects/tree/master/Chess%20Module',
     },
-    {
+    { 
       title: 'Online Portfolio',
       description: 'Developed an online portfolio using React and Material-UI. The portfolio features sections for projects, skills, and contact information, showcasing a range of personal and professional projects with responsive design.',
       techUsed: 'TypeScript',
