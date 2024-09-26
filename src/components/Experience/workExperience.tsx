@@ -5,7 +5,7 @@ export const experiences = [
     location: "Washington, DC",
     duration: "June 2023 - Present",
     bullets: [
-      "Designed and implemented responsive UI components using ReactJS to enhance user experience for a complex search query application.",
+      "Played a key role in developing a search query application from the ground up, using React, TypeScript, and Node.js. Joined the team at the product's inception and was instrumental in building a responsive, user-friendly interface, as well as handling integration, testing, and deployment to ensure a smooth product launch.",
       "Implemented RESTful APIs and backend services using technologies like Node.js, facilitating seamless communication between the front-end and the back-end for real-time data updates using web sockets.",
       "Integrated ElasticSearch to enable powerful search capabilities within the application, significantly improving data retrieval efficiency and accuracy.",
       "Leveraged AWS services such as Amazon S3 for scalable and secure storage of application assets, and Amazon EC2 for hosting application components, optimizing overall performance and reliability.",
