@@ -62,10 +62,10 @@ const Navbar: React.FC = () => {
     <AppBar 
       position="fixed" 
       sx={{
-        bgcolor: scrolled ? 'rgba(255, 255, 255, 0.9)' : 'transparent',
+        bgcolor: scrolled ? 'rgba(26, 32, 44, 0.85)' : 'transparent',
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.2)' : 'none',
+        boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.2)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(9, 132, 227, 0.2)' : 'none',
         transition: 'all 0.3s ease-in-out',
       }}
     >
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
               spy={true}
               onSetActive={() => setActiveSection(item.name)}
               sx={{ 
-                color: scrolled ? 'primary.main' : 'white',
+                color: 'white',
                 fontSize: '0.95rem',
                 fontWeight: 500,
                 px: 2.5,
@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
                   transformOrigin: 'left',
                 },
                 '&:hover': {
-                  bgcolor: scrolled ? 'rgba(0, 0, 0, 0.04)' : 'rgba(255, 255, 255, 0.1)',
+                  bgcolor: 'rgba(9, 132, 227, 0.15)',
                   '&::before': {
                     transform: 'scaleX(1)',
                   },
@@ -123,10 +123,10 @@ const Navbar: React.FC = () => {
           <IconButton
             onClick={handleDrawerToggle}
             sx={{ 
-              color: scrolled ? 'primary.main' : 'white',
-              bgcolor: scrolled ? 'rgba(0, 0, 0, 0.04)' : 'rgba(255, 255, 255, 0.1)',
+              color: 'white',
+              bgcolor: 'rgba(9, 132, 227, 0.15)',
               '&:hover': { 
-                bgcolor: scrolled ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.2)',
+                bgcolor: 'rgba(9, 132, 227, 0.25)',
               },
             }}
           >
@@ -141,8 +141,9 @@ const Navbar: React.FC = () => {
           PaperProps={{ 
             sx: { 
               width: '280px',
-              bgcolor: 'rgba(255, 255, 255, 0.95)',
+              bgcolor: 'rgba(26, 32, 44, 0.95)',
               backdropFilter: 'blur(10px)',
+              color: 'white',
             }
           }}
         >
@@ -165,16 +166,17 @@ const Navbar: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '16px',
+                  color: 'white',
                   '&:hover': { 
-                    bgcolor: 'rgba(0, 0, 0, 0.04)',
+                    bgcolor: 'rgba(9, 132, 227, 0.15)',
                     '& .MuiListItemText-primary': {
-                      color: 'secondary.main',
+                      color: 'secondary.light',
                     }
                   },
                   ...(activeSection === item.name && {
-                    bgcolor: 'rgba(0, 0, 0, 0.04)',
+                    bgcolor: 'rgba(9, 132, 227, 0.15)',
                     '& .MuiListItemText-primary': {
-                      color: 'secondary.main',
+                      color: 'secondary.light',
                       fontWeight: 600,
                     }
                   })

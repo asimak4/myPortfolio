@@ -9,6 +9,7 @@ import BuildIcon from '@mui/icons-material/Build';
 import CloudIcon from '@mui/icons-material/Cloud';
 import BrushIcon from '@mui/icons-material/Brush';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import FloatingDecorations from '../shared/FloatingDecorations';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -36,21 +37,12 @@ const SkillsPage = () => {
       id="skills"
       sx={{
         minHeight: "100vh",
-        background: 'linear-gradient(135deg, #1a1a1a 0%, #2D3436 100%)',
-        py: { xs: 8, md: 12 },
-        position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'radial-gradient(circle at 50% 50%, rgba(0, 184, 148, 0.1) 0%, rgba(85, 239, 196, 0.05) 50%, transparent 100%)',
-          pointerEvents: 'none',
-        }
+        position: "relative",
+        overflow: "hidden",
+        py: { xs: 4, md: 6 },
       }}
     >
+      <FloatingDecorations variant="quaternary" />
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'left', width: '100%', mb: 8, animation: `${fadeIn} 1s ease-out` }}>
           <Typography 

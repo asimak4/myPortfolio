@@ -8,6 +8,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from "react-google-recaptcha";
+import FloatingDecorations from '../shared/FloatingDecorations';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -126,10 +127,12 @@ const About: React.FC = () => {
       id="about"
       sx={{
         minHeight: "100vh",
-        py: { xs: 8, md: 12 },
-        background: 'linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%)',
+        position: "relative",
+        overflow: "hidden",
+        py: { xs: 4, md: 6 },
       }}
     >
+      <FloatingDecorations variant="secondary" />
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
@@ -151,7 +154,8 @@ const About: React.FC = () => {
                 sx={{ 
                   fontWeight: 'bold',
                   mb: 4,
-                  background: 'linear-gradient(90deg, #2D3436, #000000)',
+                  color: '#FFFFFF',
+                  background: 'linear-gradient(90deg, #FFFFFF 0%, #E5E9F0 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}
@@ -164,7 +168,7 @@ const About: React.FC = () => {
                   mb: 4,
                   fontSize: '1.1rem',
                   lineHeight: 1.8,
-                  color: 'text.secondary'
+                  color: 'rgba(255, 255, 255, 0.85)',
                 }}
               >
                 {aboutMeText}
@@ -230,9 +234,15 @@ const About: React.FC = () => {
                   elevation={0}
                   sx={{
                     p: 3,
-                    bgcolor: 'background.paper',
+                    bgcolor: 'rgba(255, 255, 255, 0.1)',
                     borderRadius: 4,
                     animation: `${fadeIn} 0.5s ease-out`,
+                    '& .MuiTypography-root': {
+                      color: '#FFFFFF',
+                    },
+                    '& .MuiTypography-body2': {
+                      color: 'rgba(255, 255, 255, 0.85)',
+                    },
                   }}
                 >
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>

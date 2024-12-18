@@ -4,6 +4,7 @@ import { keyframes } from '@mui/system';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import homeScreenIcon from '../../assets/homePageIcon1.png';
+import FloatingDecorations from '../shared/FloatingDecorations';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -22,22 +23,12 @@ const Home: React.FC = () => {
       id="home"
       sx={{
         minHeight: "100vh",
-        display: "flex",
         position: "relative",
         overflow: "hidden",
-        background: 'linear-gradient(135deg, #1a1a1a 0%, #2D3436 100%)',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'radial-gradient(circle at 50% 50%, rgba(4, 180, 231, 0.1) 0%, rgba(0, 248, 130, 0.05) 50%, transparent 100%)',
-          pointerEvents: 'none',
-        }
+        py: { xs: 4, md: 6 },
       }}
     >
+      <FloatingDecorations variant="primary" />
       <Container maxWidth="lg">
         <Box
           sx={{
