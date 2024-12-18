@@ -43,6 +43,7 @@ interface FormData {
 
 const About: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -102,6 +103,8 @@ const About: React.FC = () => {
       });
       setFormData({ name: '', email: '', message: '' });
       setCaptchaVerified(false);
+      setShowForm(false);
+      setShowThankYou(true);
     } catch (error) {
       console.error('Error sending email:', error);
       setSnackbar({
@@ -167,7 +170,7 @@ const About: React.FC = () => {
                 {aboutMeText}
               </Typography>
 
-              {!showForm ? (
+              {!showForm && !showThankYou ? (
                 <Button
                   variant="contained"
                   color="secondary"
@@ -183,6 +186,44 @@ const About: React.FC = () => {
                 >
                   Contact Me
                 </Button>
+              ) : showThankYou ? (
+                <Paper
+                  elevation={0}
+                  sx={{
+                    p: 4,
+                    bgcolor: 'background.paper',
+                    borderRadius: 4,
+                    textAlign: 'center',
+                    animation: `${fadeIn} 0.5s ease-out`,
+                  }}
+                >
+                  <IconButton
+                    sx={{
+                      bgcolor: 'secondary.light',
+                      color: 'secondary.main',
+                      mb: 2,
+                      '&:hover': { bgcolor: 'secondary.light' },
+                    }}
+                  >
+                    <EmailIcon fontSize="large" />
+                  </IconButton>
+                  <Typography variant="h5" sx={{ mb: 2, fontWeight: 600 }}>
+                    Thank You for Reaching Out!
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ mb: 3 }}>
+                    I appreciate your message and will get back to you as soon as possible.
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    onClick={() => {
+                      setShowThankYou(false);
+                      setShowForm(false);
+                    }}
+                  >
+                    Close
+                  </Button>
+                </Paper>
               ) : (
                 /* Contact Form */
                 <Paper
