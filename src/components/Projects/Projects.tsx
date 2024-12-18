@@ -1,17 +1,23 @@
 import React from 'react';
-import { Box, Typography, Grid, Button } from '@mui/material';
+import { Box, Typography, Grid, Button, Container } from '@mui/material';
+import { keyframes } from '@mui/system';
 import { projects } from './projectsList';
 import ProjectCard from './ProjectCard';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
 
 const Projects: React.FC = () => {
-
   const [showAllProjs, setShowAllProj] = React.useState(false);
   const [projLen, setProjLen] = React.useState(6);
 
-  React.useEffect(()=> {
-    if(showAllProjs){
+  React.useEffect(() => {
+    if (showAllProjs) {
       setProjLen(projects.length);
-      // if prevents page from going to projects on refresh
     } else if (projLen !== 6) {
       document.querySelector(`#projects`)?.scrollIntoView({ behavior: 'smooth' });
       setProjLen(6);
@@ -23,26 +29,73 @@ const Projects: React.FC = () => {
       id="projects"
       sx={{
         minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#24272B",
-        padding: "0 20px",
+        background: 'linear-gradient(135deg, #1a1a1a 0%, #2D3436 100%)',
+        py: { xs: 8, md: 12 },
+        position: 'relative',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(0, 184, 148, 0.1) 0%, rgba(85, 239, 196, 0.05) 50%, transparent 100%)',
+          pointerEvents: 'none',
+        }
       }}
     >
-      <Box sx={{ textAlign: 'left', width: '100%', maxWidth: '75vw', py: 10 }}>
-        <Typography variant="h3" gutterBottom sx={{ color: 'white', marginBottom: '40px' }}>
-          Featured Projects
-        </Typography>
+      <Container maxWidth="lg">
+        <Box sx={{ textAlign: 'left', width: '100%', mb: 8, animation: `${fadeIn} 1s ease-out` }}>
+          <Typography 
+            variant="overline" 
+            sx={{ 
+              color: 'secondary.main',
+              letterSpacing: 2,
+              mb: 2,
+              display: 'block'
+            }}
+          >
+            MY WORK
+          </Typography>
+          <Typography 
+            variant="h3" 
+            gutterBottom
+            sx={{ 
+              fontWeight: 'bold',
+              color: 'white',
+              mb: 3,
+            }}
+          >
+            Featured Projects
+          </Typography>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              color: 'rgba(255,255,255,0.7)',
+              maxWidth: '800px',
+              mb: 4,
+            }}
+          >
+            Here are some of my recent projects that showcase my skills and experience in web development.
+          </Typography>
+        </Box>
 
         <Grid
           container
-          spacing={3} // Adjust this value to control the spacing between cards
-          justifyContent="center" // Center the grid items horizontally
+          spacing={4}
+          sx={{ animation: `${fadeIn} 1s ease-out 0.2s backwards` }}
         >
           {projects.slice(0, projLen).map((project, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={4} key={index}>
+            <Grid 
+              item 
+              xs={12} 
+              sm={6} 
+              md={4} 
+              key={index}
+              sx={{ 
+                animation: `${fadeIn} 1s ease-out ${index * 0.1}s backwards`
+              }}
+            >
               <ProjectCard
                 title={project.title}
                 description={project.description}
@@ -52,17 +105,32 @@ const Projects: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-        <Box sx={{p: 2, textAlign: 'right', width: '100%', maxWidth: '75vw'}}>
-        <Button onClick={()=>setShowAllProj(!showAllProjs)} variant="contained" size="small" sx={{ backgroundColor: '#00b0ff', color: '#fff', '&:hover': { backgroundColor: '#0088cc' } }}>
-          {
-            !showAllProjs ? 
-            <>More Projects</>
-            :
-            <>Hide Projects</>
-          }
-        </Button>
-      </Box>
-      </Box>
+
+        <Box 
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            mt: 6,
+            animation: `${fadeIn} 1s ease-out 0.4s backwards`
+          }}
+        >
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={() => setShowAllProj(!showAllProjs)}
+            endIcon={showAllProjs ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            sx={{ 
+              borderRadius: 2,
+              px: 4,
+              py: 1.5,
+              minWidth: '200px',
+            }}
+          >
+            {!showAllProjs ? 'Show More' : 'Show Less'}
+          </Button>
+        </Box>
+      </Container>
     </Box>
   );
 };

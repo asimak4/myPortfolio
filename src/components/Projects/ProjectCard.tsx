@@ -1,58 +1,115 @@
 import React from 'react';
-import { Card, CardContent, Typography, Box, Button } from '@mui/material';
+import { Card, CardContent, Typography, Box, Button, IconButton, Chip } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
+import LaunchIcon from '@mui/icons-material/Launch';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
-const ProjectCard: React.FC<{ title: string, description: string, link: string | undefined, techUsed: string }> = ({ title, description, link, techUsed }) => {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  link: string | undefined;
+  techUsed: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, techUsed }) => {
+  const technologies = techUsed.split(',').map(tech => tech.trim());
+  const isGithubLink = link?.includes('github.com');
+
   return (
     <Card
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
         height: '100%',
-        transition: 'transform 0.3s, box-shadow 0.3s',
+        bgcolor: 'rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(10px)',
+        borderRadius: 4,
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        transition: 'all 0.3s ease-in-out',
         '&:hover': {
-          transform: 'scale(1.01)',
-          boxShadow: '0px 0px 12px rgba(0, 248, 130, 0.9)',
+          transform: 'translateY(-8px)',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
+          '& .project-icon': {
+            transform: 'rotate(5deg) scale(1.1)',
+          }
         },
-        backgroundColor: '#30343b',
-        borderRadius: 2,
-        // padding: 2,
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
       }}
     >
-      <CardContent
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-        }}
-      >
-        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'left' }}>
-          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-            <CodeIcon sx={{ color: '#e0e0e0', border: '1px solid grey', borderRadius: 1, fontSize: { xs: '1rem', sm: '1.5rem', md: '2rem' } }} />
-            <Typography padding="16px" variant="h5" component="div" color='#e0e0e0' sx={{ fontSize: { xs: '1rem', sm: '1.5rem', md: '1.75rem' } }}>
-              {title}
-            </Typography>
+      <CardContent sx={{ height: '100%', p: 3 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 2 }}>
+            <IconButton 
+              className="project-icon"
+              sx={{ 
+                bgcolor: 'secondary.main',
+                color: 'white',
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': { bgcolor: 'secondary.dark' }
+              }}
+            >
+              <CodeIcon />
+            </IconButton>
           </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', pb: 1 }}>
-            <CodeIcon sx={{ color: '#525252', fontSize: { xs: '14px', sm: '16px' } }} />
-            <Typography sx={{ fontSize: { xs: '14px', sm: '16px' }, px: 1 }} component="div" color='#525252'>
-              {techUsed}
-            </Typography>
-          </Box>
-          <Typography variant="body2" color="#b0b0b0" paragraph sx={{ fontSize: { xs: '0.7rem', sm: '.9rem', md: '1.1rem' } }}>
+
+          <Typography 
+            variant="h5" 
+            component="h2" 
+            sx={{ 
+              color: 'white',
+              fontWeight: 600,
+              mb: 2,
+            }}
+          >
+            {title}
+          </Typography>
+
+          <Typography 
+            variant="body2" 
+            sx={{ 
+              color: 'rgba(255, 255, 255, 0.7)',
+              mb: 3,
+              flexGrow: 1,
+              fontSize: '0.95rem',
+              lineHeight: 1.6,
+            }}
+          >
             {description}
           </Typography>
-        </Box>
-        {link ? 
-          <a href={link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-            <Button variant="contained" size="small" sx={{ backgroundColor: '#00b0ff', color: '#fff', '&:hover': { backgroundColor: '#0088cc' } }}>
-              View Project
+
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
+            {technologies.map((tech, index) => (
+              <Chip
+                key={index}
+                label={tech}
+                size="small"
+                sx={{
+                  bgcolor: 'rgba(255, 255, 255, 0.1)',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  '&:hover': {
+                    bgcolor: 'rgba(255, 255, 255, 0.15)',
+                  }
+                }}
+              />
+            ))}
+          </Box>
+
+          {link && (
+            <Button
+              variant="contained"
+              color="secondary"
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              startIcon={isGithubLink ? <GitHubIcon /> : <LaunchIcon />}
+              sx={{
+                borderRadius: 2,
+                textTransform: 'none',
+                fontWeight: 600,
+                alignSelf: 'flex-start',
+              }}
+            >
+              {isGithubLink ? 'View Code' : 'Live Demo'}
             </Button>
-          </a>
-          : null
-        }
+          )}
+        </Box>
       </CardContent>
     </Card>
   );

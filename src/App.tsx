@@ -4,22 +4,67 @@ import Navbar from './components/Navbar';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
-import Experience from './components/Experience/Experience'
+import Experience from './components/Experience/Experience';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Box from '@mui/material/Box';
 import SkillsPage from './components/Skills/SkillsPage';
-// import ContactForm from './components/Contact/ContactForm';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Public Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    fontFamily: '"Inter", "Public Sans", -apple-system, sans-serif',
+    h1: {
+      fontWeight: 700,
+      fontSize: '3.5rem',
+    },
+    h2: {
+      fontWeight: 600,
+      fontSize: '2.5rem',
+    },
+    h3: {
+      fontWeight: 600,
+      fontSize: '2rem',
+    },
+    body1: {
+      fontSize: '1.1rem',
+      lineHeight: 1.7,
+    },
   },
-  palette: { 
+  palette: {
+    mode: 'light',
     primary: {
-      main: '#24272B',
+      main: '#2D3436',
+      light: '#636E72',
+      dark: '#1E272E',
     },
     secondary: {
-      main: '#f0a500',
+      main: '#0984E3',
+      light: '#74B9FF',
+      dark: '#0652DD',
+    },
+    background: {
+      default: '#FFFFFF',
+      paper: '#F5F6FA',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          textTransform: 'none',
+          fontWeight: 600,
+          padding: '8px 24px',
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+        },
+      },
     },
   },
 });
@@ -27,14 +72,14 @@ const theme = createTheme({
 const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Navbar />
-      <Box>
-        <Home/>
+      <CssBaseline />
+      <Box sx={{ bgcolor: 'background.default', minHeight: '100vh' }}>
+        <Navbar />
+        <Home />
         <About />
         <Projects />
         <Experience />
         <SkillsPage />
-        {/* <ContactForm /> */}
       </Box>
     </ThemeProvider>
   );
