@@ -3,7 +3,7 @@ export const projects = [
     title: 'Salonbud.com',
     description: 'Developed a comprehensive management system for small businesses, currently in use by a salon. Features include daily cost tracking, revenue management, product inventory tracking, and streamlined day-to-day operations. This solution helps businesses digitize their operations and make data-driven decisions.',
     techUsed: 'React Native, Expo, AWS',
-    link: 'https://github.com/asimak4/SalonManagementSystem'
+    link: 'https://github.com/abaytler/salonbud'
   },
   {
     title: 'Packet Hunter',
