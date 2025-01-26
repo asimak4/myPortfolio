@@ -1,5 +1,21 @@
 export const projects = [
-    {
+  {
+    title: 'Salonbud.com',
+    description: 'Developed a comprehensive management system for small businesses, currently in use by a salon. Features include daily cost tracking, revenue management, product inventory tracking, and streamlined day-to-day operations. This solution helps businesses digitize their operations and make data-driven decisions.',
+    techUsed: 'React Native, Expo, AWS',
+    link: 'https://github.com/asimak4/SalonManagementSystem'
+  },
+  {
+    title: 'Packet Hunter',
+    description: 'An interactive educational game that teaches networking concepts through hands-on challenges. Users solve real-world networking problems in a gamified environment, covering topics like packet analysis, network protocols, and troubleshooting. Currently over 10,000 users.',
+    techUsed: 'React Native, Expo',
+    links: {
+      github: 'https://github.com/abaytler/PacketHunterApp',
+      android: 'https://play.google.com/store/apps/details?id=packethunter.com.PacketHunter',
+      ios: 'https://apps.apple.com/us/app/packet-hunter/id6739217678'
+    }
+  },  
+  {
         title: 'Forevision',
         description: 'Developed a Golf GPS application that utilizes AWS services and IoT devices to seamlessly track golf carts on the course using live data. Developed the applications frontend using React JS and integrated advanced technologies such as WebSockets, AWS Lambda, DynamoDB, and S3 Buckets for the backend.',
         techUsed: 'AWS, Javascript', 
@@ -25,7 +41,7 @@ export const projects = [
     {
       title: 'Workout Tracking App',
       description: "A React Native app that allows users to track workouts, including sets, weights, reps, and RPE. Features include a dynamic calendar, workout plan uploads from JSON or Excel files, and integration with a backend API for saving and retrieving data.",
-      techUsed: "TypeScript, React Native, MongoDB, Docker, Node.js",
+      techUsed: "TypeScript, React Native, Supabase, Node.js",
       link: 'https://github.com/asimak4/WorkoutPro' 
     },
     {

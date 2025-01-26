@@ -1,19 +1,41 @@
 import React from 'react';
-import { Card, CardContent, Typography, Box, Button, IconButton, Chip } from '@mui/material';
+import { Card, CardContent, Typography, Box, Button, IconButton, Chip, Stack } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import LaunchIcon from '@mui/icons-material/Launch';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import AndroidIcon from '@mui/icons-material/Android';
+import AppleIcon from '@mui/icons-material/Apple';
+
+interface Links {
+  github?: string;
+  android?: string;
+  ios?: string;
+  [key: string]: string | undefined;
+}
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  link: string | undefined;
+  link?: string;
+  links?: Links;
   techUsed: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, techUsed }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, links, techUsed }) => {
   const technologies = techUsed.split(',').map(tech => tech.trim());
-  const isGithubLink = link?.includes('github.com');
+
+  const getIcon = (linkType: string) => {
+    switch(linkType) {
+      case 'github':
+        return <GitHubIcon />;
+      case 'android':
+        return <AndroidIcon />;
+      case 'ios':
+        return <AppleIcon />;
+      default:
+        return <LaunchIcon />;
+    }
+  };
 
   return (
     <Card
@@ -98,16 +120,50 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, tec
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              startIcon={isGithubLink ? <GitHubIcon /> : <LaunchIcon />}
+              startIcon={link.includes('github.com') ? <GitHubIcon /> : <LaunchIcon />}
+              size="small"
               sx={{
                 borderRadius: 2,
                 textTransform: 'none',
                 fontWeight: 600,
                 alignSelf: 'flex-start',
+                fontSize: '0.8rem',
+                py: 0.5,
+                minWidth: 'auto'
               }}
             >
-              {isGithubLink ? 'View Code' : 'Live Demo'}
+              {link.includes('github.com') ? 'View Code' : 'Live Demo'}
             </Button>
+          )}
+
+          {links && (
+            <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mt: link ? 1 : 0, gap: 1 }}>
+              {Object.entries(links).map(([type, url]) => (
+                url && (
+                  <Button
+                    key={type}
+                    variant="contained"
+                    color="secondary"
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    startIcon={type === 'github' ? getIcon(type) : undefined}
+                    size="small"
+                    sx={{
+                      borderRadius: 2,
+                      textTransform: 'none',
+                      fontWeight: 600,
+                      fontSize: '0.8rem',
+                      py: 0.5,
+                      minWidth: type === 'github' ? 'auto' : '32px',
+                      px: type === 'github' ? 2 : 1
+                    }}
+                  >
+                    {type === 'github' ? 'View Code' : getIcon(type)}
+                  </Button>
+                )
+              ))}
+            </Stack>
           )}
         </Box>
       </CardContent>

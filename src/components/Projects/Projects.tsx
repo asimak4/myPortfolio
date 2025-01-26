@@ -92,6 +92,7 @@ const Projects: React.FC = () => {
                 title={project.title}
                 description={project.description}
                 link={project.link}
+                links={project.links}
                 techUsed={project.techUsed}
               />
             </Grid>
