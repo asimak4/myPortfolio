@@ -1,10 +1,10 @@
-import React from 'react';
-import { Box, Typography, Container, Paper, Chip, IconButton } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Typography, Container, Paper, Chip, IconButton, Collapse } from '@mui/material';
 import { keyframes } from '@mui/system';
 import BusinessIcon from '@mui/icons-material/Business';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import DateRangeIcon from '@mui/icons-material/DateRange';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ComputerIcon from '@mui/icons-material/Computer';
 import KeyboardIcon from '@mui/icons-material/Keyboard';
 import CodeIcon from '@mui/icons-material/Code';
@@ -17,17 +17,6 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const slideIn = keyframes`
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-`;
-
-const pulse = keyframes`
-  0% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.7; }
-`;
-
 const float = keyframes`
   0% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-20px) rotate(5deg); }
@@ -35,6 +24,12 @@ const float = keyframes`
 `;
 
 const Experience: React.FC = () => {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const handleExpandClick = (index: number) => {
+    setExpandedId(expandedId === index ? null : index);
+  };
+
   return (
     <Box
       id="experience"
@@ -43,6 +38,7 @@ const Experience: React.FC = () => {
         py: { xs: 4, md: 6 },
         position: 'relative',
         overflow: 'hidden',
+        pt: { xs: 12, md: 12 },
       }}
     >
       {/* Decorative Tech Elements */}
@@ -179,218 +175,130 @@ const Experience: React.FC = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ position: 'relative' }}>
-          {/* Timeline line with gradient */}
-          <Box
-            sx={{
-              position: 'absolute',
-              left: { xs: '20px', md: '50%' },
-              transform: { xs: 'none', md: 'translateX(-50%)' },
-              top: 0,
-              bottom: 0,
-              width: '2px',
-              background: 'linear-gradient(180deg, rgba(9,132,227,0.8) 0%, rgba(9,132,227,0.2) 100%)',
-              zIndex: 0,
-            }}
-          />
-
-          {/* Experience items */}
-          <Box sx={{ position: 'relative', zIndex: 1 }}>
-            {experiences.map((experience, index) => (
-              <Box
-                key={index}
-                sx={{
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          {experiences.map((experience, index) => (
+            <Paper
+              key={index}
+              sx={{
+                p: 3,
+                bgcolor: 'rgba(255,255,255,0.05)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: 4,
+                border: '1px solid rgba(255,255,255,0.1)',
+                transition: 'all 0.3s ease-in-out',
+                animation: `${fadeIn} 1s ease-out ${index * 0.2}s backwards`,
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 12px 30px rgba(9, 132, 227, 0.15)',
+                },
+              }}
+            >
+              <Box 
+                onClick={() => handleExpandClick(index)}
+                sx={{ 
+                  cursor: 'pointer',
                   display: 'flex',
                   flexDirection: { xs: 'column', md: 'row' },
-                  mb: index === experiences.length - 1 ? 0 : 8,
-                  position: 'relative',
-                  animation: `${fadeIn} 1s ease-out ${index * 0.2}s backwards`,
+                  justifyContent: 'space-between',
+                  alignItems: { xs: 'flex-start', md: 'center' },
+                  gap: 2,
                 }}
               >
-                {/* Timeline dot with pulse effect */}
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    left: { xs: '16px', md: '50%' },
-                    transform: { xs: 'none', md: 'translateX(-50%)' },
-                    width: '16px',
-                    height: '16px',
-                    borderRadius: '50%',
-                    bgcolor: 'secondary.main',
-                    border: '3px solid',
-                    borderColor: 'secondary.light',
-                    zIndex: 2,
-                    boxShadow: '0 0 0 4px rgba(9,132,227,0.2)',
-                    transition: 'all 0.3s ease-in-out',
-                    '&:hover': {
-                      transform: { xs: 'scale(1.2)', md: 'translateX(-50%) scale(1.2)' },
-                      boxShadow: '0 0 0 6px rgba(9,132,227,0.3)',
-                    },
-                  }}
-                />
-
-                {/* Connecting arrow */}
-                {index < experiences.length - 1 && (
-                  <Box
+                {/* Company and Role */}
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flex: 1 }}>
+                  <IconButton
                     sx={{
-                      position: 'absolute',
-                      left: { xs: '16px', md: '50%' },
-                      transform: { xs: 'none', md: 'translateX(-50%)' },
-                      bottom: '-40px',
-                      height: '40px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      zIndex: 1,
+                      bgcolor: 'secondary.main',
+                      color: 'white',
+                      '&:hover': { bgcolor: 'secondary.dark' },
                     }}
                   >
-                    <ArrowDownwardIcon 
-                      sx={{ 
-                        color: 'secondary.main',
-                        fontSize: '2rem',
-                        animation: `${pulse} 2s infinite`,
-                      }} 
-                    />
+                    <BusinessIcon />
+                  </IconButton>
+                  <Box>
+                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                      {experience.role}
+                    </Typography>
+                    <Typography variant="subtitle1" sx={{ color: 'secondary.main' }}>
+                      {experience.company}
+                    </Typography>
                   </Box>
-                )}
+                </Box>
 
-                {/* Content card */}
-                <Paper
-                  sx={{
-                    flex: 1,
-                    ml: { xs: 5, md: 8 },
-                    mr: { xs: 0, md: 0 },
-                    p: 3,
-                    bgcolor: 'rgba(255,255,255,0.05)',
-                    backdropFilter: 'blur(10px)',
-                    borderRadius: 4,
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    transition: 'all 0.3s ease-in-out',
-                    position: 'relative',
-                    animation: `${slideIn} 1s ease-out ${index * 0.2}s backwards`,
-                    width: { md: 'calc(100% - 10rem)' },
-                    '&:hover': {
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                      '&::before': {
-                        opacity: 1,
-                      },
-                    },
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      borderRadius: 4,
-                      border: '2px solid',
-                      borderColor: 'secondary.main',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease-in-out',
-                    },
-                  }}
-                >
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    {/* Top section with title and metadata */}
-                    <Box sx={{ 
-                      display: 'flex', 
-                      flexDirection: { xs: 'column', md: 'row' },
-                      justifyContent: 'space-between', 
-                      alignItems: { xs: 'flex-start', md: 'flex-start' }, 
-                      gap: 2 
-                    }}>
-                      {/* Title and company */}
-                      <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-                        <IconButton
-                          sx={{
-                            bgcolor: 'secondary.main',
-                            color: 'white',
-                            transition: 'all 0.3s ease-in-out',
-                            '&:hover': { 
-                              bgcolor: 'secondary.dark',
-                              transform: 'rotate(360deg)',
-                            },
-                          }}
-                        >
-                          <BusinessIcon />
-                        </IconButton>
-                        <Box>
-                          <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
-                            {experience.role}
-                          </Typography>
-                          <Typography variant="h6" sx={{ color: 'secondary.main', mb: { xs: 1, md: 0 } }}>
-                            {experience.company}
-                          </Typography>
-                        </Box>
-                      </Box>
-
-                      {/* Date and location chips */}
-                      <Box sx={{ 
-                        display: 'flex', 
-                        flexDirection: { xs: 'row', md: 'column' }, 
-                        gap: 1,
-                        flexWrap: 'wrap',
-                        alignItems: { xs: 'flex-start', md: 'flex-end' },
-                      }}>
-                        <Chip
-                          icon={<DateRangeIcon />}
-                          label={experience.duration}
-                          size="small"
-                          sx={{
-                            bgcolor: 'rgba(9,132,227,0.1)',
-                            color: 'white',
-                            border: '1px solid rgba(9,132,227,0.3)',
-                            '&:hover': {
-                              bgcolor: 'rgba(9,132,227,0.2)',
-                            },
-                          }}
-                        />
-                        <Chip
-                          icon={<LocationOnIcon />}
-                          label={experience.location}
-                          size="small"
-                          sx={{
-                            bgcolor: 'rgba(9,132,227,0.1)',
-                            color: 'white',
-                            border: '1px solid rgba(9,132,227,0.3)',
-                            '&:hover': {
-                              bgcolor: 'rgba(9,132,227,0.2)',
-                            },
-                          }}
-                        />
-                      </Box>
-                    </Box>
-
-                    {/* Bullet points */}
-                    <Box component="ul" sx={{ m: 0, pl: 2, mt: 2 }}>
-                      {experience.bullets.map((bullet, i) => (
-                        <Typography
-                          key={i}
-                          component="li"
-                          sx={{
-                            color: 'rgba(255,255,255,0.7)',
-                            mb: 1,
-                            position: 'relative',
-                            '&::marker': {
-                              color: 'secondary.main',
-                            },
-                            '&:hover': {
-                              color: 'white',
-                            },
-                            transition: 'color 0.3s ease-in-out',
-                          }}
-                        >
-                          {bullet}
-                        </Typography>
-                      ))}
-                    </Box>
-                  </Box>
-                </Paper>
+                {/* Date and Location */}
+                <Box sx={{ 
+                  display: 'flex', 
+                  gap: 1,
+                  flexWrap: 'wrap',
+                  alignItems: 'center'
+                }}>
+                  <Chip
+                    icon={<DateRangeIcon />}
+                    label={experience.duration}
+                    size="small"
+                    sx={{
+                      bgcolor: 'rgba(9,132,227,0.1)',
+                      color: 'white',
+                      border: '1px solid rgba(9,132,227,0.3)',
+                    }}
+                  />
+                  <Chip
+                    icon={<LocationOnIcon />}
+                    label={experience.location}
+                    size="small"
+                    sx={{
+                      bgcolor: 'rgba(9,132,227,0.1)',
+                      color: 'white',
+                      border: '1px solid rgba(9,132,227,0.3)',
+                    }}
+                  />
+                  <IconButton
+                    sx={{
+                      transform: expandedId === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.3s',
+                      color: 'secondary.main',
+                    }}
+                  >
+                    <ExpandMoreIcon />
+                  </IconButton>
+                </Box>
               </Box>
-            ))}
-          </Box>
+
+              <Collapse in={expandedId === index}>
+                <Box sx={{ mt: 3, pl: { xs: 0, md: 7 } }}>
+                  {experience.bullets.map((bullet, i) => (
+                    <Box 
+                      key={i} 
+                      sx={{ 
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        mb: 1,
+                        opacity: 0.85,
+                        '&:hover': {
+                          opacity: 1,
+                        },
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: '50%',
+                          bgcolor: 'secondary.main',
+                          mt: 1.5,
+                          mr: 2,
+                          flexShrink: 0,
+                        }}
+                      />
+                      <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
+                        {bullet}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Collapse>
+            </Paper>
+          ))}
         </Box>
       </Container>
     </Box>

@@ -96,18 +96,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
             {description}
           </Typography>
 
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
+          <Box sx={{ 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            gap: 1, 
+            mt: 2,
+            '& .tech-chip': {
+              transform: 'translateY(10px)',
+              opacity: 0,
+              transition: 'all 0.3s ease-in-out',
+            }
+          }}>
             {technologies.map((tech, index) => (
               <Chip
-                key={index}
+                key={tech}
                 label={tech}
-                size="small"
-                sx={{
-                  bgcolor: 'rgba(255, 255, 255, 0.1)',
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  '&:hover': {
-                    bgcolor: 'rgba(255, 255, 255, 0.15)',
-                  }
+                className="tech-chip"
+                sx={{ 
+                  bgcolor: 'rgba(9, 132, 227, 0.1)',
+                  color: 'secondary.light',
+                  transitionDelay: `${index * 0.1}s`,
                 }}
               />
             ))}

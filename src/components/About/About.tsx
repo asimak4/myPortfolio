@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Box, Typography, Button, Container, Grid, Paper, IconButton, TextField, Snackbar, Alert } from '@mui/material';
 import { keyframes } from '@mui/system';
 import EmailIcon from '@mui/icons-material/Email';
@@ -13,6 +13,17 @@ import FloatingDecorations from '../shared/FloatingDecorations';
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+`;
+
+const slideIn = keyframes`
+  from { 
+    opacity: 0; 
+    transform: translateX(-30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
 `;
 
 const aboutMeText = `I'm a passionate Full Stack Developer with a keen interest in building scalable web applications. 
@@ -57,6 +68,8 @@ const About: React.FC = () => {
     message: '',
     severity: 'success' as 'success' | 'error'
   });
+  const [isVisible, setIsVisible] = useState(false);
+  const aboutRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -122,21 +135,44 @@ const About: React.FC = () => {
     setSnackbar(prev => ({ ...prev, open: false }));
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Box
+      ref={aboutRef}
       id="about"
       sx={{
-        minHeight: "100vh",
+        minHeight: "60vh",
         position: "relative",
         overflow: "hidden",
-        py: { xs: 4, md: 6 },
+        py: { xs: 3, md: 4 },
+        pb: { xs: 0, md: 0 },
+        pt: { xs: 12, md: 12 },
       }}
     >
       <FloatingDecorations variant="secondary" />
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
-            <Box sx={{ animation: `${fadeIn} 1s ease-out` }}>
+            <Box sx={{ 
+              animation: isVisible ? `${slideIn} 1s ease-out` : 'none',
+              opacity: isVisible ? 1 : 0,
+            }}>
               <Typography 
                 variant="overline" 
                 sx={{ 

@@ -32,12 +32,20 @@ const Projects: React.FC = () => {
         minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
-        py: { xs: 4, md: 6 },
+        py: { xs: 8, md: 10 },
+        pt: { xs: 12, md: 12 },
+        scrollMarginTop: "140px",
       }}
     >
       <FloatingDecorations variant="tertiary" />
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'left', width: '100%', mb: 8, animation: `${fadeIn} 1s ease-out` }}>
+        <Box sx={{ 
+          textAlign: 'left', 
+          width: '100%', 
+          mb: 4, 
+          animation: `${fadeIn} 1s ease-out`,
+          scrollMarginTop: "140px"
+        }}>
           <Typography 
             variant="overline" 
             sx={{ 
