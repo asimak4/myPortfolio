@@ -19,6 +19,7 @@ export const projects = [
         title: 'Forevision',
         description: 'Developed a Golf GPS application that utilizes AWS services and IoT devices to seamlessly track golf carts on the course using live data. Developed the applications frontend using React JS and integrated advanced technologies such as WebSockets, AWS Lambda, DynamoDB, and S3 Buckets for the backend.',
         techUsed: 'AWS, Javascript', 
+        link: 'https://github.com/rmccarthy2017/ForeVision/tree/main/fore_vision'
     },
     {
       title: 'Car Scraping Tool',
