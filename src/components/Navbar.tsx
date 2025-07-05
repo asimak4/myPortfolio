@@ -44,9 +44,9 @@ const Navbar: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+  }, []);
 
   const handleDrawerToggle = () => {
     setOpen(!open);
@@ -61,7 +61,6 @@ const Navbar: React.FC = () => {
       position="fixed" 
       sx={{
         bgcolor: scrolled ? 'rgba(26, 32, 44, 0.85)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
         boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.2)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(9, 132, 227, 0.2)' : 'none',
         transition: 'all 0.3s ease-in-out',
@@ -140,7 +139,6 @@ const Navbar: React.FC = () => {
             sx: { 
               width: '280px',
               bgcolor: 'rgba(26, 32, 44, 0.95)',
-              backdropFilter: 'blur(10px)',
               color: 'white',
             }
           }}
@@ -155,6 +153,7 @@ const Navbar: React.FC = () => {
                 duration={500}
                 spy={true}
                 onClick={handleMenuItemClick}
+                onSetActive={() => setActiveSection(item.name)}
                 sx={{ 
                   py: 2,
                   px: 3,

@@ -5,7 +5,6 @@ import { projects } from './projectsList';
 import ProjectCard from './ProjectCard';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import FloatingDecorations from '../shared/FloatingDecorations';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -34,17 +33,16 @@ const Projects: React.FC = () => {
         overflow: "hidden",
         py: { xs: 8, md: 10 },
         pt: { xs: 12, md: 12 },
-        scrollMarginTop: "140px",
+        scrollMarginTop: "80px",
       }}
     >
-      <FloatingDecorations variant="tertiary" />
       <Container maxWidth="lg">
         <Box sx={{ 
           textAlign: 'left', 
           width: '100%', 
           mb: 4, 
           animation: `${fadeIn} 1s ease-out`,
-          scrollMarginTop: "140px"
+          scrollMarginTop: "80px"
         }}>
           <Typography 
             variant="overline" 

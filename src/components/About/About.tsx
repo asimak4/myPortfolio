@@ -8,7 +8,6 @@ import WorkIcon from '@mui/icons-material/Work';
 import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from "react-google-recaptcha";
-import FloatingDecorations from '../shared/FloatingDecorations';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -163,9 +162,9 @@ const About: React.FC = () => {
         py: { xs: 3, md: 4 },
         pb: { xs: 0, md: 0 },
         pt: { xs: 12, md: 12 },
+        scrollMarginTop: "80px",
       }}
     >
-      <FloatingDecorations variant="secondary" />
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>

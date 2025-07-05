@@ -4,7 +4,6 @@ import { keyframes } from '@mui/system';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import homeScreenIcon from '../../assets/homePageIcon1.png';
-import FloatingDecorations from '../shared/FloatingDecorations';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -28,7 +27,6 @@ const Home: React.FC = () => {
         py: { xs: 4, md: 6 },
       }}
     >
-      <FloatingDecorations variant="primary" />
       <Container maxWidth="lg">
         <Box
           sx={{

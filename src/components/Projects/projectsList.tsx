@@ -1,13 +1,23 @@
 export const projects = [
+  // {
+  //   title: 'Salonbud.com',
+  //   description: 'Developed a comprehensive management system for small businesses, currently in use by a salon. Features include daily cost tracking, revenue management, product inventory tracking, and streamlined day-to-day operations. This solution helps businesses digitize their operations and make data-driven decisions.',
+  //   techUsed: 'React Native, Expo, AWS',
+  //   link: 'https://github.com/abaytler/salonbud'
+  // },
   {
-    title: 'Salonbud.com',
-    description: 'Developed a comprehensive management system for small businesses, currently in use by a salon. Features include daily cost tracking, revenue management, product inventory tracking, and streamlined day-to-day operations. This solution helps businesses digitize their operations and make data-driven decisions.',
-    techUsed: 'React Native, Expo, AWS',
-    link: 'https://github.com/abaytler/salonbud'
+    title: 'Joint Living',
+    description: 'Joint is a mobile application designed for couples to manage their shared life together. Built with React Native and Expo, it provides a platform for sharing memories, managing events, and keeping track of important dates, tasks and expenses.',
+    techUsed: 'React Native, Expo, Firebase',
+    links: {
+      github: 'https://github.com/abaytler/joint',
+      android: 'https://play.google.com/store/apps/details?id=com.jointapp.joint&pli=1',
+      ios: 'https://apps.apple.com/us/app/joint-living/id6744906828'
+    }
   },
   {
     title: 'Packet Hunter',
-    description: 'An interactive educational game that teaches networking concepts through hands-on challenges. Users solve real-world networking problems in a gamified environment, covering topics like packet analysis, network protocols, and troubleshooting. Currently over 10,000 users.',
+    description: 'An interactive educational game that teaches networking concepts through hands-on challenges. Users solve real-world networking problems in a gamified environment, covering topics like packet analysis, network protocols, and troubleshooting.',
     techUsed: 'React Native, Expo',
     links: {
       github: 'https://github.com/abaytler/PacketHunterApp',

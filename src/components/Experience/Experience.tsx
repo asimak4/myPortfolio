@@ -17,12 +17,6 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const float = keyframes`
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
-`;
-
 const Experience: React.FC = () => {
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
@@ -39,106 +33,9 @@ const Experience: React.FC = () => {
         position: 'relative',
         overflow: 'hidden',
         pt: { xs: 12, md: 12 },
+        scrollMarginTop: "80px",
       }}
     >
-      {/* Decorative Tech Elements */}
-      <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, pointerEvents: 'none' }}>
-        {/* Left side decorations */}
-        <Box
-          sx={{
-            position: 'absolute',
-            left: '5%',
-            top: '20%',
-            color: 'rgba(9,132,227,0.2)',
-            animation: `${float} 6s ease-in-out infinite`,
-          }}
-        >
-          <ComputerIcon sx={{ fontSize: '4rem' }} />
-        </Box>
-        <Box
-          sx={{
-            position: 'absolute',
-            left: '10%',
-            top: '50%',
-            color: 'rgba(9,132,227,0.15)',
-            animation: `${float} 8s ease-in-out infinite`,
-            animationDelay: '1s',
-          }}
-        >
-          <KeyboardIcon sx={{ fontSize: '3rem' }} />
-        </Box>
-        <Box
-          sx={{
-            position: 'absolute',
-            left: '7%',
-            bottom: '20%',
-            color: 'rgba(9,132,227,0.1)',
-            animation: `${float} 7s ease-in-out infinite`,
-            animationDelay: '2s',
-          }}
-        >
-          <CodeIcon sx={{ fontSize: '3.5rem' }} />
-        </Box>
-
-        {/* Right side decorations */}
-        <Box
-          sx={{
-            position: 'absolute',
-            right: '8%',
-            top: '30%',
-            color: 'rgba(9,132,227,0.15)',
-            animation: `${float} 9s ease-in-out infinite`,
-            animationDelay: '1.5s',
-          }}
-        >
-          <StorageIcon sx={{ fontSize: '3.5rem' }} />
-        </Box>
-        <Box
-          sx={{
-            position: 'absolute',
-            right: '12%',
-            bottom: '40%',
-            color: 'rgba(9,132,227,0.2)',
-            animation: `${float} 7s ease-in-out infinite`,
-            animationDelay: '0.5s',
-          }}
-        >
-          <DeveloperModeIcon sx={{ fontSize: '4rem' }} />
-        </Box>
-
-        {/* Code snippets */}
-        <Box
-          sx={{
-            position: 'absolute',
-            left: '3%',
-            top: '40%',
-            color: 'rgba(9,132,227,0.1)',
-            fontFamily: 'monospace',
-            fontSize: '1.2rem',
-            animation: `${float} 8s ease-in-out infinite`,
-            animationDelay: '1s',
-            transform: 'rotate(-15deg)',
-          }}
-        >
-          {"</>"}
-        </Box>
-        <Box
-          sx={{
-            position: 'absolute',
-            right: '5%',
-            top: '60%',
-            color: 'rgba(9,132,227,0.1)',
-            fontFamily: 'monospace',
-            fontSize: '1.2rem',
-            animation: `${float} 10s ease-in-out infinite`,
-            animationDelay: '2s',
-            transform: 'rotate(15deg)',
-          }}
-        >
-          {"{code}"}
-        </Box>
-      </Box>
-
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'left', width: '100%', mb: 8, animation: `${fadeIn} 1s ease-out` }}>
           <Typography 
