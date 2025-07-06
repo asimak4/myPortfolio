@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [scrolled]);
 
   const handleDrawerToggle = () => {
     setOpen(!open);
@@ -74,8 +74,9 @@ const Navbar: React.FC = () => {
               component={Link}
               to={item.name}
               smooth={true}
-              duration={500}
+              duration={800}
               spy={true}
+              offset={-80}
               onSetActive={() => setActiveSection(item.name)}
               sx={{ 
                 color: 'white',
@@ -150,8 +151,9 @@ const Navbar: React.FC = () => {
                 component={Link}
                 to={item.name}
                 smooth={true}
-                duration={500}
+                duration={800}
                 spy={true}
+                offset={-80}
                 onClick={handleMenuItemClick}
                 onSetActive={() => setActiveSection(item.name)}
                 sx={{ 
