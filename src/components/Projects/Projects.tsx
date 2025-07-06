@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
     if (showAllProjs) {
       setProjLen(projects.length);
     } else if (projLen !== 6) {
-      document.querySelector(`#projects`)?.scrollIntoView({ behavior: 'smooth' });
+      document.querySelector(`#projects`)?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
       setProjLen(6);
     }
   }, [showAllProjs, projLen]);
@@ -28,40 +28,46 @@ const Projects: React.FC = () => {
     <Box
       id="projects"
       sx={{
-        minHeight: "100vh",
+        minHeight: { xs: "100vh", md: "100vh" },
         position: "relative",
-        overflow: "hidden",
-        py: { xs: 8, md: 10 },
-        pt: { xs: 12, md: 12 },
-        scrollMarginTop: "80px",
+        overflow: "visible",
+        display: 'flex',
+        alignItems: 'center',
+        py: { xs: 4, md: 6 },
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', py: { xs: 2, md: 4 } }}>
         <Box sx={{ 
-          textAlign: 'left', 
+          textAlign: 'center', 
           width: '100%', 
-          mb: 4, 
+          mb: { xs: 3, md: 6 }, 
           animation: `${fadeIn} 1s ease-out`,
-          scrollMarginTop: "80px"
         }}>
           <Typography 
             variant="overline" 
             sx={{ 
               color: 'secondary.main',
-              letterSpacing: 2,
+              letterSpacing: 3,
               mb: 2,
-              display: 'block'
+              display: 'block',
+              fontWeight: 600,
+              fontSize: '0.875rem'
             }}
           >
             MY WORK
           </Typography>
           <Typography 
-            variant="h3" 
+            variant="h2" 
             gutterBottom
             sx={{ 
-              fontWeight: 'bold',
+              fontWeight: 800,
               color: 'white',
-              mb: 3,
+              mb: { xs: 2, md: 3 },
+              background: 'linear-gradient(135deg, #FFFFFF 0%, #74B9FF 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
             }}
           >
             Featured Projects
@@ -69,29 +75,38 @@ const Projects: React.FC = () => {
           <Typography 
             variant="body1" 
             sx={{ 
-              color: 'rgba(255,255,255,0.7)',
-              maxWidth: '800px',
-              mb: 4,
+              color: 'rgba(255,255,255,0.8)',
+              maxWidth: '700px',
+              mx: 'auto',
+              mb: { xs: 3, md: 4 },
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              lineHeight: 1.8
             }}
           >
-            Here are some of my recent projects that showcase my skills and experience in web development.
+            Explore my portfolio of projects that demonstrate expertise in modern web development, mobile applications, and innovative solutions.
           </Typography>
         </Box>
 
         <Grid
           container
-          spacing={4}
-          sx={{ animation: `${fadeIn} 1s ease-out 0.2s backwards` }}
+          spacing={{ xs: 3, md: 4 }}
+          sx={{ 
+            animation: `${fadeIn} 1s ease-out 0.2s backwards`,
+            '& .MuiGrid-item': {
+              display: 'flex',
+            }
+          }}
         >
           {projects.slice(0, projLen).map((project, index) => (
             <Grid 
               item 
               xs={12} 
               sm={6} 
-              md={4} 
+              lg={4} 
               key={index}
               sx={{ 
-                animation: `${fadeIn} 1s ease-out ${index * 0.1}s backwards`
+                animation: `${fadeIn} 1s ease-out ${index * 0.1}s backwards`,
+                display: 'flex'
               }}
             >
               <ProjectCard
@@ -109,7 +124,7 @@ const Projects: React.FC = () => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            mt: 6,
+            mt: 8,
             animation: `${fadeIn} 1s ease-out 0.4s backwards`
           }}
         >
@@ -120,13 +135,23 @@ const Projects: React.FC = () => {
             onClick={() => setShowAllProj(!showAllProjs)}
             endIcon={showAllProjs ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             sx={{ 
-              borderRadius: 2,
-              px: 4,
-              py: 1.5,
-              minWidth: '200px',
+              borderRadius: 3,
+              px: 5,
+              py: 2,
+              minWidth: '220px',
+              fontSize: '1rem',
+              fontWeight: 600,
+              textTransform: 'none',
+              boxShadow: '0 8px 24px rgba(9, 132, 227, 0.3)',
+              background: 'linear-gradient(135deg, #0984E3 0%, #74B9FF 100%)',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              '&:hover': {
+                transform: 'translateY(-4px)',
+                boxShadow: '0 12px 32px rgba(9, 132, 227, 0.4)',
+              }
             }}
           >
-            {!showAllProjs ? 'Show More' : 'Show Less'}
+            {!showAllProjs ? 'Show More Projects' : 'Show Less'}
           </Button>
         </Box>
       </Container>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-scroll';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -18,6 +17,13 @@ import CodeIcon from '@mui/icons-material/Code';
 import WorkIcon from '@mui/icons-material/Work';
 import BuildIcon from '@mui/icons-material/Build';
 
+type SectionType = 'home' | 'about' | 'projects' | 'experience' | 'skills';
+
+interface NavbarProps {
+  activeSection: SectionType;
+  onSectionChange: (section: SectionType) => void;
+}
+
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -31,10 +37,9 @@ const menuItems = [
   { name: 'skills', icon: <BuildIcon /> },
 ];
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionChange }) => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,8 +57,13 @@ const Navbar: React.FC = () => {
     setOpen(!open);
   };
 
-  const handleMenuItemClick = () => {
+  const handleMenuItemClick = (section: SectionType) => {
     setOpen(false);
+    onSectionChange(section);
+  };
+
+  const handleSectionClick = (section: SectionType) => {
+    onSectionChange(section);
   };
 
   return (
@@ -71,13 +81,7 @@ const Navbar: React.FC = () => {
           {menuItems.map((item) => (
             <Button 
               key={item.name}
-              component={Link}
-              to={item.name}
-              smooth={true}
-              duration={800}
-              spy={true}
-              offset={-80}
-              onSetActive={() => setActiveSection(item.name)}
+              onClick={() => handleSectionClick(item.name as SectionType)}
               sx={{ 
                 color: 'white',
                 fontSize: '0.95rem',
@@ -148,14 +152,7 @@ const Navbar: React.FC = () => {
             {menuItems.map((item) => (
               <ListItemButton 
                 key={item.name}
-                component={Link}
-                to={item.name}
-                smooth={true}
-                duration={800}
-                spy={true}
-                offset={-80}
-                onClick={handleMenuItemClick}
-                onSetActive={() => setActiveSection(item.name)}
+                onClick={() => handleMenuItemClick(item.name as SectionType)}
                 sx={{ 
                   py: 2,
                   px: 3,

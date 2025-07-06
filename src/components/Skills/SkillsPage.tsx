@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Chip, Paper, Box, Container, IconButton } from '@mui/material';
+import { Grid, Typography, Chip, Card, CardContent, Box, Container, IconButton, Divider } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { skillsList, hobbiesList } from './SkillsandHobbies';
 import CodeIcon from '@mui/icons-material/Code';
@@ -8,10 +8,9 @@ import WebIcon from '@mui/icons-material/Web';
 import BuildIcon from '@mui/icons-material/Build';
 import CloudIcon from '@mui/icons-material/Cloud';
 import BrushIcon from '@mui/icons-material/Brush';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import PublicIcon from '@mui/icons-material/Public';
-import SportsIcon from '@mui/icons-material/Sports';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
+import LanguageIcon from '@mui/icons-material/Language';
+import SettingsSystemDaydreamIcon from '@mui/icons-material/SettingsSystemDaydream';
+import NetworkCheckIcon from '@mui/icons-material/NetworkCheck';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -25,12 +24,21 @@ const scaleIn = keyframes`
 
 // Map category names to icons
 const categoryIcons: { [key: string]: React.ReactNode } = {
-  'Frontend': <WebIcon />,
-  'Backend': <StorageIcon />,
-  'Languages': <CodeIcon />,
-  'Tools': <BuildIcon />,
-  'Cloud': <CloudIcon />,
-  'Design': <BrushIcon />,
+  'Programming Languages': <CodeIcon />,
+  'Operating Systems': <SettingsSystemDaydreamIcon />,
+  'Networking': <NetworkCheckIcon />,
+  'Software/Frameworks': <BuildIcon />,
+  'Amazon Web Services': <CloudIcon />,
+  'Foreign Languages': <LanguageIcon />,
+};
+
+const categoryColors: { [key: string]: string } = {
+  'Programming Languages': '#FF6B6B',
+  'Operating Systems': '#4ECDC4', 
+  'Networking': '#45B7D1',
+  'Software/Frameworks': '#96CEB4',
+  'Amazon Web Services': '#FFEAA7',
+  'Foreign Languages': '#DDA0DD',
 };
 
 const SkillsPage = () => {
@@ -38,43 +46,46 @@ const SkillsPage = () => {
     <Box
       id="skills"
       sx={{
-        minHeight: "100vh",
+        minHeight: { xs: "100vh", md: "80vh" },
         position: "relative",
-        overflow: "hidden",
+        overflow: "visible",
+        display: 'flex',
+        alignItems: 'center',
         py: { xs: 4, md: 6 },
-        pt: { xs: 12, md: 12 },
-        scrollMarginTop: "80px",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', py: { xs: 2, md: 4 } }}>
         <Box 
-          id="technical-skills"
           sx={{ 
-            textAlign: 'left', 
+            textAlign: 'center', 
             width: '100%', 
-            mb: 8, 
             animation: `${fadeIn} 1s ease-out`,
-            scrollMarginTop: "80px"
           }}
         >
           <Typography 
             variant="overline" 
             sx={{ 
               color: 'secondary.main',
-              letterSpacing: 2,
+              letterSpacing: 3,
               mb: 2,
-              display: 'block'
+              display: 'block',
+              fontWeight: 600,
+              fontSize: '0.875rem'
             }}
           >
             EXPERTISE
           </Typography>
           <Typography 
-            variant="h3" 
+            variant="h2" 
             gutterBottom
             sx={{ 
-              fontWeight: 'bold',
-              color: 'white',
-              mb: 3,
+              fontWeight: 800,
+              background: 'linear-gradient(135deg, #FFFFFF 0%, #74B9FF 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+              mb: { xs: 2, md: 3 },
             }}
           >
             Skills & Technologies
@@ -82,51 +93,90 @@ const SkillsPage = () => {
           <Typography 
             variant="body1" 
             sx={{ 
-              color: 'rgba(255,255,255,0.7)',
-              maxWidth: '800px',
-              mb: 4,
+              color: 'rgba(255,255,255,0.8)',
+              maxWidth: '700px',
+              mx: 'auto',
+              mb: { xs: 3, md: 4 },
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              lineHeight: 1.8
             }}
           >
-            A comprehensive overview of my technical skills and areas of expertise.
+            A comprehensive overview of my technical expertise and professional toolkit.
           </Typography>
         </Box>
 
         {/* Technical Skills */}
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 2, md: 3 }} sx={{ flexGrow: 1, alignContent: 'center' }}>
           {Object.entries(skillsList).map(([category, items], index) => (
             <Grid 
               item 
               xs={12} 
               sm={6} 
-              md={4} 
+              lg={4} 
               key={category}
+              sx={{
+                animation: `${fadeIn} 1s ease-out ${index * 0.1}s backwards`
+              }}
             >
-              <Paper
-                elevation={0}
+              <Card
                 sx={{
-                  p: 3,
                   height: '100%',
-                  bgcolor: 'rgba(255,255,255,0.05)',
-                  backdropFilter: 'blur(10px)',
-                  borderRadius: 4,
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  transition: 'all 0.3s ease-in-out',
-                  cursor: 'pointer',
+                  bgcolor: 'rgba(255, 255, 255, 0.02)',
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: 6,
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   position: 'relative',
                   overflow: 'hidden',
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: '-100%',
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent)',
+                    transition: 'left 0.5s ease-in-out',
+                  },
                   '&:hover': {
-                    transform: 'scale(1.03)',
-                    boxShadow: '0 12px 30px rgba(9, 132, 227, 0.15)',
+                    transform: 'translateY(-8px) scale(1.02)',
+                    bgcolor: 'rgba(255, 255, 255, 0.08)',
+                    border: `1px solid ${categoryColors[category]}40`,
+                    boxShadow: `0 20px 40px ${categoryColors[category]}20`,
+                    '&::before': {
+                      left: '100%',
+                    },
+                    '& .category-icon': {
+                      transform: 'scale(1.1) rotate(5deg)',
+                      bgcolor: categoryColors[category],
+                    },
+                    '& .skill-chip': {
+                      transform: 'translateY(-2px)',
+                      bgcolor: `${categoryColors[category]}20`,
+                      border: `1px solid ${categoryColors[category]}40`,
+                    },
                   },
                 }}
               >
-                <Box sx={{ position: 'relative', zIndex: 2 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
+                <CardContent sx={{ p: { xs: 2, md: 3 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  {/* Header */}
+                  <Box sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: { xs: 1.5, md: 2 }, 
+                    mb: { xs: 1.5, md: 2 },
+                    pb: { xs: 1.5, md: 2 },
+                    borderBottom: `2px solid ${categoryColors[category]}30`
+                  }}>
                     <IconButton
+                      className="category-icon"
+                      size="medium"
                       sx={{
-                        bgcolor: 'secondary.main',
+                        bgcolor: categoryColors[category],
                         color: 'white',
-                        '&:hover': { bgcolor: 'secondary.dark' },
+                        transition: 'all 0.3s ease-in-out',
+                        boxShadow: `0 4px 12px ${categoryColors[category]}40`,
+                        '&:hover': { bgcolor: categoryColors[category] },
                       }}
                     >
                       {categoryIcons[category] || <CodeIcon />}
@@ -135,32 +185,48 @@ const SkillsPage = () => {
                       variant="h6"
                       sx={{
                         color: 'white',
-                        fontWeight: 600,
+                        fontWeight: 700,
+                        fontSize: { xs: '1rem', md: '1.1rem' },
+                        lineHeight: 1.3
                       }}
                     >
                       {category}
                     </Typography>
                   </Box>
 
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                  {/* Skills */}
+                  <Box sx={{ 
+                    display: 'flex', 
+                    flexWrap: 'wrap', 
+                    gap: 1,
+                    flexGrow: 1,
+                    alignContent: 'flex-start'
+                  }}>
                     {items.map((item, i) => (
                       <Chip
                         key={item}
                         label={item}
+                        className="skill-chip"
+                        size="small"
                         sx={{
-                          bgcolor: 'rgba(255,255,255,0.1)',
+                          bgcolor: 'rgba(255, 255, 255, 0.1)',
                           color: 'white',
-                          '&:hover': {
-                            bgcolor: 'rgba(255,255,255,0.2)',
-                            transform: 'translateY(-2px)',
-                          },
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          fontWeight: 500,
+                          fontSize: '0.75rem',
                           transition: 'all 0.3s ease',
+                          transitionDelay: `${i * 0.05}s`,
+                          '&:hover': {
+                            transform: 'translateY(-2px)',
+                            bgcolor: `${categoryColors[category]}20`,
+                            border: `1px solid ${categoryColors[category]}60`,
+                          }
                         }}
                       />
                     ))}
                   </Box>
-                </Box>
-              </Paper>
+                </CardContent>
+              </Card>
             </Grid>
           ))}
         </Grid>

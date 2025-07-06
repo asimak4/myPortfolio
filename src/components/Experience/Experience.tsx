@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
-import { Box, Typography, Container, Paper, Chip, IconButton, Collapse } from '@mui/material';
+import { Box, Typography, Container, Card, CardContent, Chip, IconButton, Collapse, Stack, Divider } from '@mui/material';
 import { keyframes } from '@mui/system';
 import BusinessIcon from '@mui/icons-material/Business';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ComputerIcon from '@mui/icons-material/Computer';
-import KeyboardIcon from '@mui/icons-material/Keyboard';
-import CodeIcon from '@mui/icons-material/Code';
-import StorageIcon from '@mui/icons-material/Storage';
-import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+import WorkIcon from '@mui/icons-material/Work';
 import { experiences } from './workExperience';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+`;
+
+const slideIn = keyframes`
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+`;
+
+const cardHover = keyframes`
+  from { transform: translateY(0); }
+  to { transform: translateY(-2px); }
 `;
 
 const Experience: React.FC = () => {
@@ -37,25 +43,32 @@ const Experience: React.FC = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'left', width: '100%', mb: 8, animation: `${fadeIn} 1s ease-out` }}>
+        <Box sx={{ textAlign: 'center', width: '100%', mb: 8, animation: `${fadeIn} 1s ease-out` }}>
           <Typography 
             variant="overline" 
             sx={{ 
               color: 'secondary.main',
-              letterSpacing: 2,
+              letterSpacing: 3,
               mb: 2,
-              display: 'block'
+              display: 'block',
+              fontWeight: 600,
+              fontSize: '0.9rem'
             }}
           >
-            CAREER PATH
+            CAREER JOURNEY
           </Typography>
           <Typography 
-            variant="h3" 
+            variant="h2" 
             gutterBottom
             sx={{ 
-              fontWeight: 'bold',
+              fontWeight: 700,
               color: 'white',
               mb: 3,
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              background: 'linear-gradient(135deg, #ffffff 0%, #0984e3 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
             }}
           >
             Work Experience
@@ -63,140 +76,198 @@ const Experience: React.FC = () => {
           <Typography 
             variant="body1" 
             sx={{ 
-              color: 'rgba(255,255,255,0.7)',
-              maxWidth: '800px',
-              mb: 4,
+              color: 'rgba(255,255,255,0.8)',
+              maxWidth: '600px',
+              mx: 'auto',
+              fontSize: '1.1rem',
+              lineHeight: 1.7,
             }}
           >
-            My professional journey and the valuable experiences I've gained along the way.
+            My professional journey across innovative companies and meaningful projects
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+        <Stack spacing={4}>
           {experiences.map((experience, index) => (
-            <Paper
+            <Card
               key={index}
               sx={{
-                p: 3,
-                bgcolor: 'rgba(255,255,255,0.05)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: 4,
-                border: '1px solid rgba(255,255,255,0.1)',
-                transition: 'all 0.3s ease-in-out',
-                animation: `${fadeIn} 1s ease-out ${index * 0.2}s backwards`,
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(9,132,227,0.05) 100%)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255,255,255,0.12)',
+                borderRadius: 3,
+                overflow: 'hidden',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                animation: `${fadeIn} 0.8s ease-out ${index * 0.1}s backwards`,
+                position: 'relative',
                 '&:hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: '0 12px 30px rgba(9, 132, 227, 0.15)',
+                  transform: 'translateY(-2px) scale(1.005)',
+                  boxShadow: '0 10px 20px rgba(9, 132, 227, 0.2)',
+                  border: '1px solid rgba(9, 132, 227, 0.3)',
+                },
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '3px',
+                  background: 'linear-gradient(90deg, #0984e3, #74b9ff)',
                 },
               }}
             >
-              <Box 
-                onClick={() => handleExpandClick(index)}
-                sx={{ 
-                  cursor: 'pointer',
-                  display: 'flex',
-                  flexDirection: { xs: 'column', md: 'row' },
-                  justifyContent: 'space-between',
-                  alignItems: { xs: 'flex-start', md: 'center' },
-                  gap: 2,
-                }}
-              >
-                {/* Company and Role */}
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flex: 1 }}>
-                  <IconButton
-                    sx={{
-                      bgcolor: 'secondary.main',
-                      color: 'white',
-                      '&:hover': { bgcolor: 'secondary.dark' },
-                    }}
-                  >
-                    <BusinessIcon />
-                  </IconButton>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                      {experience.role}
-                    </Typography>
-                    <Typography variant="subtitle1" sx={{ color: 'secondary.main' }}>
-                      {experience.company}
-                    </Typography>
-                  </Box>
-                </Box>
-
-                {/* Date and Location */}
-                <Box sx={{ 
-                  display: 'flex', 
-                  gap: 1,
-                  flexWrap: 'wrap',
-                  alignItems: 'center'
-                }}>
-                  <Chip
-                    icon={<DateRangeIcon />}
-                    label={experience.duration}
-                    size="small"
-                    sx={{
-                      bgcolor: 'rgba(9,132,227,0.1)',
-                      color: 'white',
-                      border: '1px solid rgba(9,132,227,0.3)',
-                    }}
-                  />
-                  <Chip
-                    icon={<LocationOnIcon />}
-                    label={experience.location}
-                    size="small"
-                    sx={{
-                      bgcolor: 'rgba(9,132,227,0.1)',
-                      color: 'white',
-                      border: '1px solid rgba(9,132,227,0.3)',
-                    }}
-                  />
-                  <IconButton
-                    sx={{
-                      transform: expandedId === index ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.3s',
-                      color: 'secondary.main',
-                    }}
-                  >
-                    <ExpandMoreIcon />
-                  </IconButton>
-                </Box>
-              </Box>
-
-              <Collapse in={expandedId === index}>
-                <Box sx={{ mt: 3, pl: { xs: 0, md: 7 } }}>
-                  {experience.bullets.map((bullet, i) => (
-                    <Box 
-                      key={i} 
-                      sx={{ 
+              <CardContent sx={{ p: 4 }}>
+                <Box 
+                  onClick={() => handleExpandClick(index)}
+                  sx={{ 
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    justifyContent: 'space-between',
+                    alignItems: { xs: 'flex-start', md: 'center' },
+                    gap: 3,
+                  }}
+                >
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, flex: 1 }}>
+                    <Box
+                      sx={{
+                        width: 60,
+                        height: 60,
+                        borderRadius: 2,
+                        background: 'linear-gradient(135deg, #0984e3, #74b9ff)',
                         display: 'flex',
-                        alignItems: 'flex-start',
-                        mb: 1,
-                        opacity: 0.85,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: '0 8px 16px rgba(9, 132, 227, 0.3)',
+                      }}
+                    >
+                      <WorkIcon sx={{ color: 'white', fontSize: 28 }} />
+                    </Box>
+                    <Box>
+                      <Typography 
+                        variant="h5" 
+                        sx={{ 
+                          fontWeight: 700,
+                          color: 'white',
+                          mb: 0.5,
+                          letterSpacing: '-0.5px'
+                        }}
+                      >
+                        {experience.role}
+                      </Typography>
+                      <Typography 
+                        variant="h6" 
+                        sx={{ 
+                          color: 'secondary.main',
+                          fontWeight: 600,
+                          mb: 1
+                        }}
+                      >
+                        {experience.company}
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  <Box sx={{ 
+                    display: 'flex', 
+                    gap: 1.5,
+                    flexWrap: 'wrap',
+                    alignItems: 'center'
+                  }}>
+                    <Chip
+                      icon={<DateRangeIcon />}
+                      label={experience.duration}
+                      sx={{
+                        bgcolor: 'rgba(116,185,255,0.15)',
+                        color: 'white',
+                        border: '1px solid rgba(116,185,255,0.4)',
+                        fontWeight: 500,
+                        '& .MuiChip-icon': {
+                          color: '#74b9ff',
+                        },
+                      }}
+                    />
+                    <Chip
+                      icon={<LocationOnIcon />}
+                      label={experience.location}
+                      sx={{
+                        bgcolor: 'rgba(116,185,255,0.15)',
+                        color: 'white',
+                        border: '1px solid rgba(116,185,255,0.4)',
+                        fontWeight: 500,
+                        '& .MuiChip-icon': {
+                          color: '#74b9ff',
+                        },
+                      }}
+                    />
+                    <IconButton
+                      sx={{
+                        transform: expandedId === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.3s ease',
+                        color: 'secondary.main',
+                        bgcolor: 'rgba(116,185,255,0.1)',
                         '&:hover': {
-                          opacity: 1,
+                          bgcolor: 'rgba(116,185,255,0.2)',
                         },
                       }}
                     >
-                      <Box
-                        sx={{
-                          width: 6,
-                          height: 6,
-                          borderRadius: '50%',
-                          bgcolor: 'secondary.main',
-                          mt: 1.5,
-                          mr: 2,
-                          flexShrink: 0,
-                        }}
-                      />
-                      <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                        {bullet}
-                      </Typography>
-                    </Box>
-                  ))}
+                      <ExpandMoreIcon />
+                    </IconButton>
+                  </Box>
                 </Box>
-              </Collapse>
-            </Paper>
+
+                <Collapse in={expandedId === index}>
+                  <Box sx={{ mt: 4 }}>
+                    <Divider sx={{ mb: 3, bgcolor: 'rgba(255,255,255,0.1)' }} />
+                    <Stack spacing={2}>
+                      {experience.bullets.map((bullet, i) => (
+                        <Box 
+                          key={i} 
+                          sx={{ 
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            opacity: 0.9,
+                            transition: 'all 0.2s ease',
+                            p: 0,
+                            borderRadius: 1,
+                            // '&:hover': {
+                            //   opacity: 1,
+                            //   bgcolor: 'rgba(255,255,255,0.03)',
+                            //   transform: 'translateX(8px)',
+                            // },
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              width: 8,
+                              height: 8,
+                              borderRadius: '50%',
+                              background: 'linear-gradient(135deg, #0984e3, #74b9ff)',
+                              mt: 1,
+                              mr: 2,
+                              flexShrink: 0,
+                              boxShadow: '0 2px 4px rgba(9, 132, 227, 0.4)',
+                            }}
+                          />
+                          <Typography 
+                            variant="body1" 
+                            sx={{ 
+                              color: 'rgba(255,255,255,0.9)',
+                              lineHeight: 1.6,
+                              fontSize: '0.95rem'
+                            }}
+                          >
+                            {bullet}
+                          </Typography>
+                        </Box>
+                      ))}
+                    </Stack>
+                  </Box>
+                </Collapse>
+              </CardContent>
+            </Card>
           ))}
-        </Box>
+        </Stack>
       </Container>
     </Box>
   );

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Card, CardContent, Typography, Box, Button, IconButton, Chip, Stack } from '@mui/material';
+import { Card, CardContent, Typography, Box, Button, IconButton, Chip, Stack, Divider } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import LaunchIcon from '@mui/icons-material/Launch';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import AndroidIcon from '@mui/icons-material/Android';
 import AppleIcon from '@mui/icons-material/Apple';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 interface Links {
   github?: string;
@@ -23,6 +24,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, links, techUsed }) => {
   const technologies = techUsed.split(',').map(tech => tech.trim());
+  const [isHovered, setIsHovered] = React.useState(false);
 
   const getIcon = (linkType: string) => {
     switch(linkType) {
@@ -39,140 +41,236 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
 
   return (
     <Card
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       sx={{
         height: '100%',
-        bgcolor: 'rgba(255, 255, 255, 0.05)',
-        backdropFilter: 'blur(10px)',
-        borderRadius: 4,
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-        transition: 'all 0.3s ease-in-out',
+        bgcolor: 'rgba(255, 255, 255, 0.02)',
+        backdropFilter: 'blur(20px)',
+        borderRadius: 6,
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        position: 'relative',
+        overflow: 'hidden',
+        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: '-100%',
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+          transition: 'left 0.5s ease-in-out',
+        },
         '&:hover': {
-          transform: 'translateY(-8px)',
-          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
+          transform: 'translateY(-2px) scale(1.02)',
+          bgcolor: 'rgba(255, 255, 255, 0.08)',
+          border: '1px solid rgba(9, 132, 227, 0.3)',
+          boxShadow: '0 25px 50px rgba(9, 132, 227, 0.15), 0 0 0 1px rgba(9, 132, 227, 0.1)',
+          '&::before': {
+            left: '100%',
+          },
           '& .project-icon': {
-            transform: 'rotate(5deg) scale(1.1)',
+            transform: 'rotate(10deg) scale(1.15)',
+            bgcolor: 'secondary.light',
+          },
+          '& .tech-chip': {
+            transform: 'translateY(0)',
+            opacity: 1,
+          },
+          '& .project-content': {
+            transform: 'translateY(-4px)',
           }
         },
       }}
     >
-      <CardContent sx={{ height: '100%', p: 3 }}>
+      <CardContent sx={{ height: '100%', p: 0, position: 'relative', zIndex: 1 }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-          <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 2 }}>
-            <IconButton 
-              className="project-icon"
-              sx={{ 
-                bgcolor: 'secondary.main',
-                color: 'white',
-                transition: 'transform 0.3s ease-in-out',
-                '&:hover': { bgcolor: 'secondary.dark' }
-              }}
-            >
-              <CodeIcon />
-            </IconButton>
-          </Box>
-
-          <Typography 
-            variant="h5" 
-            component="h2" 
-            sx={{ 
-              color: 'white',
-              fontWeight: 600,
-              mb: 2,
-            }}
-          >
-            {title}
-          </Typography>
-
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              color: 'rgba(255, 255, 255, 0.7)',
-              mb: 3,
-              flexGrow: 1,
-              fontSize: '0.95rem',
-              lineHeight: 1.6,
-            }}
-          >
-            {description}
-          </Typography>
-
+          {/* Header Section */}
           <Box sx={{ 
-            display: 'flex', 
-            flexWrap: 'wrap', 
-            gap: 1, 
-            mt: 2,
-            '& .tech-chip': {
-              transform: 'translateY(10px)',
-              opacity: 0,
-              transition: 'all 0.3s ease-in-out',
-            }
+            p: 3, 
+            pb: 2,
+            background: 'linear-gradient(135deg, rgba(9, 132, 227, 0.1) 0%, rgba(9, 132, 227, 0.05) 100%)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
           }}>
-            {technologies.map((tech, index) => (
-              <Chip
-                key={tech}
-                label={tech}
-                className="tech-chip"
+            <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 2 }}>
+              <IconButton 
+                className="project-icon"
                 sx={{ 
-                  bgcolor: 'rgba(9, 132, 227, 0.1)',
-                  color: 'secondary.light',
-                  transitionDelay: `${index * 0.1}s`,
+                  bgcolor: 'secondary.main',
+                  color: 'white',
+                  size: 'large',
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  boxShadow: '0 4px 12px rgba(9, 132, 227, 0.3)',
+                  '&:hover': { bgcolor: 'secondary.dark' }
                 }}
-              />
-            ))}
-          </Box>
-
-          {link && (
-            <Button
-              variant="contained"
-              color="secondary"
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              startIcon={link.includes('github.com') ? <GitHubIcon /> : <LaunchIcon />}
-              size="small"
-              sx={{
-                borderRadius: 2,
-                textTransform: 'none',
-                fontWeight: 600,
-                alignSelf: 'flex-start',
-                fontSize: '0.8rem',
-                py: 0.5,
-                minWidth: 'auto'
+              >
+                <CodeIcon sx={{ fontSize: '1.5rem' }} />
+              </IconButton>
+              {isHovered && (
+                <Box sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  color: 'secondary.light',
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  opacity: 0.8
+                }}>
+                  View Project
+                  <ArrowForwardIcon sx={{ ml: 0.5, fontSize: '1rem' }} />
+                </Box>
+              )}
+            </Box>
+            <Typography 
+              variant="h5" 
+              component="h2" 
+              sx={{ 
+                color: 'white',
+                fontWeight: 700,
+                mb: 1,
+                fontSize: '1.5rem',
+                lineHeight: 1.2
               }}
             >
-              {link.includes('github.com') ? 'View Code' : 'Live Demo'}
-            </Button>
-          )}
+              {title}
+            </Typography>
+          </Box>
 
-          {links && (
-            <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mt: link ? 1 : 0, gap: 1 }}>
-              {Object.entries(links).map(([type, url]) => (
-                url && (
-                  <Button
-                    key={type}
-                    variant="contained"
-                    color="secondary"
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    startIcon={type === 'github' ? getIcon(type) : undefined}
-                    size="small"
-                    sx={{
-                      borderRadius: 2,
-                      textTransform: 'none',
-                      fontWeight: 600,
-                      fontSize: '0.8rem',
-                      py: 0.5,
-                      minWidth: type === 'github' ? 'auto' : '32px',
-                      px: type === 'github' ? 2 : 1
-                    }}
-                  >
-                    {type === 'github' ? 'View Code' : getIcon(type)}
-                  </Button>
-                )
+          {/* Content Section */}
+          <Box className="project-content" sx={{ 
+            p: 3, 
+            pt: 2, 
+            display: 'flex', 
+            flexDirection: 'column', 
+            flexGrow: 1,
+            transition: 'transform 0.3s ease-in-out'
+          }}>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                color: 'rgba(255, 255, 255, 0.85)',
+                mb: 3,
+                flexGrow: 1,
+                fontSize: '0.95rem',
+                lineHeight: 1.7,
+                fontWeight: 400
+              }}
+            >
+              {description}
+            </Typography>
+
+            <Divider sx={{ bgcolor: 'rgba(255, 255, 255, 0.08)', mb: 2 }} />
+            
+            <Box sx={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              gap: 1, 
+              mb: 3,
+              '& .tech-chip': {
+                transform: 'translateY(10px)',
+                opacity: 0.7,
+                transition: 'all 0.3s ease-in-out',
+              }
+            }}>
+              {technologies.map((tech, index) => (
+                <Chip
+                  key={tech}
+                  label={tech}
+                  className="tech-chip"
+                  size="small"
+                  sx={{ 
+                    bgcolor: 'rgba(9, 132, 227, 0.15)',
+                    color: 'secondary.light',
+                    border: '1px solid rgba(9, 132, 227, 0.2)',
+                    fontWeight: 500,
+                    fontSize: '0.75rem',
+                    transitionDelay: `${index * 0.05}s`,
+                    '&:hover': {
+                      bgcolor: 'rgba(9, 132, 227, 0.25)',
+                      transform: 'translateY(-2px)',
+                    }
+                  }}
+                />
               ))}
-            </Stack>
-          )}
+            </Box>
+
+            {/* Action Buttons */}
+            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 'auto' }}>
+              {link && (
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  startIcon={link.includes('github.com') ? <GitHubIcon /> : <LaunchIcon />}
+                  sx={{
+                    borderRadius: 3,
+                    textTransform: 'none',
+                    fontWeight: 600,
+                    fontSize: '0.875rem',
+                    py: 1,
+                    px: 2.5,
+                    boxShadow: '0 4px 12px rgba(9, 132, 227, 0.3)',
+                    background: 'linear-gradient(135deg, #0984E3 0%, #74B9FF 100%)',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 6px 20px rgba(9, 132, 227, 0.4)',
+                    }
+                  }}
+                >
+                  {link.includes('github.com') ? 'View Code' : 'Live Demo'}
+                </Button>
+              )}
+
+              {links && (
+                <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ gap: 1 }}>
+                  {Object.entries(links).map(([type, url]) => (
+                    url && (
+                      <Button
+                        key={type}
+                        variant={type === 'github' ? 'contained' : 'outlined'}
+                        color="secondary"
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        startIcon={type === 'github' ? getIcon(type) : undefined}
+                        sx={{
+                          borderRadius: 3,
+                          textTransform: 'none',
+                          fontWeight: 600,
+                          fontSize: '0.875rem',
+                          py: 1,
+                          px: type === 'github' ? 2.5 : 1.5,
+                          minWidth: type === 'github' ? 'auto' : '44px',
+                          ...(type === 'github' && {
+                            boxShadow: '0 4px 12px rgba(9, 132, 227, 0.3)',
+                            background: 'linear-gradient(135deg, #0984E3 0%, #74B9FF 100%)',
+                          }),
+                          ...(type !== 'github' && {
+                            border: '1px solid rgba(9, 132, 227, 0.5)',
+                            bgcolor: 'rgba(9, 132, 227, 0.1)',
+                          }),
+                          '&:hover': {
+                            transform: 'translateY(-2px)',
+                            ...(type === 'github' && {
+                              boxShadow: '0 6px 20px rgba(9, 132, 227, 0.4)',
+                            }),
+                            ...(type !== 'github' && {
+                              bgcolor: 'rgba(9, 132, 227, 0.2)',
+                              border: '1px solid rgba(9, 132, 227, 0.7)',
+                            })
+                          }
+                        }}
+                      >
+                        {type === 'github' ? 'View Code' : getIcon(type)}
+                      </Button>
+                    )
+                  ))}
+                </Stack>
+              )}
+            </Box>
+          </Box>
         </Box>
       </CardContent>
     </Card>

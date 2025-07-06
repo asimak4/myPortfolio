@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Typography, Button, Container, Grid, Paper, IconButton, TextField, Snackbar, Alert } from '@mui/material';
+import { Box, Typography, Button, Container, Grid, Paper, IconButton, TextField, Snackbar, Alert, Card, CardContent, Divider } from '@mui/material';
 import { keyframes } from '@mui/system';
+import { aboutMeText } from './aboutMe';
 import EmailIcon from '@mui/icons-material/Email';
 import CodeIcon from '@mui/icons-material/Code';
 import SchoolIcon from '@mui/icons-material/School';
@@ -25,8 +26,6 @@ const slideIn = keyframes`
   }
 `;
 
-const aboutMeText = `I'm a passionate Full Stack Developer with a keen interest in building scalable web applications. 
-With a strong foundation in both front-end and back-end development, I enjoy tackling complex problems and turning ideas into reality through clean, efficient code.`;
 
 const highlights = [
   {
@@ -176,23 +175,27 @@ const About: React.FC = () => {
                 variant="overline" 
                 sx={{ 
                   color: 'secondary.main',
-                  letterSpacing: 2,
+                  letterSpacing: 3,
                   mb: 2,
-                  display: 'block'
+                  display: 'block',
+                  fontWeight: 600,
+                  fontSize: '0.875rem'
                 }}
               >
                 ABOUT ME
               </Typography>
               <Typography 
-                variant="h3" 
+                variant="h2" 
                 gutterBottom
                 sx={{ 
-                  fontWeight: 'bold',
+                  fontWeight: 800,
                   mb: 4,
-                  color: '#FFFFFF',
-                  background: 'linear-gradient(90deg, #FFFFFF 0%, #E5E9F0 100%)',
+                  background: 'linear-gradient(135deg, #FFFFFF 0%, #74B9FF 100%)',
+                  backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
+                  fontSize: { xs: '2.5rem', md: '3rem' },
+                  lineHeight: 1.2
                 }}
               >
                 Turning Vision Into Reality
@@ -217,25 +220,36 @@ const About: React.FC = () => {
                   startIcon={<EmailIcon />}
                   onClick={() => setShowForm(true)}
                   sx={{ 
-                    borderRadius: 2,
-                    px: 4,
-                    py: 1.5,
+                    borderRadius: 3,
+                    px: 5,
+                    py: 2,
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    textTransform: 'none',
+                    boxShadow: '0 8px 24px rgba(9, 132, 227, 0.3)',
+                    background: 'linear-gradient(135deg, #0984E3 0%, #74B9FF 100%)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                     animation: `${fadeIn} 0.5s ease-out`,
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: '0 12px 32px rgba(9, 132, 227, 0.4)',
+                    }
                   }}
                 >
-                  Contact Me
+                  Get In Touch
                 </Button>
               ) : showThankYou ? (
-                <Paper
-                  elevation={0}
+                <Card
                   sx={{
-                    p: 4,
-                    bgcolor: 'background.paper',
-                    borderRadius: 4,
+                    bgcolor: 'rgba(255, 255, 255, 0.02)',
+                    backdropFilter: 'blur(20px)',
+                    borderRadius: 6,
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     textAlign: 'center',
                     animation: `${fadeIn} 0.5s ease-out`,
                   }}
                 >
+                  <CardContent sx={{ p: 4 }}>
                   <IconButton
                     sx={{
                       bgcolor: 'secondary.light',
@@ -262,15 +276,16 @@ const About: React.FC = () => {
                   >
                     Close
                   </Button>
-                </Paper>
+                  </CardContent>
+                </Card>
               ) : (
                 /* Contact Form */
-                <Paper
-                  elevation={0}
+                <Card
                   sx={{
-                    p: 3,
-                    bgcolor: 'rgba(255, 255, 255, 0.1)',
-                    borderRadius: 4,
+                    bgcolor: 'rgba(255, 255, 255, 0.02)',
+                    backdropFilter: 'blur(20px)',
+                    borderRadius: 6,
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     animation: `${fadeIn} 0.5s ease-out`,
                     '& .MuiTypography-root': {
                       color: '#FFFFFF',
@@ -280,6 +295,7 @@ const About: React.FC = () => {
                     },
                   }}
                 >
+                  <CardContent sx={{ p: 3 }}>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
                     <Typography variant="h6" sx={{ fontWeight: 600 }}>
                       Get in Touch
@@ -348,9 +364,23 @@ const About: React.FC = () => {
                           startIcon={<SendIcon />}
                           sx={{ 
                             mt: 2,
-                            borderRadius: 2,
-                            px: 4,
-                            py: 1.5,
+                            borderRadius: 3,
+                            px: 5,
+                            py: 2,
+                            fontSize: '1rem',
+                            fontWeight: 600,
+                            textTransform: 'none',
+                            boxShadow: '0 8px 24px rgba(9, 132, 227, 0.3)',
+                            background: 'linear-gradient(135deg, #0984E3 0%, #74B9FF 100%)',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            '&:hover': {
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 12px 32px rgba(9, 132, 227, 0.4)',
+                            },
+                            '&:disabled': {
+                              opacity: 0.6,
+                              transform: 'none',
+                            }
                           }}
                         >
                           {loading ? 'Sending...' : 'Send Message'}
@@ -358,7 +388,8 @@ const About: React.FC = () => {
                       </Grid>
                     </Grid>
                   </form>
-                </Paper>
+                  </CardContent>
+                </Card>
               )}
             </Box>
           </Grid>
@@ -367,41 +398,89 @@ const About: React.FC = () => {
             <Grid container spacing={3}>
               {highlights.map((highlight, index) => (
                 <Grid item xs={12} key={highlight.title}>
-                  <Paper
-                    elevation={0}
+                  <Card
                     sx={{
-                      p: 3,
                       height: '100%',
-                      bgcolor: 'background.paper',
-                      borderRadius: 4,
-                      transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                      bgcolor: 'rgba(255, 255, 255, 0.02)',
+                      backdropFilter: 'blur(20px)',
+                      borderRadius: 6,
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                       animation: `${fadeIn} 1s ease-out ${index * 0.2}s backwards`,
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: '-100%',
+                        width: '100%',
+                        height: '100%',
+                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent)',
+                        transition: 'left 0.5s ease-in-out',
+                      },
                       '&:hover': {
-                        transform: 'translateY(-5px)',
-                        boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                        transform: 'translateY(-8px) scale(1.02)',
+                        bgcolor: 'rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(9, 132, 227, 0.3)',
+                        boxShadow: '0 20px 40px rgba(9, 132, 227, 0.1)',
+                        '&::before': {
+                          left: '100%',
+                        },
+                        '& .highlight-icon': {
+                          transform: 'scale(1.1) rotate(5deg)',
+                          bgcolor: 'secondary.light',
+                        },
                       },
                     }}
                   >
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <IconButton
-                        sx={{
-                          bgcolor: 'secondary.light',
-                          color: 'secondary.main',
-                          '&:hover': { bgcolor: 'secondary.light' },
-                        }}
-                      >
-                        {highlight.icon}
-                      </IconButton>
-                      <Box>
-                        <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-                          {highlight.title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {highlight.description}
-                        </Typography>
+                    <CardContent sx={{ p: 3 }}>
+                      <Box sx={{ 
+                        display: 'flex', 
+                        alignItems: 'flex-start', 
+                        gap: 2,
+                        mb: 2 
+                      }}>
+                        <IconButton
+                          className="highlight-icon"
+                          sx={{
+                            bgcolor: 'secondary.main',
+                            color: 'white',
+                            transition: 'all 0.3s ease-in-out',
+                            boxShadow: '0 4px 12px rgba(9, 132, 227, 0.3)',
+                            '&:hover': { bgcolor: 'secondary.main' },
+                          }}
+                        >
+                          {highlight.icon}
+                        </IconButton>
+                        <Box sx={{ flex: 1 }}>
+                          <Typography 
+                            variant="h6" 
+                            gutterBottom 
+                            sx={{ 
+                              fontWeight: 700,
+                              color: 'white',
+                              fontSize: '1.25rem',
+                              mb: 1
+                            }}
+                          >
+                            {highlight.title}
+                          </Typography>
+                          <Divider sx={{ bgcolor: 'rgba(255, 255, 255, 0.1)', mb: 2 }} />
+                          <Typography 
+                            variant="body1" 
+                            sx={{
+                              color: 'rgba(255, 255, 255, 0.8)',
+                              fontSize: '0.95rem',
+                              lineHeight: 1.6
+                            }}
+                          >
+                            {highlight.description}
+                          </Typography>
+                        </Box>
                       </Box>
-                    </Box>
-                  </Paper>
+                    </CardContent>
+                  </Card>
                 </Grid>
               ))}
             </Grid>
