@@ -107,19 +107,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
               >
                 <CodeIcon sx={{ fontSize: '1.5rem' }} />
               </IconButton>
-              {isHovered && (
-                <Box sx={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  color: 'secondary.light',
-                  fontSize: '0.875rem',
-                  fontWeight: 500,
-                  opacity: 0.8
-                }}>
-                  View Project
-                  <ArrowForwardIcon sx={{ ml: 0.5, fontSize: '1rem' }} />
-                </Box>
-              )}
             </Box>
             <Typography 
               variant="h5" 
