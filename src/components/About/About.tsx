@@ -349,7 +349,7 @@ const About: React.FC = () => {
                       <Grid item xs={12}>
                         <Box sx={{ mb: 2 }}>
                           <ReCAPTCHA
-                            sitekey="6LfBrZ8qAAAAAIT9rKc5hR-qkVBBOajLzA8WsFWH"
+                            sitekey="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"
                             onChange={handleCaptchaChange}
                           />
                         </Box>
