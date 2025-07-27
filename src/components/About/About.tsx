@@ -97,7 +97,7 @@ const About: React.FC = () => {
 
     try {
       await emailjs.send(
-        'service_8wm284d',
+        'service_p4lps1h',
         'template_w9qi8ua',
         {
           from_name: formData.name,
