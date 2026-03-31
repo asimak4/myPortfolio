@@ -1,5 +1,5 @@
 export const aboutMeText =
-  "I am currently a Full Stack Developer at Deloitte, where I work on government contracts using technologies like TypeScript, React, AWS, Docker, and Elasticsearch. Before joining Deloitte, I gained valuable experience at Viasat, starting as a Software Automation Engineer working with Python before transitioning into Software Engineering with C. I hold a Bachelor’s degree in Computer Science with a minor in Mathematics from the University of Maryland, Baltimore County. I'm passionate about continuously learning and developing solutions that simplify and improve everyday life. Outside of work, I enjoy staying active through working out and hiking, and I value spending quality time with family and friends.";
+  "I am a Software Developer at Xcelerate Solutions specializing in high-volume data architecture, Kafka, and Kubernetes. Previously, I worked as a Full Stack Developer at Deloitte and a Software Engineer at Viasat. I graduated from UMBC with a B.S. in Computer Science and Mathematics. I am dedicated to continuous learning and developing software that streamlines user experiences. In my personal time, I enjoy weightlifting, playing soccer, hiking, and connecting with family and friends.";
 
 
-export const userEmail = 'asimak4@gmail.com'
+  export const userEmail = 'asimak4@gmail.com'

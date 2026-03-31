@@ -1,19 +1,34 @@
 export const experiences = [
   {
-    company: "Deloitte",
-    role: "Full Stack Developer",
-    location: "Washington, DC",
-    duration: "June 2023 - Present",
-    bullets: [
-      "Played a key role in developing a search query application from the ground up, using NextJS,React, TypeScript, and Node.js.",
+    "company": "Xcelerate Solutions",
+    "role": "Software Engineer",
+    "location": "Washington, DC",
+    "duration": "October 2025 - Present",
+    "bullets": [
+      "Architected and developed a high concurrency file processing pipeline capable of ingesting and validating millions of files daily, leveraging Kubernetes for horizontal autoscaling and microservice orchestration to maintain stability under peak load.",
+      "Designed and developed a UI driven file categorization pipeline, integrating GraphQL APIs with PostgreSQL for persistent storage and Redis caching to preserve user progress, while enabling multi-user workflows through locking mechanisms to ensure safe concurrent editing.",
+      "Improved pipeline performance by batching geographic coordinate data into Kafka messages and optimizing message sizes, increasing transfer efficiency to shared storage systems.",
+      "Authored technical architecture documentation outlining API integrations, microservice dependencies, and scaling strategies, enabling easier onboarding and maintainability.",
+      "Built reusable infrastructure templates to standardize deployment patterns and accelerate the rollout of new microservices.",
+      "Maintained high code quality through thorough code reviews and contributed to Agile ceremonies, occasionally leading sprint planning and stand-ups."
+    ],
+    "expanded": true
+  },
+  {
+    "company": "Deloitte",
+    "role": "Full Stack Developer",
+    "location": "Washington, DC",
+    "duration": "June 2023 - October 2025",
+    "bullets": [
+      "Played a key role in developing a search query application from the ground up, using React, TypeScript, and Node.js. Joined the team at the product's inception and was instrumental in building a responsive, user-friendly interface, as well as handling integration, testing, and deployment to ensure a smooth product launch.",
       "Implemented RESTful APIs and backend services using technologies like Node.js, facilitating seamless communication between the front-end and the back-end for real-time data updates using web sockets.",
       "Integrated ElasticSearch to enable powerful search capabilities within the application, significantly improving data retrieval efficiency and accuracy.",
       "Leveraged AWS services such as Amazon S3 for scalable and secure storage of application assets, and Amazon EC2 for hosting application components, optimizing overall performance and reliability.",
       "Utilized Docker to containerize application components, streamlining deployment and ensuring consistent environments.",
       "Reviewed code for adherence to best practices, utilizing Git technologies and CI/CD best practices, and provided feedback to maintain quality standards.",
-      "Created documentation for application architecture, deployment processes, and codebase maintenance, ensuring clarity and consistency in understanding the system's structure and deployment processes.",
+      "Created documentation for application architecture, deployment processes, and codebase maintenance, ensuring clarity and consistency in understanding the system's structure and deployment processes."
     ],
-    expanded: true
+    "expanded": true
   },
   {
     company: "ViaSat Inc.",

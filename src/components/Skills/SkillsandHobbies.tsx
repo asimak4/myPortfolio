@@ -2,7 +2,7 @@ export const skillsList = {
     'Programming Languages': ['Python', 'TypeScript', 'JavaScript', 'C++', 'C'],
     'Operating Systems': ['Linux', 'Unix', 'Windows*', 'Mac OS'],
     'Networking': ['Routers', 'Switches', 'VPNs', 'Layer 2/3'],
-    'Software/Frameworks': ['ReactJS', 'NodeJS', 'Git', 'Selenium', 'ElasticSearch', 'MUI', 'Redux', 'Docker', 'Redis', 'Postman', 'Jest'],
+    'Software/Frameworks': ['ReactJS', 'NodeJS', 'Git', 'Selenium', 'ElasticSearch', 'MUI', 'Redux', 'Docker', 'Redis', 'Postman', 'Jest', 'Kubernetes', 'Kong', 'Kafka' ],
     'Amazon Web Services': ['Lambda', 'DynamoDB', 'CloudWatch', 'S3 Buckets', 'IoT', 'Cognito', 'Amplify'],
     'Foreign Languages': ['Russian (Fluent)'],
   };
