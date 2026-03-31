@@ -1,13 +1,10 @@
 import React from 'react';
-import { Grid, Typography, Chip, Card, CardContent, Box, Container, IconButton, Divider } from '@mui/material';
+import { Grid, Typography, Chip, Card, CardContent, Box, Container, IconButton } from '@mui/material';
 import { keyframes } from '@mui/system';
-import { skillsList, hobbiesList } from './SkillsandHobbies';
+import { skillsList } from './SkillsandHobbies';
 import CodeIcon from '@mui/icons-material/Code';
-import StorageIcon from '@mui/icons-material/Storage';
-import WebIcon from '@mui/icons-material/Web';
 import BuildIcon from '@mui/icons-material/Build';
 import CloudIcon from '@mui/icons-material/Cloud';
-import BrushIcon from '@mui/icons-material/Brush';
 import LanguageIcon from '@mui/icons-material/Language';
 import SettingsSystemDaydreamIcon from '@mui/icons-material/SettingsSystemDaydream';
 import NetworkCheckIcon from '@mui/icons-material/NetworkCheck';

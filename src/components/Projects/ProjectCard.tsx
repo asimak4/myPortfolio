@@ -5,7 +5,6 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import AndroidIcon from '@mui/icons-material/Android';
 import AppleIcon from '@mui/icons-material/Apple';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 interface Links {
   github?: string;

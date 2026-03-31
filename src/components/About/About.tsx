@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Typography, Button, Container, Grid, Paper, IconButton, TextField, Snackbar, Alert, Card, CardContent, Divider } from '@mui/material';
+import { Box, Typography, Container, Grid, IconButton, Snackbar, Alert, Card, CardContent, Divider } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { aboutMeText } from './aboutMe';
-import EmailIcon from '@mui/icons-material/Email';
 import CodeIcon from '@mui/icons-material/Code';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
-import ReCAPTCHA from "react-google-recaptcha";
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
