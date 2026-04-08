@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import SkillsPage from './components/Skills/SkillsPage';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Fade } from '@mui/material';
+import { Analytics } from '@vercel/analytics/react';
 
 type SectionType = 'home' | 'about' | 'projects' | 'experience' | 'skills';
 
@@ -155,6 +156,7 @@ const App: React.FC = () => {
           </Fade>
         </Box>
       </Box>
+      <Analytics />
     </ThemeProvider>
   );
 };
