@@ -9,6 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Box from '@mui/material/Box';
 import SkillsPage from './components/Skills/SkillsPage';
 import CssBaseline from '@mui/material/CssBaseline';
+import { Fade } from '@mui/material';
+import { Analytics } from '@vercel/analytics/react';
+
+type SectionType = 'home' | 'about' | 'projects' | 'experience' | 'skills';
 
 const theme = createTheme({
   typography: {
@@ -137,6 +141,7 @@ const App: React.FC = () => {
           <SkillsPage />
         </Box>
       </Box>
+      <Analytics />
     </ThemeProvider>
   );
 };
