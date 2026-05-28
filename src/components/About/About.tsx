@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Typography, Container, Grid, IconButton, Snackbar, Alert, Card, CardContent, Divider } from '@mui/material';
+import { Box, Typography, Container, Grid, IconButton, Card, CardContent, Divider } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { aboutMeText } from './aboutMe';
 import CodeIcon from '@mui/icons-material/Code';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import emailjs from '@emailjs/browser';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -42,93 +41,9 @@ const highlights = [
   }
 ];
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
 const About: React.FC = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [loading, setLoading] = useState(false);
-  const [captchaVerified, setCaptchaVerified] = useState(false);
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: '',
-    severity: 'success' as 'success' | 'error'
-  });
   const [isVisible, setIsVisible] = useState(false);
   const aboutRef = useRef<HTMLDivElement>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleCaptchaChange = (value: string | null) => {
-    setCaptchaVerified(!!value);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!captchaVerified) {
-      setSnackbar({
-        open: true,
-        message: 'Please verify that you are not a robot',
-        severity: 'error'
-      });
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      await emailjs.send(
-        'service_p4lps1h',
-        'template_w9qi8ua',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: 'Alexander',
-        },
-        'Bj-Dt8DjkXbIxefag'
-      );
-
-      setSnackbar({
-        open: true,
-        message: 'Message sent successfully!',
-        severity: 'success'
-      });
-      setFormData({ name: '', email: '', message: '' });
-      setCaptchaVerified(false);
-      setShowForm(false);
-      setShowThankYou(true);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      setSnackbar({
-        open: true,
-        message: 'Failed to send message. Please try again.',
-        severity: 'error'
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleCloseSnackbar = () => {
-    setSnackbar(prev => ({ ...prev, open: false }));
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -304,21 +219,6 @@ const About: React.FC = () => {
           </Grid>
         </Grid>
       </Container>
-
-      <Snackbar 
-        open={snackbar.open} 
-        autoHideDuration={6000} 
-        onClose={handleCloseSnackbar}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      >
-        <Alert 
-          onClose={handleCloseSnackbar} 
-          severity={snackbar.severity}
-          sx={{ width: '100%' }}
-        >
-          {snackbar.message}
-        </Alert>
-      </Snackbar>
     </Box>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, Container, Card, CardContent, Chip, IconButton, Collapse, Stack, Divider } from '@mui/material';
 import { keyframes } from '@mui/system';
-import BusinessIcon from '@mui/icons-material/Business';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -11,16 +10,6 @@ import { experiences } from './workExperience';
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-`;
-
-const slideIn = keyframes`
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-`;
-
-const cardHover = keyframes`
-  from { transform: translateY(0); }
-  to { transform: translateY(-2px); }
 `;
 
 const Experience: React.FC = () => {

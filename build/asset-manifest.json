@@ -1,16 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.657b966b.css",
-    "main.js": "/static/js/main.1bc6db3c.js",
+    "main.css": "/static/css/main.2dfe2f6b.css",
+    "main.js": "/static/js/main.f9b2d5bb.js",
     "static/js/453.41811d64.chunk.js": "/static/js/453.41811d64.chunk.js",
     "static/media/homePageIcon1.png": "/static/media/homePageIcon1.396608cb1736d6e12e54.png",
+    "static/media/chelseaBlackandWhite.png": "/static/media/chelseaBlackandWhite.5bdc124ce4410b99317b.png",
     "index.html": "/index.html",
-    "main.657b966b.css.map": "/static/css/main.657b966b.css.map",
-    "main.1bc6db3c.js.map": "/static/js/main.1bc6db3c.js.map",
+    "static/media/weightlifting.svg": "/static/media/weightlifting.bebe01b369b480a5dde6eeb5b1a63999.svg",
+    "static/media/ravens-football.svg": "/static/media/ravens-football.94f19da8e1e78a938dbf5691e9aeb22f.svg",
+    "static/media/soccer.svg": "/static/media/soccer.d52177384583e5d3d20e37dc3ba93944.svg",
+    "static/media/travel.svg": "/static/media/travel.9159be6f099e6d76f891c18cd109156c.svg",
+    "static/media/cooking.svg": "/static/media/cooking.10fe0c9fc176575094de456889aeb59e.svg",
+    "static/media/family.svg": "/static/media/family.4856dffa121ec068353a2a83385c0f71.svg",
+    "static/media/golf.svg": "/static/media/golf.0ac09a653c0fea9ab277486177484f76.svg",
+    "main.2dfe2f6b.css.map": "/static/css/main.2dfe2f6b.css.map",
+    "main.f9b2d5bb.js.map": "/static/js/main.f9b2d5bb.js.map",
     "453.41811d64.chunk.js.map": "/static/js/453.41811d64.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.657b966b.css",
-    "static/js/main.1bc6db3c.js"
+    "static/css/main.2dfe2f6b.css",
+    "static/js/main.f9b2d5bb.js"
   ]
 }

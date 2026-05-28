@@ -23,7 +23,6 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, links, techUsed }) => {
   const technologies = techUsed.split(',').map(tech => tech.trim());
-  const [isHovered, setIsHovered] = React.useState(false);
 
   const getIcon = (linkType: string) => {
     switch(linkType) {
@@ -40,8 +39,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
 
   return (
     <Card
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       sx={{
         height: '100%',
         bgcolor: 'rgba(255, 255, 255, 0.02)',

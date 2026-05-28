@@ -1,0 +1,35 @@
+<!--
+  Chelsea FC-inspired badge icon — stroke-only (matches Lucide hobby icons).
+  Concentric rings + simplified lion & staff silhouette.
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.35"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="9.25" />
+  <circle cx="12" cy="12" r="7.35" />
+  <circle cx="12" cy="12" r="5.15" />
+
+  <!-- Lion profile (facing right) -->
+  <path d="M7.2 14.2c-.4-2.2 1.4-4 3.4-4.1 1-.1 1.8.3 2.3 1" />
+  <path d="M9.1 10.4c.35-.55 1-.75 1.55-.45" />
+  <path d="M8.3 12.1c-.65 1.1-.35 2.4.85 3" />
+  <path d="M7.4 12.8c-.9.35-1.15 1.45-.55 2.15" />
+  <path d="M7.8 11.2c-.75-.05-1.15.55-.85 1.2" />
+
+  <!-- Staff -->
+  <path d="M14.6 8.2v8.1" />
+  <path d="M14.6 8.2l1.35-1.2" />
+  <path d="M14.6 10.8l1.55-.45" />
+
+  <!-- Body / hind leg -->
+  <path d="M10.8 15.1c1.1.55 2.2.45 3-.15" />
+  <path d="M11.6 14.5c.8-.15 1.45-.65 1.75-1.25" />
+</svg>
