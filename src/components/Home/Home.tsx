@@ -4,9 +4,15 @@ import { keyframes } from '@mui/system';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LaunchIcon from '@mui/icons-material/Launch';
-import DownloadIcon from '@mui/icons-material/Download';
 import homeScreenIcon from '../../assets/homePageIcon1.png';
 import { scrollToSection } from '../../utils/scroll';
+import TypewriterText from '../shared/TypewriterText';
+
+const rolePhrases = [
+  'Software Engineer',
+  'Full Stack Developer',
+  'Problem Solver',
+];
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -17,12 +23,6 @@ const float = keyframes`
   0% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
   100% { transform: translateY(0px); }
-`;
-
-const pulse = keyframes`
-  0% { opacity: 0.8; }
-  50% { opacity: 1; }
-  100% { opacity: 0.8; }
 `;
 
 const skills = ['TypeScript', 'React', 'Python', 'AWS', 'Node.js', 'Docker'];
@@ -103,19 +103,18 @@ const Home: React.FC = () => {
                 py: 1.5,
                 mb: 3,
                 display: 'inline-block',
-                animation: `${fadeIn} 1s ease-out 0.4s backwards, ${pulse} 3s ease-in-out infinite`,
+                animation: `${fadeIn} 1s ease-out 0.4s backwards`,
               }}
             >
-              <Typography 
-                variant='h4' 
-                sx={{ 
+              <TypewriterText
+                phrases={rolePhrases}
+                variant="h4"
+                sx={{
                   color: 'secondary.light',
                   fontWeight: 700,
                   fontSize: { xs: '1.5rem', md: '2rem' },
                 }}
-              >
-                Full Stack Developer
-              </Typography>
+              />
             </Card>
 
             <Typography
