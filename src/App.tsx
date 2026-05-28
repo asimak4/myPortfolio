@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Navbar from './components/Navbar';
 import Home from './components/Home/Home';
@@ -9,9 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Box from '@mui/material/Box';
 import SkillsPage from './components/Skills/SkillsPage';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Fade } from '@mui/material';
-
-type SectionType = 'home' | 'about' | 'projects' | 'experience' | 'skills';
 
 const theme = createTheme({
   typography: {
@@ -50,11 +47,23 @@ const theme = createTheme({
       secondary: 'rgba(255, 255, 255, 0.85)',
     },
     background: {
-      default: 'transparent',
+      default: '#151C20',
       paper: 'rgba(255, 255, 255, 0.1)',
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: {
+          backgroundColor: '#151C20',
+        },
+        body: {
+          backgroundColor: '#151C20',
+          backgroundImage: 'linear-gradient(135deg, #1D2B34 0%, #151C20 100%)',
+          backgroundAttachment: 'fixed',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -108,29 +117,6 @@ const theme = createTheme({
 });
 
 const App: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<SectionType>('home');
-
-  const handleSectionChange = (section: SectionType) => {
-    setActiveSection(section);
-  };
-
-  const renderSection = () => {
-    switch (activeSection) {
-      case 'home':
-        return <Home onSectionChange={handleSectionChange} />;
-      case 'about':
-        return <About />;
-      case 'projects':
-        return <Projects />;
-      case 'experience':
-        return <Experience />;
-      case 'skills':
-        return <SkillsPage />;
-      default:
-        return <Home onSectionChange={handleSectionChange} />;
-    }
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -140,19 +126,15 @@ const App: React.FC = () => {
           background: 'linear-gradient(135deg, #1D2B34 0%, #151C20 100%)',
           color: 'white',
           position: 'relative',
-          overflow: 'hidden',
         }}
       >
-        <Navbar 
-          activeSection={activeSection} 
-          onSectionChange={handleSectionChange} 
-        />
-        <Box sx={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
-          <Fade in={true} timeout={500} key={activeSection}>
-            <Box sx={{ minHeight: '100vh' }}>
-              {renderSection()}
-            </Box>
-          </Fade>
+        <Navbar />
+        <Box sx={{ position: 'relative', zIndex: 1 }}>
+          <Home />
+          <About />
+          <Projects />
+          <Experience />
+          <SkillsPage />
         </Box>
       </Box>
     </ThemeProvider>

@@ -49,6 +49,7 @@ const SkillsPage = () => {
         display: 'flex',
         alignItems: 'center',
         py: { xs: 4, md: 6 },
+        scrollMarginTop: "80px",
       }}
     >
       <Container maxWidth="lg" sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', py: { xs: 2, md: 4 } }}>

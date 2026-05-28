@@ -1,7 +1,7 @@
 export const experiences = [
   {
     "company": "Xcelerate Solutions",
-    "role": "Software Engineer",
+    "role": "Software Developer",
     "location": "Washington, DC",
     "duration": "October 2025 - Present",
     "bullets": [
@@ -20,13 +20,16 @@ export const experiences = [
     "location": "Washington, DC",
     "duration": "June 2023 - October 2025",
     "bullets": [
-      "Played a key role in developing a search query application from the ground up, using React, TypeScript, and Node.js. Joined the team at the product's inception and was instrumental in building a responsive, user-friendly interface, as well as handling integration, testing, and deployment to ensure a smooth product launch.",
-      "Implemented RESTful APIs and backend services using technologies like Node.js, facilitating seamless communication between the front-end and the back-end for real-time data updates using web sockets.",
-      "Integrated ElasticSearch to enable powerful search capabilities within the application, significantly improving data retrieval efficiency and accuracy.",
-      "Leveraged AWS services such as Amazon S3 for scalable and secure storage of application assets, and Amazon EC2 for hosting application components, optimizing overall performance and reliability.",
+      "Developed a search query application from inception using React, TypeScript, and Node.js, delivering a responsive, user-friendly interface and managing integration, testing, and deployment using Docker containerization and AWS EKS for a successful product launch.",
+      "Developed a high-value analyst workflow tool to migrate a legacy application for a key client using Next.js, Node.js, Elasticsearch, Docker, AWS EKS, and Redux, gathering requirements, designing Figma wireframes, architecting scalable back-end services for data-intensive workflows, and leading demos to showcase product progress.",
+      "Optimized search performance by implementing a browser-based caching mechanism for large mapping files, eliminating redundant file system reads and boosting response times by over 1000% under high query loads.",
+      "Developed a Python script to bulk test the Elasticsearch cluster in AWS EKS, validating a capacity of thousands of queries per minute, and implemented dynamic horizontal scaling to boost throughput by 200% for high demand workloads.",
+      "Customized MUI components with tailored overrides in React and Next.js, enhancing front-end UI/UX and leading customer demos to showcase user focused design improvements.",
+      "Designed and implemented RESTful APIs and back-end services with Node.js, enabling real-time data updates via WebSockets for seamless front-end and back-end communication.",
+      "Integrated Elasticsearch to enable scalable, high-performance search functionality and aggregation filtering, optimizing query performance for large-scale datasets to improve data retrieval efficiency and accuracy.",
       "Utilized Docker to containerize application components, streamlining deployment and ensuring consistent environments.",
-      "Reviewed code for adherence to best practices, utilizing Git technologies and CI/CD best practices, and provided feedback to maintain quality standards.",
-      "Created documentation for application architecture, deployment processes, and codebase maintenance, ensuring clarity and consistency in understanding the system's structure and deployment processes."
+      "Conducted code reviews using Git and CI/CD pipelines, enforcing best practices, mentoring junior engineers and new team members, and maintaining high quality, maintainable code.",
+      "Authored comprehensive documentation for application architecture, deployment, and codebase maintenance, improving team collaboration and system scalability."
     ],
     "expanded": true
   },
@@ -34,10 +37,10 @@ export const experiences = [
     company: "ViaSat Inc.",
     role: "Software Engineer",
     location: "Linthicum Heights, MD",
-    duration: "December 2023 - June 2023",
+    duration: "December 2022 - June 2023",
     bullets: [
-      "Developed and maintained proprietary encryptors, ensuring the security and integrity of sensitive data using C++.",
-      "Implemented new features and functionalities to enhance the encryptors' capabilities, such as advanced encryption algorithms secure key exchange protocols, and key distribution systems.",
+      "Designed and maintained proprietary encryption systems using C++, ensuring robust security and integrity for sensitive data in high-stakes environments.",
+      "Implemented advanced encryption algorithms and secure key exchange protocols in C++, enhancing proprietary encryptors' capabilities for robust key distribution in high security systems.",
       "Troubleshot and debugged issues in the encryptors, using a deep understanding of programming languages such as C++, Yang, Python, Redis and cryptography principles.",
       "Conducted code reviews, utilizing static analysis tools and automated testing frameworks to identify and resolve potential security vulnerabilities and performance bottlenecks.",
     ],
@@ -47,13 +50,12 @@ export const experiences = [
     company: "ViaSat Inc.",
     role: "Software Automation Engineer",
     location: "Linthicum Heights, MD",
-    duration: "June 2021 - December 2023",
+    duration: "June 2021 - December 2022",
     bullets: [
-      "Designed and engineered an automation testing framework for INE devices developed by ViaSat.",
-      "Tested encrypted communication systems, including Layer 2, Layer 3 In-line Network Encryptors, and embedded cryptographic devices.",
-      "Developed and maintained automation scripts using Selenium WebDriver API and proprietary frameworks for continuous integration (Jenkins) and nightly batch runs.",
-      "Developed scripts using Python3 and Bash and proprietary frameworks developed by ViaSat.",
-      "Followed Agile software development methodologies using Perforce, Swarm, Jenkins, and Jira for version control, code review, and project management.",
+      "Engineered an automation testing framework for ViaSat In-line Network Encryptors (INEs), streamlining testing processes and speeding up test execution by 30%.",
+      "Wrote integration tests in Python for Layer 2/3 In-line Network Encryptors and embedded cryptographic devices, ensuring compliance with stringent security standards.",
+      "Developed automation scripts using Selenium, Python, and Bash for Jenkins-based CI/CD pipelines and nightly batch runs.",
+      "Utilized Perforce, Swarm, Jenkins, and Jira in Agile workflows for version control, code reviews, and project management, improving team collaboration and delivery timelines.",
     ],
     expanded: true
   },
@@ -63,10 +65,10 @@ export const experiences = [
     location: "Fulton, MD",
     duration: "August 2020 - December 2020",
     bullets: [
-      "Tested backend application data to front end using automated Python script and Selenium.",
-      "Manipulated, transformed, and formatted large data sets to manage training various models.",
-      "Connected an Angular application to a Django framework alongside REST linking with PostgreSQL DB.",
       "Designed and implemented front-end components using Angular, ensuring a responsive and visually appealing user interface.",
+      "Spearheaded creation of backend infrastructure using Django and linked it to the front-end via a REST API with PostgreSQL Database.",
+      "Performed automated integration tests using Python and Selenium to validate back-end application data on the front-end.",
+      "Manipulated, transformed, and formatted large data sets to support training of multiple models.",
     ],
     expanded: true
   },
@@ -76,10 +78,11 @@ export const experiences = [
     location: "Baltimore, MD",
     duration: "June 2019 - August 2020",
     bullets: [
-      "Troubleshooted Computer Hardware related problems such as UPS, Printers and Drivers",
-      "Managed and maintained servers, PCs, routers, and switches",
-      "Installed, configured, and administered network technologies",
-      "Backup management, reporting and recovery",
+      "Tested software applications and business systems to ensure functionality and reliability.",
+      "Diagnosed and resolved hardware issues including UPS systems, printers, and device drivers.",
+      "Managed and maintained servers, PCs, routers, and switches to support network stability.",
+      "Installed, configured, and administered network technologies to optimize infrastructure performance.",
+      "Handled backup management, reporting, and data recovery to safeguard critical information.",
     ],
     expanded: false
   },
@@ -96,13 +99,13 @@ export const experiences = [
     expanded: false
   },
   {
-    company: "Johns Hopkins APL",
+    company: "Johns Hopkins Applied Physics Lab",
     role: "Software Engineering Intern",
     location: "Laurel, MD",
     duration: "August 2016 - May 2017",
     bullets: [
-        "Built a graphing calculator using reverse polish notation in the C programming language.",
-        "Designed and developed a basic checkers game with a graphical user interface, implemented in C."
+      "Developed a graphing calculator using reverse polish notation in C during my first coding-intensive internship, significantly advancing my programming skills under the guidance of a knowledgeable mentor.",
+      "Designed and implemented a basic checkers game with a graphical user interface in C, enhancing my software development experience and practical problem-solving capabilities.",
     ],
     expanded: false
   }

@@ -16,13 +16,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import CodeIcon from '@mui/icons-material/Code';
 import WorkIcon from '@mui/icons-material/Work';
 import BuildIcon from '@mui/icons-material/Build';
-
-type SectionType = 'home' | 'about' | 'projects' | 'experience' | 'skills';
-
-interface NavbarProps {
-  activeSection: SectionType;
-  onSectionChange: (section: SectionType) => void;
-}
+import { SECTIONS, scrollToSection, SectionType } from '../utils/scroll';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(-10px); }
@@ -30,50 +24,61 @@ const fadeIn = keyframes`
 `;
 
 const menuItems = [
-  { name: 'home', icon: <HomeIcon /> },
-  { name: 'about', icon: <PersonIcon /> },
-  { name: 'projects', icon: <CodeIcon /> },
-  { name: 'experience', icon: <WorkIcon /> },
-  { name: 'skills', icon: <BuildIcon /> },
+  { name: 'home' as const, icon: <HomeIcon /> },
+  { name: 'about' as const, icon: <PersonIcon /> },
+  { name: 'projects' as const, icon: <CodeIcon /> },
+  { name: 'experience' as const, icon: <WorkIcon /> },
+  { name: 'skills' as const, icon: <BuildIcon /> },
 ];
 
-const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionChange }) => {
+const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<SectionType>('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+      setScrolled(window.scrollY > 20);
+
+      const scrollPos = window.scrollY + 100;
+      let current: SectionType = 'home';
+      for (const section of SECTIONS) {
+        const el = document.getElementById(section);
+        if (el && el.offsetTop <= scrollPos) {
+          current = section;
+        }
       }
+      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+  }, []);
 
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
 
-  const handleMenuItemClick = (section: SectionType) => {
-    setOpen(false);
-    onSectionChange(section);
-  };
-
   const handleSectionClick = (section: SectionType) => {
-    onSectionChange(section);
+    setOpen(false);
+    scrollToSection(section);
   };
 
   return (
     <AppBar 
-      position="fixed" 
+      position="fixed"
+      elevation={0}
+      color="transparent"
       sx={{
         bgcolor: scrolled ? 'rgba(26, 32, 44, 0.85)' : 'transparent',
+        backgroundImage: 'none',
         boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.2)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(9, 132, 227, 0.2)' : 'none',
-        transition: 'all 0.3s ease-in-out',
+        borderBottom: scrolled
+          ? '1px solid rgba(9, 132, 227, 0.2)'
+          : '1px solid transparent',
+        backdropFilter: scrolled ? 'blur(10px)' : 'none',
+        transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out',
       }}
     >
       <Toolbar sx={{ justifyContent: 'center', py: { xs: 1, md: 1.5 } }}>
@@ -81,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionChange }) => {
           {menuItems.map((item) => (
             <Button 
               key={item.name}
-              onClick={() => handleSectionClick(item.name as SectionType)}
+              onClick={() => handleSectionClick(item.name)}
               sx={{ 
                 color: 'white',
                 fontSize: '0.95rem',
@@ -152,7 +157,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onSectionChange }) => {
             {menuItems.map((item) => (
               <ListItemButton 
                 key={item.name}
-                onClick={() => handleMenuItemClick(item.name as SectionType)}
+                onClick={() => handleSectionClick(item.name)}
                 sx={{ 
                   py: 2,
                   px: 3,

@@ -6,12 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LaunchIcon from '@mui/icons-material/Launch';
 import DownloadIcon from '@mui/icons-material/Download';
 import homeScreenIcon from '../../assets/homePageIcon1.png';
-
-type SectionType = 'home' | 'about' | 'projects' | 'experience' | 'skills';
-
-interface HomeProps {
-  onSectionChange?: (section: SectionType) => void;
-}
+import { scrollToSection } from '../../utils/scroll';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -32,7 +27,7 @@ const pulse = keyframes`
 
 const skills = ['TypeScript', 'React', 'Python', 'AWS', 'Node.js', 'Docker'];
 
-const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
+const Home: React.FC = () => {
   return (
     <Box
       id="home"
@@ -42,6 +37,7 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
         overflow: "hidden",
         display: 'flex',
         alignItems: 'center',
+        scrollMarginTop: "80px",
       }}
     >
       <Container maxWidth="lg" sx={{ height: '100%', display: 'flex', alignItems: 'center' }}>
@@ -183,7 +179,7 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
                 color="secondary"
                 size="large"
                 startIcon={<LaunchIcon />}
-                onClick={() => onSectionChange?.('projects')}
+                onClick={() => scrollToSection('projects')}
                 sx={{ 
                   borderRadius: 3,
                   px: 5,
