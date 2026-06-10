@@ -202,7 +202,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
                     }
                   }}
                 >
-                  {link.includes('github.com') ? 'View Code' : 'Live Demo'}
+                  {link.includes('github.com') ? 'Code' : 'Website'}
                 </Button>
               )}
 
@@ -246,7 +246,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
                           }
                         }}
                       >
-                        {type === 'github' ? 'View Code' : getIcon(type)}
+                        {type === 'github' ? 'Github' : getIcon(type)}
                       </Button>
                     )
                   ))}

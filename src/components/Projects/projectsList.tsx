@@ -32,6 +32,42 @@ export const projects = [
         // link: 'https://github.com/rmccarthy2017/ForeVision/tree/main/fore_vision'
     },
     {
+        title: 'Purposeful Minds LLC',
+        description: 'Designed, built, and continuously maintain a responsive web presence for a private speech-language pathology practice. Focused on creating an intuitive user experience for clients and modern web standards to drive business growth.',
+        techUsed: 'React, Javascript',
+        link: 'https://www.purposefulmindsllc.com/',
+        links:{
+          github: 'https://github.com/asimak4/julia_purposeful_minds'
+        } 
+    },
+    {
+        title: 'Last Chance Performance & Recovery',
+        description: 'Designed, built, and manage a high-performance web presence for a personal training and athletic recovery brand. Created a sleek, dynamic user interface to showcase training methodologies to drive client leads and consultations.',
+        techUsed: 'React, Javascript, Vite', 
+        link: 'https://www.lastchanceprwellness.com/',
+        links:{
+          github: 'https://github.com/asimak4/LastChancePT_Josh_Mendoza'
+        } 
+    },
+    // {
+    //     title: 'Natalie Simak Acupuncture',
+    //     description: 'Designed, developed, and maintain a responsive web presence for a private acupuncture practice. Developed a calming, intuitive user interface to establish brand trust.',
+    //     techUsed: 'React, Javascript', 
+    //     link: 'https://natalie-simak-acupuncture-v2.vercel.app/',
+    //     links:{
+    //       github: 'https://github.com/asimak4/natalie_simak_acupuncture_v2'
+    //     } 
+    // },
+    {
+        title: 'Reach Language & Learning',
+        description: 'Designed, built, and continuously maintain a responsive web presence for a private speech-language pathology practice. Focused on creating an intuitive, accessible user experience for clients to drive business growth.',
+        techUsed: 'React, Javascript', 
+        link: 'https://www.reachlanguageandlearning.com/',
+        links:{
+          github: 'https://github.com/asimak4/GabyReachWebsite'
+        } 
+    }, 
+    {
       title: 'Car Scraping Tool',
       description: 'Developed a Python web scraper using BeautifulSoup to automatically filter and extract cars from Cars.com based on specific criteria. The scraper updates a CSV file with new results and sends email notifications, saving time in the car selection process.',
       techUsed: 'Python', 
