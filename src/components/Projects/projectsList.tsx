@@ -1,7 +1,7 @@
 export const projects = [
   {
     title: 'SaferNeighbor',
-    description: 'Developed a full-stack neighborhood safety platform that generates comprehensive safety reports for any U.S. address. Architected a microservices-based application that aggregates data from multiple government and public sources in parallel to calculate a proprietary SafetyScore (0-100), providing users with insights into crime, schools, environmental hazards, traffic safety, demographics, affordable housing, nearby registered sex offenders, and more. Implemented real-time report generation using Server-Sent Events, PDF exports, interactive coverage maps, and a resilient backend with soft-fail data aggregation and caching.',
+    description: 'Developed a full-stack neighborhood safety platform that generates comprehensive safety reports for any U.S. address. Built a microservices architecture using React, Node.js, and Docker to aggregate government data into a proprietary SafetyScore with real-time report generation.',
     techUsed: 'TypeScript, React, Node.js, Express, Vite, Docker, AWS, Playwright',
     link: 'https://saferneighbor.com'
   },
