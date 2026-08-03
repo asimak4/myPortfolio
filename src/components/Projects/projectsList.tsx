@@ -1,4 +1,10 @@
 export const projects = [
+  {
+    title: 'SaferNeighbor',
+    description: 'Developed a full-stack neighborhood safety platform that generates comprehensive safety reports for any U.S. address. Architected a microservices-based application that aggregates data from multiple government and public sources in parallel to calculate a proprietary SafetyScore (0-100), providing users with insights into crime, schools, environmental hazards, traffic safety, demographics, affordable housing, nearby registered sex offenders, and more. Implemented real-time report generation using Server-Sent Events, PDF exports, interactive coverage maps, and a resilient backend with soft-fail data aggregation and caching.',
+    techUsed: 'TypeScript, React, Node.js, Express, Vite, Docker, AWS, Playwright',
+    link: 'https://saferneighbor.com'
+  },
   // {
   //   title: 'Salonbud.com',
   //   description: 'Developed a comprehensive management system for small businesses, currently in use by a salon. Features include daily cost tracking, revenue management, product inventory tracking, and streamlined day-to-day operations. This solution helps businesses digitize their operations and make data-driven decisions.',
