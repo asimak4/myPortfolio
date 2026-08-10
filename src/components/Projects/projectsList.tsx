@@ -55,15 +55,15 @@ export const projects = [
           github: 'https://github.com/asimak4/LastChancePT_Josh_Mendoza'
         } 
     },
-    // {
-    //     title: 'Natalie Simak Acupuncture',
-    //     description: 'Designed, developed, and maintain a responsive web presence for a private acupuncture practice. Developed a calming, intuitive user interface to establish brand trust.',
-    //     techUsed: 'React, Javascript', 
-    //     link: 'https://natalie-simak-acupuncture-v2.vercel.app/',
-    //     links:{
-    //       github: 'https://github.com/asimak4/natalie_simak_acupuncture_v2'
-    //     } 
-    // },
+    {
+        title: 'Natalie Simak Acupuncture',
+        description: 'Designed, developed, and maintain a responsive web presence for a private acupuncture practice. Developed a calming, intuitive user interface to establish brand trust.',
+        techUsed: 'React, Javascript', 
+        link: 'https://natalie-simak-acupuncture-v2.vercel.app/',
+        links:{
+          github: 'https://github.com/asimak4/natalie_simak_acupuncture_v2'
+        } 
+    },
     {
         title: 'Reach Language & Learning',
         description: 'Designed, built, and continuously maintain a responsive web presence for a private speech-language pathology practice. Focused on creating an intuitive, accessible user experience for clients to drive business growth.',
