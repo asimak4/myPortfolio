@@ -59,7 +59,7 @@ export const projects = [
         title: 'Natalie Simak Acupuncture',
         description: 'Designed, developed, and maintain a responsive web presence for a private acupuncture practice. Developed a calming, intuitive user interface to establish brand trust.',
         techUsed: 'React, Javascript', 
-        link: 'https://natalie-simak-acupuncture-v2.vercel.app/',
+        link: 'nataliesimakacupuncture.com',
         links:{
           github: 'https://github.com/asimak4/natalie_simak_acupuncture_v2'
         } 
