@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Typography, Container, Grid, IconButton, Card, CardContent, Divider } from '@mui/material';
+import { Box, Typography, Container, Grid, Card, CardContent } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { aboutMeText } from './aboutMe';
 import CodeIcon from '@mui/icons-material/Code';
@@ -67,18 +67,17 @@ const About: React.FC = () => {
       ref={aboutRef}
       id="about"
       sx={{
-        minHeight: "60vh",
+        minHeight: "80vh",
         position: "relative",
         overflow: "hidden",
-        py: { xs: 3, md: 4 },
-        pb: { xs: 0, md: 0 },
-        pt: { xs: 12, md: 12 },
+        py: { xs: 10, md: 16 },
         scrollMarginTop: "80px",
+        borderBottom: '1px solid rgba(243, 239, 228, 0.1)',
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+      <Container maxWidth={false} sx={{ maxWidth: 1280, px: { xs: 2.5, md: 5 } }}>
+        <Grid container spacing={{ xs: 7, md: 10 }}>
+          <Grid item xs={12} md={7}>
             <Box sx={{ 
               animation: isVisible ? `${slideIn} 1s ease-out` : 'none',
               opacity: isVisible ? 1 : 0,
@@ -87,38 +86,33 @@ const About: React.FC = () => {
                 variant="overline" 
                 sx={{ 
                   color: 'secondary.main',
-                  letterSpacing: 3,
-                  mb: 2,
+                  mb: 3,
                   display: 'block',
-                  fontWeight: 600,
-                  fontSize: '0.875rem'
+                  fontSize: '0.7rem'
                 }}
               >
-                ABOUT ME
+                02 / ABOUT
               </Typography>
               <Typography 
                 variant="h2" 
                 gutterBottom
                 sx={{ 
-                  fontWeight: 800,
-                  mb: 4,
-                  background: 'linear-gradient(135deg, #FFFFFF 0%, #74B9FF 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontSize: { xs: '2.5rem', md: '3rem' },
-                  lineHeight: 1.2
+                  color: 'primary.main',
+                  mb: 5,
+                  maxWidth: 650,
+                  fontSize: { xs: '3.4rem', md: '5.5rem' },
+                  lineHeight: 0.98
                 }}
               >
-                Turning Vision Into Reality
+                Engineering with <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>intent.</Box>
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ 
-                  mb: 4,
-                  fontSize: '1.1rem',
-                  lineHeight: 1.8,
-                  color: 'rgba(255, 255, 255, 0.85)',
+                  maxWidth: 660,
+                  fontSize: { xs: '1rem', md: '1.12rem' },
+                  lineHeight: 1.9,
+                  color: 'text.secondary',
                 }}
               >
                 {aboutMeText}
@@ -126,96 +120,74 @@ const About: React.FC = () => {
             </Box>
           </Grid>
           
-          <Grid item xs={12} md={6}>
-            <Grid container spacing={3}>
+          <Grid item xs={12} md={5}>
+            <Box sx={{ borderTop: '1px solid rgba(243, 239, 228, 0.18)' }}>
               {highlights.map((highlight, index) => (
-                <Grid item xs={12} key={highlight.title}>
                   <Card
+                    key={highlight.title}
                     sx={{
-                      height: '100%',
-                      bgcolor: 'rgba(255, 255, 255, 0.02)',
-                      backdropFilter: 'blur(20px)',
-                      borderRadius: 6,
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      bgcolor: 'transparent',
+                      borderRadius: 0,
+                      border: 0,
+                      borderBottom: '1px solid rgba(243, 239, 228, 0.18)',
                       position: 'relative',
                       overflow: 'hidden',
-                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                      transition: 'background-color 0.35s ease, padding 0.35s ease',
                       animation: `${fadeIn} 1s ease-out ${index * 0.2}s backwards`,
-                      '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: '-100%',
-                        width: '100%',
-                        height: '100%',
-                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent)',
-                        transition: 'left 0.5s ease-in-out',
-                      },
                       '&:hover': {
-                        transform: 'translateY(-8px) scale(1.02)',
-                        bgcolor: 'rgba(255, 255, 255, 0.08)',
-                        border: '1px solid rgba(9, 132, 227, 0.3)',
-                        boxShadow: '0 20px 40px rgba(9, 132, 227, 0.1)',
-                        '&::before': {
-                          left: '100%',
-                        },
-                        '& .highlight-icon': {
-                          transform: 'scale(1.1) rotate(5deg)',
-                          bgcolor: 'secondary.light',
-                        },
+                        bgcolor: 'rgba(91, 127, 208, 0.06)',
+                        '& .highlight-arrow': { transform: 'translate(4px, -4px)', color: 'secondary.main' },
                       },
                     }}
                   >
-                    <CardContent sx={{ p: 3 }}>
+                    <CardContent sx={{ py: 3.5, px: 1 }}>
                       <Box sx={{ 
                         display: 'flex', 
                         alignItems: 'flex-start', 
-                        gap: 2,
-                        mb: 2 
+                        gap: 2.5,
                       }}>
-                        <IconButton
-                          className="highlight-icon"
+                        <Typography
                           sx={{
-                            bgcolor: 'secondary.main',
-                            color: 'white',
-                            transition: 'all 0.3s ease-in-out',
-                            boxShadow: '0 4px 12px rgba(9, 132, 227, 0.3)',
-                            '&:hover': { bgcolor: 'secondary.main' },
+                            color: 'secondary.main',
+                            fontFamily: '"IBM Plex Mono", monospace',
+                            fontSize: '0.7rem',
+                            pt: 0.6,
                           }}
                         >
-                          {highlight.icon}
-                        </IconButton>
+                          0{index + 1}
+                        </Typography>
                         <Box sx={{ flex: 1 }}>
                           <Typography 
                             variant="h6" 
                             gutterBottom 
                             sx={{ 
                               fontWeight: 700,
-                              color: 'white',
-                              fontSize: '1.25rem',
-                              mb: 1
+                              color: 'primary.main',
+                              fontSize: '1.1rem',
+                              mb: 1.2
                             }}
                           >
                             {highlight.title}
                           </Typography>
-                          <Divider sx={{ bgcolor: 'rgba(255, 255, 255, 0.1)', mb: 2 }} />
                           <Typography 
                             variant="body1" 
                             sx={{
-                              color: 'rgba(255, 255, 255, 0.8)',
-                              fontSize: '0.95rem',
-                              lineHeight: 1.6
+                              color: 'text.secondary',
+                              fontSize: '0.9rem',
+                              lineHeight: 1.7
                             }}
                           >
                             {highlight.description}
                           </Typography>
                         </Box>
+                        <Typography className="highlight-arrow" sx={{ color: 'text.secondary', transition: 'all 0.3s ease' }}>
+                          ↗
+                        </Typography>
                       </Box>
                     </CardContent>
                   </Card>
-                </Grid>
               ))}
-            </Grid>
+            </Box>
           </Grid>
         </Grid>
       </Container>

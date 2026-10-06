@@ -16,6 +16,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import CodeIcon from '@mui/icons-material/Code';
 import WorkIcon from '@mui/icons-material/Work';
 import BuildIcon from '@mui/icons-material/Build';
+import Typography from '@mui/material/Typography';
 import { SECTIONS, scrollToSection, SectionType } from '../utils/scroll';
 
 const fadeIn = keyframes`
@@ -71,69 +72,143 @@ const Navbar: React.FC = () => {
       elevation={0}
       color="transparent"
       sx={{
-        bgcolor: scrolled ? 'rgba(26, 32, 44, 0.85)' : 'transparent',
+        bgcolor: scrolled ? 'rgba(9, 12, 11, 0.82)' : 'transparent',
         backgroundImage: 'none',
-        boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.2)' : 'none',
+        boxShadow: 'none',
         borderBottom: scrolled
-          ? '1px solid rgba(9, 132, 227, 0.2)'
+          ? '1px solid rgba(243, 239, 228, 0.1)'
           : '1px solid transparent',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
+        backdropFilter: scrolled ? 'blur(18px)' : 'none',
         transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out',
       }}
     >
-      <Toolbar sx={{ justifyContent: 'center', py: { xs: 1, md: 1.5 } }}>
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1, animation: `${fadeIn} 1s ease-out` }}>
+      <Toolbar
+        sx={{
+          width: '100%',
+          maxWidth: 1280,
+          mx: 'auto',
+          px: { xs: 2.5, md: 5 },
+          py: { xs: 1, md: 1.5 },
+          justifyContent: 'space-between',
+        }}
+      >
+        <Box
+          onClick={() => handleSectionClick('home')}
+          role="button"
+          tabIndex={0}
+          aria-label="Go to home section"
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              handleSectionClick('home');
+            }
+          }}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1.5,
+            cursor: 'pointer',
+            animation: `${fadeIn} 0.8s ease-out`,
+          }}
+        >
+          <Box
+            sx={{
+              width: 34,
+              height: 34,
+              border: '1px solid',
+              borderColor: 'secondary.main',
+              borderRadius: '50%',
+              display: 'grid',
+              placeItems: 'center',
+              color: 'secondary.main',
+              fontFamily: '"Bodoni Moda", serif',
+              fontSize: '0.9rem',
+              fontStyle: 'italic',
+            }}
+          >
+            AS
+          </Box>
+          <Typography
+            sx={{
+              display: { xs: 'none', sm: 'block' },
+              fontFamily: '"IBM Plex Mono", monospace',
+              fontSize: '0.68rem',
+              letterSpacing: '0.12em',
+              color: 'text.secondary',
+              lineHeight: 1.35,
+            }}
+          >
+            ALEXANDER SIMAK
+            <br />
+            SOFTWARE ENGINEER
+          </Typography>
+        </Box>
+
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 0.5, animation: `${fadeIn} 1s ease-out` }}>
           {menuItems.map((item) => (
             <Button 
               key={item.name}
               onClick={() => handleSectionClick(item.name)}
               sx={{ 
-                color: 'white',
-                fontSize: '0.95rem',
+                color: activeSection === item.name ? 'primary.main' : 'text.secondary',
+                fontFamily: '"IBM Plex Mono", monospace',
+                fontSize: '0.7rem',
+                letterSpacing: '0.08em',
                 fontWeight: 500,
-                px: 2.5,
+                px: 1.8,
                 py: 1,
-                borderRadius: 2,
+                borderRadius: 0,
                 position: 'relative',
                 overflow: 'hidden',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
                 '&::before': {
                   content: '""',
                   position: 'absolute',
                   bottom: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '2px',
+                  left: '50%',
+                  width: activeSection === item.name ? '16px' : 0,
+                  height: '1px',
                   bgcolor: 'secondary.main',
-                  transform: activeSection === item.name ? 'scaleX(1)' : 'scaleX(0)',
-                  transition: 'transform 0.3s ease-in-out',
-                  transformOrigin: 'left',
+                  transform: 'translateX(-50%)',
+                  transition: 'width 0.3s ease-in-out',
                 },
                 '&:hover': {
-                  bgcolor: 'rgba(9, 132, 227, 0.15)',
+                  color: 'primary.main',
+                  bgcolor: 'transparent',
                   '&::before': {
-                    transform: 'scaleX(1)',
+                    width: '16px',
                   },
                 },
               }}
             >
-              {item.icon}
               {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
             </Button>
           ))}
         </Box>
 
-        {/* Mobile Menu */}
-        <Box sx={{ display: { xs: 'flex', md: 'none' }, width: '100%', justifyContent: 'flex-end' }}>
+        <Box
+          sx={{
+            display: { xs: 'none', md: 'flex' },
+            alignItems: 'center',
+            gap: 1,
+            color: 'text.secondary',
+            fontFamily: '"IBM Plex Mono", monospace',
+            fontSize: '0.66rem',
+            letterSpacing: '0.08em',
+          }}
+        >
+          <Box sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: 'secondary.main', boxShadow: '0 0 12px #5B7FD0' }} />
+          AVAILABLE FOR IDEAS
+        </Box>
+
+        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
           <IconButton
             onClick={handleDrawerToggle}
+            aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
             sx={{ 
-              color: 'white',
-              bgcolor: 'rgba(9, 132, 227, 0.15)',
+              color: 'primary.main',
+              border: '1px solid rgba(243, 239, 228, 0.18)',
               '&:hover': { 
-                bgcolor: 'rgba(9, 132, 227, 0.25)',
+                bgcolor: 'rgba(91, 127, 208, 0.1)',
               },
             }}
           >
@@ -148,8 +223,9 @@ const Navbar: React.FC = () => {
           PaperProps={{ 
             sx: { 
               width: '280px',
-              bgcolor: 'rgba(26, 32, 44, 0.95)',
-              color: 'white',
+              bgcolor: '#0D110F',
+              color: 'primary.main',
+              borderLeft: '1px solid rgba(243, 239, 228, 0.12)',
             }
           }}
         >
@@ -167,15 +243,15 @@ const Navbar: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '16px',
-                  color: 'white',
+                  color: 'text.secondary',
                   '&:hover': { 
-                    bgcolor: 'rgba(9, 132, 227, 0.15)',
+                    bgcolor: 'rgba(91, 127, 208, 0.1)',
                     '& .MuiListItemText-primary': {
                       color: 'secondary.light',
                     }
                   },
                   ...(activeSection === item.name && {
-                    bgcolor: 'rgba(9, 132, 227, 0.15)',
+                    bgcolor: 'rgba(91, 127, 208, 0.1)',
                     '& .MuiListItemText-primary': {
                       color: 'secondary.light',
                       fontWeight: 600,

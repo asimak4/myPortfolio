@@ -24,88 +24,71 @@ const Experience: React.FC = () => {
       id="experience"
       sx={{
         minHeight: "100vh",
-        py: { xs: 4, md: 6 },
+        py: { xs: 10, md: 16 },
         position: 'relative',
         overflow: 'hidden',
-        pt: { xs: 12, md: 12 },
         scrollMarginTop: "80px",
+        borderBottom: '1px solid rgba(243, 239, 228, 0.1)',
       }}
     >
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', width: '100%', mb: 8, animation: `${fadeIn} 1s ease-out` }}>
+      <Container maxWidth={false} sx={{ maxWidth: 1120, px: { xs: 2.5, md: 5 } }}>
+        <Box sx={{ textAlign: 'left', width: '100%', mb: { xs: 6, md: 10 }, animation: `${fadeIn} 1s ease-out` }}>
           <Typography 
             variant="overline" 
             sx={{ 
               color: 'secondary.main',
-              letterSpacing: 3,
-              mb: 2,
+              mb: 3,
               display: 'block',
-              fontWeight: 600,
-              fontSize: '0.9rem'
+              fontSize: '0.7rem'
             }}
           >
-            CAREER JOURNEY
+            04 / EXPERIENCE
           </Typography>
           <Typography 
             variant="h2" 
             gutterBottom
             sx={{ 
-              fontWeight: 700,
-              color: 'white',
+              color: 'primary.main',
               mb: 3,
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-              background: 'linear-gradient(135deg, #ffffff 0%, #0984e3 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              fontSize: { xs: '3.4rem', md: '5.5rem' },
+              lineHeight: 0.98,
             }}
           >
-            Work Experience
+            The work <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>behind the work.</Box>
           </Typography>
           <Typography 
             variant="body1" 
             sx={{ 
-              color: 'rgba(255,255,255,0.8)',
+              color: 'text.secondary',
               maxWidth: '600px',
-              mx: 'auto',
-              fontSize: '1.1rem',
-              lineHeight: 1.7,
+              fontSize: '1.05rem',
+              lineHeight: 1.8,
             }}
           >
             My professional journey across innovative companies and meaningful projects
           </Typography>
         </Box>
 
-        <Stack spacing={4}>
+        <Stack spacing={0}>
           {experiences.map((experience, index) => (
             <Card
               key={index}
               sx={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(9,132,227,0.05) 100%)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.12)',
-                borderRadius: 3,
+                background: 'transparent',
+                border: 0,
+                borderTop: '1px solid rgba(243, 239, 228, 0.16)',
+                borderRadius: 0,
                 overflow: 'hidden',
-                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                transition: 'background-color 0.35s ease',
                 animation: `${fadeIn} 0.8s ease-out ${index * 0.1}s backwards`,
                 position: 'relative',
                 '&:hover': {
-                  transform: 'translateY(-2px) scale(1.005)',
-                  boxShadow: '0 10px 20px rgba(9, 132, 227, 0.2)',
-                  border: '1px solid rgba(9, 132, 227, 0.3)',
+                  background: 'rgba(91, 127, 208, 0.04)',
                 },
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: '3px',
-                  background: 'linear-gradient(90deg, #0984e3, #74b9ff)',
-                },
+                '&:last-child': { borderBottom: '1px solid rgba(243, 239, 228, 0.16)' },
               }}
             >
-              <CardContent sx={{ p: 4 }}>
+              <CardContent sx={{ p: { xs: 2.5, md: 4 } }}>
                 <Box 
                   onClick={() => handleExpandClick(index)}
                   sx={{ 
@@ -120,24 +103,23 @@ const Experience: React.FC = () => {
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, flex: 1 }}>
                     <Box
                       sx={{
-                        width: 60,
-                        height: 60,
-                        borderRadius: 2,
-                        background: 'linear-gradient(135deg, #0984e3, #74b9ff)',
+                        width: 48,
+                        height: 48,
+                        borderRadius: '50%',
+                        border: '1px solid rgba(91, 127, 208, 0.45)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        boxShadow: '0 8px 16px rgba(9, 132, 227, 0.3)',
                       }}
                     >
-                      <WorkIcon sx={{ color: 'white', fontSize: 28 }} />
+                      <WorkIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                     </Box>
                     <Box>
                       <Typography 
                         variant="h5" 
                         sx={{ 
                           fontWeight: 700,
-                          color: 'white',
+                          color: 'primary.main',
                           mb: 0.5,
                           letterSpacing: '-0.5px'
                         }}
@@ -147,8 +129,11 @@ const Experience: React.FC = () => {
                       <Typography 
                         variant="h6" 
                         sx={{ 
-                          color: 'secondary.main',
+                          color: 'text.secondary',
                           fontWeight: 600,
+                          fontFamily: '"IBM Plex Mono", monospace',
+                          fontSize: '0.78rem',
+                          letterSpacing: '0.06em',
                           mb: 1
                         }}
                       >
@@ -167,12 +152,12 @@ const Experience: React.FC = () => {
                       icon={<DateRangeIcon />}
                       label={experience.duration}
                       sx={{
-                        bgcolor: 'rgba(116,185,255,0.15)',
-                        color: 'white',
-                        border: '1px solid rgba(116,185,255,0.4)',
+                        bgcolor: 'transparent',
+                        color: 'text.secondary',
+                        border: '1px solid rgba(243, 239, 228, 0.14)',
                         fontWeight: 500,
                         '& .MuiChip-icon': {
-                          color: '#74b9ff',
+                          color: '#5B7FD0',
                         },
                       }}
                     />
@@ -180,23 +165,24 @@ const Experience: React.FC = () => {
                       icon={<LocationOnIcon />}
                       label={experience.location}
                       sx={{
-                        bgcolor: 'rgba(116,185,255,0.15)',
-                        color: 'white',
-                        border: '1px solid rgba(116,185,255,0.4)',
+                        bgcolor: 'transparent',
+                        color: 'text.secondary',
+                        border: '1px solid rgba(243, 239, 228, 0.14)',
                         fontWeight: 500,
                         '& .MuiChip-icon': {
-                          color: '#74b9ff',
+                          color: '#5B7FD0',
                         },
                       }}
                     />
                     <IconButton
+                      aria-label={`${expandedId === index ? 'Collapse' : 'Expand'} details for ${experience.role} at ${experience.company}`}
                       sx={{
                         transform: expandedId === index ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 0.3s ease',
                         color: 'secondary.main',
-                        bgcolor: 'rgba(116,185,255,0.1)',
+                        bgcolor: 'rgba(91, 127, 208, 0.08)',
                         '&:hover': {
-                          bgcolor: 'rgba(116,185,255,0.2)',
+                          bgcolor: 'rgba(91, 127, 208, 0.16)',
                         },
                       }}
                     >
@@ -207,7 +193,7 @@ const Experience: React.FC = () => {
 
                 <Collapse in={expandedId === index}>
                   <Box sx={{ mt: 4 }}>
-                    <Divider sx={{ mb: 3, bgcolor: 'rgba(255,255,255,0.1)' }} />
+                    <Divider sx={{ mb: 3, bgcolor: 'rgba(243, 239, 228, 0.1)' }} />
                     <Stack spacing={2}>
                       {experience.bullets.map((bullet, i) => (
                         <Box 
@@ -231,17 +217,17 @@ const Experience: React.FC = () => {
                               width: 8,
                               height: 8,
                               borderRadius: '50%',
-                              background: 'linear-gradient(135deg, #0984e3, #74b9ff)',
+                              background: '#5B7FD0',
                               mt: 1,
                               mr: 2,
                               flexShrink: 0,
-                              boxShadow: '0 2px 4px rgba(9, 132, 227, 0.4)',
+                              boxShadow: '0 0 10px rgba(91, 127, 208, 0.45)',
                             }}
                           />
                           <Typography 
                             variant="body1" 
                             sx={{ 
-                              color: 'rgba(255,255,255,0.9)',
+                              color: 'text.secondary',
                               lineHeight: 1.6,
                               fontSize: '0.95rem'
                             }}

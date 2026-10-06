@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, Box, Button, IconButton, Chip, Stack, Divider } from '@mui/material';
+import { Card, CardContent, Typography, Box, Button, Chip, Stack, Divider } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import LaunchIcon from '@mui/icons-material/Launch';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -41,41 +41,41 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
     <Card
       sx={{
         height: '100%',
-        bgcolor: 'rgba(255, 255, 255, 0.02)',
-        backdropFilter: 'blur(20px)',
-        borderRadius: 6,
-        border: '1px solid rgba(255, 255, 255, 0.08)',
+        bgcolor: '#0D110F',
+        borderRadius: 0,
+        border: '1px solid rgba(243, 239, 228, 0.12)',
+        borderTop: '2px solid rgba(91, 127, 208, 0.85)',
         position: 'relative',
         overflow: 'hidden',
-        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        transition: 'transform 0.35s ease, border-color 0.35s ease, background-color 0.35s ease',
         '&::before': {
           content: '""',
           position: 'absolute',
-          top: 0,
-          left: '-100%',
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-          transition: 'left 0.5s ease-in-out',
+          width: 120,
+          height: 120,
+          right: -60,
+          top: -60,
+          border: '1px solid rgba(91, 127, 208, 0.24)',
+          borderRadius: '50%',
+          transition: 'transform 0.5s ease',
         },
         '&:hover': {
-          transform: 'translateY(-2px) scale(1.02)',
-          bgcolor: 'rgba(255, 255, 255, 0.08)',
-          border: '1px solid rgba(9, 132, 227, 0.3)',
-          boxShadow: '0 25px 50px rgba(9, 132, 227, 0.15), 0 0 0 1px rgba(9, 132, 227, 0.1)',
+          transform: 'translateY(-6px)',
+          bgcolor: '#111714',
+          borderColor: 'rgba(91, 127, 208, 0.42)',
+          boxShadow: '0 24px 70px rgba(0, 0, 0, 0.28)',
           '&::before': {
-            left: '100%',
+            transform: 'scale(1.3)',
           },
           '& .project-icon': {
-            transform: 'rotate(10deg) scale(1.15)',
-            bgcolor: 'secondary.light',
+            transform: 'rotate(-8deg)',
+            color: 'secondary.main',
           },
           '& .tech-chip': {
-            transform: 'translateY(0)',
-            opacity: 1,
+            color: 'primary.main',
           },
           '& .project-content': {
-            transform: 'translateY(-4px)',
+            transform: 'translateY(-2px)',
           }
         },
       }}
@@ -85,33 +85,40 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
           {/* Header Section */}
           <Box sx={{ 
             p: 3, 
-            pb: 2,
-            background: 'linear-gradient(135deg, rgba(9, 132, 227, 0.1) 0%, rgba(9, 132, 227, 0.05) 100%)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
+            pb: 2.5,
+            background: 'transparent',
+            borderBottom: '1px solid rgba(243, 239, 228, 0.1)'
           }}>
             <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 2 }}>
-              <IconButton 
+              <Box
                 className="project-icon"
                 sx={{ 
-                  bgcolor: 'secondary.main',
-                  color: 'white',
-                  size: 'large',
+                  width: 40,
+                  height: 40,
+                  display: 'grid',
+                  placeItems: 'center',
+                  borderRadius: '50%',
+                  bgcolor: 'transparent',
+                  color: 'text.secondary',
+                  border: '1px solid rgba(243, 239, 228, 0.16)',
                   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  boxShadow: '0 4px 12px rgba(9, 132, 227, 0.3)',
-                  '&:hover': { bgcolor: 'secondary.dark' }
                 }}
               >
                 <CodeIcon sx={{ fontSize: '1.5rem' }} />
-              </IconButton>
+              </Box>
+              <Typography sx={{ color: 'secondary.main', fontFamily: '"IBM Plex Mono", monospace', fontSize: '0.62rem', letterSpacing: '0.12em' }}>
+                CASE STUDY ↗
+              </Typography>
             </Box>
             <Typography 
               variant="h5" 
               component="h2" 
               sx={{ 
-                color: 'white',
-                fontWeight: 700,
+                color: 'primary.main',
+                fontFamily: '"Bodoni Moda", serif',
+                fontWeight: 500,
                 mb: 1,
-                fontSize: '1.5rem',
+                fontSize: '1.8rem',
                 lineHeight: 1.2
               }}
             >
@@ -131,7 +138,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
             <Typography 
               variant="body1" 
               sx={{ 
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: 'text.secondary',
                 mb: 3,
                 flexGrow: 1,
                 fontSize: '0.95rem',
@@ -142,7 +149,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
               {description}
             </Typography>
 
-            <Divider sx={{ bgcolor: 'rgba(255, 255, 255, 0.08)', mb: 2 }} />
+            <Divider sx={{ bgcolor: 'rgba(243, 239, 228, 0.1)', mb: 2 }} />
             
             <Box sx={{ 
               display: 'flex', 
@@ -150,9 +157,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
               gap: 1, 
               mb: 3,
               '& .tech-chip': {
-                transform: 'translateY(10px)',
-                opacity: 0.7,
-                transition: 'all 0.3s ease-in-out',
+                transition: 'color 0.3s ease-in-out',
               }
             }}>
               {technologies.map((tech, index) => (
@@ -162,15 +167,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
                   className="tech-chip"
                   size="small"
                   sx={{ 
-                    bgcolor: 'rgba(9, 132, 227, 0.15)',
-                    color: 'secondary.light',
-                    border: '1px solid rgba(9, 132, 227, 0.2)',
+                    bgcolor: 'transparent',
+                    color: 'text.secondary',
+                    border: '1px solid rgba(243, 239, 228, 0.14)',
                     fontWeight: 500,
+                    fontFamily: '"IBM Plex Mono", monospace',
                     fontSize: '0.75rem',
                     transitionDelay: `${index * 0.05}s`,
                     '&:hover': {
-                      bgcolor: 'rgba(9, 132, 227, 0.25)',
-                      transform: 'translateY(-2px)',
+                      color: 'secondary.main',
+                      bgcolor: 'rgba(91, 127, 208, 0.08)',
+                      borderColor: 'rgba(91, 127, 208, 0.4)',
                     }
                   }}
                 />
@@ -188,17 +195,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
                   rel="noopener noreferrer"
                   startIcon={link.includes('github.com') ? <GitHubIcon /> : <LaunchIcon />}
                   sx={{
-                    borderRadius: 3,
-                    textTransform: 'none',
                     fontWeight: 600,
                     fontSize: '0.875rem',
                     py: 1,
                     px: 2.5,
-                    boxShadow: '0 4px 12px rgba(9, 132, 227, 0.3)',
-                    background: 'linear-gradient(135deg, #0984E3 0%, #74B9FF 100%)',
+                    color: '#090C0B',
+                    boxShadow: 'none',
+                    background: 'secondary.main',
                     '&:hover': {
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 6px 20px rgba(9, 132, 227, 0.4)',
+                      background: 'secondary.light',
+                      boxShadow: '0 8px 24px rgba(91, 127, 208, 0.22)',
                     }
                   }}
                 >
@@ -219,29 +226,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
                         rel="noopener noreferrer"
                         startIcon={type === 'github' ? getIcon(type) : undefined}
                         sx={{
-                          borderRadius: 3,
-                          textTransform: 'none',
                           fontWeight: 600,
                           fontSize: '0.875rem',
                           py: 1,
                           px: type === 'github' ? 2.5 : 1.5,
                           minWidth: type === 'github' ? 'auto' : '44px',
                           ...(type === 'github' && {
-                            boxShadow: '0 4px 12px rgba(9, 132, 227, 0.3)',
-                            background: 'linear-gradient(135deg, #0984E3 0%, #74B9FF 100%)',
+                            color: '#090C0B',
+                            boxShadow: 'none',
+                            background: 'secondary.main',
                           }),
                           ...(type !== 'github' && {
-                            border: '1px solid rgba(9, 132, 227, 0.5)',
-                            bgcolor: 'rgba(9, 132, 227, 0.1)',
+                            color: 'secondary.main',
+                            border: '1px solid rgba(91, 127, 208, 0.45)',
+                            bgcolor: 'transparent',
                           }),
                           '&:hover': {
                             transform: 'translateY(-2px)',
                             ...(type === 'github' && {
-                              boxShadow: '0 6px 20px rgba(9, 132, 227, 0.4)',
+                              background: 'secondary.light',
+                              boxShadow: '0 8px 24px rgba(91, 127, 208, 0.22)',
                             }),
                             ...(type !== 'github' && {
-                              bgcolor: 'rgba(9, 132, 227, 0.2)',
-                              border: '1px solid rgba(9, 132, 227, 0.7)',
+                              bgcolor: 'rgba(91, 127, 208, 0.1)',
+                              borderColor: 'secondary.main',
                             })
                           }
                         }}

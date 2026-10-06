@@ -13,84 +13,91 @@ import { Analytics } from '@vercel/analytics/react';
 
 const theme = createTheme({
   typography: {
-    fontFamily: '"Inter", "Public Sans", -apple-system, sans-serif',
+    fontFamily: '"Manrope", sans-serif',
     h1: {
-      fontWeight: 700,
-      fontSize: '3.5rem',
+      fontFamily: '"Bodoni Moda", Georgia, serif',
+      fontWeight: 500,
+      letterSpacing: '-0.055em',
     },
     h2: {
-      fontWeight: 600,
-      fontSize: '2.5rem',
+      fontFamily: '"Bodoni Moda", Georgia, serif',
+      fontWeight: 500,
+      letterSpacing: '-0.045em',
     },
     h3: {
-      fontWeight: 600,
-      fontSize: '2rem',
+      fontFamily: '"Bodoni Moda", Georgia, serif',
+      fontWeight: 500,
     },
     body1: {
-      fontSize: '1.1rem',
-      lineHeight: 1.7,
+      fontSize: '1rem',
+      lineHeight: 1.75,
+    },
+    overline: {
+      fontFamily: '"IBM Plex Mono", monospace',
+      fontWeight: 500,
+      letterSpacing: '0.18em',
     },
   },
   palette: {
     mode: 'dark',
     primary: {
-      main: '#FFFFFF',
-      light: '#ECEFF4',
-      dark: '#E5E9F0',
+      main: '#F3EFE4',
+      light: '#FFFFFF',
+      dark: '#A9ADA5',
     },
     secondary: {
-      main: '#0984E3',
-      light: '#74B9FF',
-      dark: '#0652DD',
+      main: '#5B7FD0',
+      light: '#91ABEA',
+      dark: '#2D4C92',
     },
     text: {
-      primary: '#FFFFFF',
-      secondary: 'rgba(255, 255, 255, 0.85)',
+      primary: '#F3EFE4',
+      secondary: '#A9ADA5',
     },
     background: {
-      default: '#151C20',
-      paper: 'rgba(255, 255, 255, 0.1)',
+      default: '#090C0B',
+      paper: '#101513',
     },
+  },
+  shape: {
+    borderRadius: 2,
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
         html: {
-          backgroundColor: '#151C20',
+          backgroundColor: '#090C0B',
         },
         body: {
-          backgroundColor: '#151C20',
-          backgroundImage: 'linear-gradient(135deg, #1D2B34 0%, #151C20 100%)',
-          backgroundAttachment: 'fixed',
+          backgroundColor: '#090C0B',
         },
       },
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 8,
+          borderRadius: 999,
           textTransform: 'none',
           fontWeight: 600,
-          padding: '8px 24px',
+          letterSpacing: '-0.01em',
+          padding: '10px 22px',
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-          background: 'rgba(255, 255, 255, 0.1)',
-          backdropFilter: 'blur(10px)',
+          borderRadius: 2,
+          boxShadow: 'none',
+          background: '#101513',
         },
       },
     },
     MuiPaper: {
       styleOverrides: {
         root: {
-          background: 'rgba(255, 255, 255, 0.1)',
-          backdropFilter: 'blur(10px)',
-          color: '#FFFFFF',
+          background: '#101513',
+          color: '#F3EFE4',
         },
       },
     },
@@ -99,17 +106,17 @@ const theme = createTheme({
         root: {
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
-              borderColor: 'rgba(255, 255, 255, 0.3)',
+              borderColor: 'rgba(243, 239, 228, 0.22)',
             },
             '&:hover fieldset': {
-              borderColor: 'rgba(255, 255, 255, 0.5)',
+              borderColor: '#5B7FD0',
             },
           },
           '& .MuiInputLabel-root': {
-            color: 'rgba(255, 255, 255, 0.7)',
+            color: '#A9ADA5',
           },
           '& .MuiOutlinedInput-input': {
-            color: '#FFFFFF',
+            color: '#F3EFE4',
           },
         },
       },
@@ -124,9 +131,36 @@ const App: React.FC = () => {
       <Box
         sx={{
           minHeight: '100vh',
-          background: 'linear-gradient(135deg, #1D2B34 0%, #151C20 100%)',
-          color: 'white',
+          bgcolor: 'background.default',
+          color: 'text.primary',
           position: 'relative',
+          isolation: 'isolate',
+          '&::before': {
+            content: '""',
+            position: 'fixed',
+            inset: 0,
+            zIndex: -2,
+            pointerEvents: 'none',
+            backgroundImage: `
+              linear-gradient(rgba(243, 239, 228, 0.035) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(243, 239, 228, 0.035) 1px, transparent 1px)
+            `,
+            backgroundSize: '72px 72px',
+            maskImage: 'linear-gradient(to bottom, black 0%, transparent 38%)',
+          },
+          '&::after': {
+            content: '""',
+            position: 'fixed',
+            width: '52vw',
+            height: '52vw',
+            right: '-22vw',
+            top: '-24vw',
+            zIndex: -1,
+            pointerEvents: 'none',
+            borderRadius: '50%',
+            background: 'rgba(91, 127, 208, 0.12)',
+            filter: 'blur(120px)',
+          },
         }}
       >
         <Navbar />
