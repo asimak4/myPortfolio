@@ -60,7 +60,7 @@ const Projects: React.FC = () => {
               variant="h2"
               sx={{ color: 'primary.main', fontSize: { xs: '3.4rem', sm: '4rem', md: '5.5rem' }, lineHeight: 0.98 }}
             >
-              Projects that <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>ship.</Box>
+              Selected <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>projects.</Box>
             </Typography>
           </Box>
           <Typography 
@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
               lineHeight: 1.85
             }}
           >
-            A selection of products, platforms, and experiments built from first principles to working software.
+            A few web apps, mobile apps, and tools I&apos;ve built.
           </Typography>
         </Box>
 

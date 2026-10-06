@@ -4,7 +4,7 @@ import { keyframes } from '@mui/system';
 import { aboutMeText } from './aboutMe';
 import CodeIcon from '@mui/icons-material/Code';
 import SchoolIcon from '@mui/icons-material/School';
-import WorkIcon from '@mui/icons-material/Work';
+import StorageIcon from '@mui/icons-material/Storage';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -26,18 +26,18 @@ const slideIn = keyframes`
 const highlights = [
   {
     icon: <CodeIcon fontSize="large" />,
-    title: "Full Stack Development",
-    description: "Experienced in building end-to-end web applications using modern technologies"
+    title: "Web applications",
+    description: "I work across frontend, backend, and cloud infrastructure."
+  },
+  {
+    icon: <StorageIcon fontSize="large" />,
+    title: "Data systems",
+    description: "My current work includes Kafka, Kubernetes, and high-volume data architecture."
   },
   {
     icon: <SchoolIcon fontSize="large" />,
-    title: "Continuous Learning",
-    description: "Always staying updated with the latest technologies and best practices"
-  },
-  {
-    icon: <WorkIcon fontSize="large" />,
-    title: "Problem Solver",
-    description: "Passionate about finding elegant solutions to complex challenges"
+    title: "Computer science and mathematics",
+    description: "I studied both subjects at UMBC."
   }
 ];
 
@@ -104,7 +104,7 @@ const About: React.FC = () => {
                   lineHeight: 0.98
                 }}
               >
-                Engineering with <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>intent.</Box>
+                About <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>me.</Box>
               </Typography>
               <Typography
                 variant="body1"

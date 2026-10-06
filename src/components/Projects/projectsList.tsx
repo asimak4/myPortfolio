@@ -1,7 +1,7 @@
 export const projects = [
   {
     title: 'SaferNeighbor',
-    description: 'Developed a full-stack neighborhood safety platform that generates comprehensive safety reports for any U.S. address. Built a microservices architecture using React, Node.js, and Docker to aggregate government data into a proprietary SafetyScore with real-time report generation.',
+    description: 'A neighborhood safety site that creates a report for any U.S. address. It combines government data into a SafetyScore using React, Node.js, Docker, and a set of small backend services.',
     techUsed: 'TypeScript, React, Node.js, Express, Vite, Docker, AWS, Playwright',
     link: 'https://saferneighbor.com'
   },
@@ -13,7 +13,7 @@ export const projects = [
   // },
   {
     title: 'Joint Living',
-    description: 'Joint is a mobile application designed for couples to manage their shared life together. Built with React Native and Expo, it provides a platform for sharing memories, managing events, and keeping track of important dates, tasks and expenses.',
+    description: 'A mobile app for couples to share memories and keep track of events, important dates, tasks, and expenses.',
     techUsed: 'React Native, Expo, Firebase',
     links: {
       // github: 'https://github.com/abaytler/joint',
@@ -23,7 +23,7 @@ export const projects = [
   },
   {
     title: 'Packet Hunter',
-    description: 'An interactive educational game that teaches networking concepts through hands-on challenges. Users solve real-world networking problems in a gamified environment, covering topics like packet analysis, network protocols, and troubleshooting.',
+    description: 'A mobile game for learning networking through hands-on challenges about packet analysis, protocols, and troubleshooting.',
     techUsed: 'React Native, Expo',
     links: {
       // github: 'https://github.com/abaytler/PacketHunterApp',
@@ -33,13 +33,13 @@ export const projects = [
   },  
   {
         title: 'Forevision',
-        description: 'Developed a Golf GPS application that utilizes AWS services and IoT devices to seamlessly track golf carts on the course using live data. Developed the applications frontend using React JS and integrated advanced technologies such as WebSockets, AWS Lambda, DynamoDB, and S3 Buckets for the backend.',
+        description: 'A golf GPS application that uses IoT devices and AWS to track carts on a course in real time. I built the React frontend and worked with WebSockets, Lambda, DynamoDB, and S3.',
         techUsed: 'AWS, Javascript', 
         // link: 'https://github.com/rmccarthy2017/ForeVision/tree/main/fore_vision'
     },
     {
         title: 'Purposeful Minds LLC',
-        description: 'Designed, built, and continuously maintain a responsive web presence for a private speech-language pathology practice. Focused on creating an intuitive user experience for clients and modern web standards to drive business growth.',
+        description: 'A responsive website I designed, built, and maintain for a private speech-language pathology practice.',
         techUsed: 'React, Javascript',
         link: 'https://www.purposefulmindsllc.com/',
         links:{
@@ -48,7 +48,7 @@ export const projects = [
     },
     {
         title: 'Last Chance Performance & Recovery',
-        description: 'Designed, built, and manage a high-performance web presence for a personal training and athletic recovery brand. Created a sleek, dynamic user interface to showcase training methodologies to drive client leads and consultations.',
+        description: 'A website I designed, built, and manage for a personal training and athletic recovery business.',
         techUsed: 'React, Javascript, Vite', 
         link: 'https://www.lastchanceprwellness.com/',
         links:{
@@ -57,7 +57,7 @@ export const projects = [
     },
     {
         title: 'Natalie Simak Acupuncture',
-        description: 'Designed, developed, and maintain a responsive web presence for a private acupuncture practice. Developed a calming, intuitive user interface to establish brand trust.',
+        description: 'A responsive website I designed, built, and maintain for a private acupuncture practice.',
         techUsed: 'React, Javascript', 
         link: 'nataliesimakacupuncture.com',
         links:{
@@ -66,7 +66,7 @@ export const projects = [
     },
     {
         title: 'Reach Language & Learning',
-        description: 'Designed, built, and continuously maintain a responsive web presence for a private speech-language pathology practice. Focused on creating an intuitive, accessible user experience for clients to drive business growth.',
+        description: 'An accessible website I designed, built, and maintain for a private speech-language pathology practice.',
         techUsed: 'React, Javascript', 
         link: 'https://www.reachlanguageandlearning.com/',
         links:{
@@ -75,19 +75,19 @@ export const projects = [
     }, 
     {
       title: 'Car Scraping Tool',
-      description: 'Developed a Python web scraper using BeautifulSoup to automatically filter and extract cars from Cars.com based on specific criteria. The scraper updates a CSV file with new results and sends email notifications, saving time in the car selection process.',
+      description: 'A Python and BeautifulSoup scraper that filters listings from Cars.com, updates a CSV with new matches, and sends email notifications.',
       techUsed: 'Python', 
       link: 'https://github.com/asimak4/FunProjects/blob/master/Small%20Practice%20Programs/scrapingCars.py',
     },
     {
         title: 'Everybody Eats',
-        description: 'Developed an iOS app using Swift that replicates the core functionality of Uber Eats. Features include direct messaging between users, adding items to a cart, and a seamless ordering experience. This project showcases app development skills and user interface design.',
+        description: 'A Swift iOS project based on food delivery apps, with direct messages, a shopping cart, and an ordering flow.',
         techUsed: 'Swift',
         link: 'https://github.com/asimak4/FunProjects/tree/master/EverybodyEatsApp', // Update with the actual GitHub repository link if available
     },      
     {
       title: 'Connect4 AI with Minimax',
-      description: 'Created a Connect4 game with an AI opponent using the Minimax algorithm. The AI strategically minimizes the maximum potential loss in each move. Players can compete against the AI or play with another person in a console-based interface.',
+      description: 'A console-based Connect Four game with two-player and computer modes. The computer opponent chooses moves with the Minimax algorithm.',
       techUsed: 'Python', 
       link: 'https://github.com/asimak4/FunProjects/blob/master/AI%20and%20ML%20Practice/Minimaxconnect4.py',
     },
@@ -99,7 +99,7 @@ export const projects = [
     // },
     {
       title: 'Chess',
-      description: 'Developed a Chess game in C with functionality for validating moves, checking for checkmate, and a CPU opponent with random move generation. This console-based game includes a design document explaining the implementation.',
+        description: 'A console chess game written in C with move validation, checkmate detection, and a computer opponent that selects random legal moves.',
       techUsed: 'C', 
       link: 'https://github.com/asimak4/FunProjects/tree/master/Chess%20Module',
     },
@@ -111,30 +111,30 @@ export const projects = [
     // },
       {
         title: 'Tic Tac Toe',
-        description: 'Implemented a Tic Tac Toe game in C with options for two players or CPU opponents. The program includes mutex locking and basic OS requirements, with a console-based UI for easy playability.',
+        description: 'A console-based Tic Tac Toe game written in C, with two-player and computer modes plus mutex locking.',
         techUsed: 'C', 
         link: 'https://github.com/asimak4/FunProjects/tree/master/Tic%20Tac%20Toe%20Module',
     },
     {
       title: 'Classification with Random Forest',
-      description: 'Applied Random Forest Classification on census data to predict income levels over or under $50k. Implemented machine learning techniques to analyze and train models on real-world data, contributing to classification tasks.',
+      description: 'A Random Forest model trained on census data to classify income as above or below $50,000.',
       techUsed: 'Python, Jupyter Notebook', 
       link: 'https://github.com/asimak4/FunProjects/blob/master/AI%20and%20ML%20Practice/multilabelClassification.ipynb',
     },
     {
       title: 'Image Classification (Dogs vs Cats)',
-      description: 'Built an image classifier using Keras to distinguish between images of dogs and cats. The project introduces computer vision concepts and neural networks, demonstrating the use of supervised learning for image recognition.',
+      description: 'A Keras image classifier trained to distinguish photos of dogs from photos of cats.',
       techUsed: 'Python, Jupyter Notebook', 
       link: 'https://github.com/asimak4/FunProjects/blob/master/AI%20and%20ML%20Practice/ImageClassification-%20Alex%20Simak.ipynb',
     },
     {
       title: 'Database Management System',
-      description: 'Collaborated on developing a database for faculty members using SQL and Python. Created a simple interface for users to query and update the database, ensuring efficient data management and user interaction with SQL tables.',
+      description: 'A faculty database built with SQL and Python, with a simple interface for querying and updating records.',
       techUsed: 'Python, SQL', 
     },
     {
       title: 'Sally Forth Compiler in C++',
-      description: 'Built a simple compiler handling arithmetic operations, variables, loops, and conditional statements using Reverse Polish Notation (RPN). This project demonstrates the basics of language parsing and stack-based computation.',
+      description: 'A small C++ compiler for arithmetic, variables, loops, and conditionals using Reverse Polish Notation.',
       techUsed: 'C++', 
     }
   ];

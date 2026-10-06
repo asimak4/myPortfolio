@@ -18,6 +18,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import BuildIcon from '@mui/icons-material/Build';
 import Typography from '@mui/material/Typography';
 import { SECTIONS, scrollToSection, SectionType } from '../utils/scroll';
+import { userEmail } from './About/aboutMe';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(-10px); }
@@ -186,6 +187,8 @@ const Navbar: React.FC = () => {
         </Box>
 
         <Box
+          component="a"
+          href={`mailto:${userEmail}`}
           sx={{
             display: { xs: 'none', md: 'flex' },
             alignItems: 'center',
@@ -194,10 +197,13 @@ const Navbar: React.FC = () => {
             fontFamily: '"IBM Plex Mono", monospace',
             fontSize: '0.66rem',
             letterSpacing: '0.08em',
+            textDecoration: 'none',
+            transition: 'color 0.2s ease',
+            '&:hover': { color: 'primary.main' },
           }}
         >
           <Box sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: 'secondary.main', boxShadow: '0 0 12px #5B7FD0' }} />
-          AVAILABLE FOR IDEAS
+          {userEmail.toUpperCase()}
         </Box>
 
         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

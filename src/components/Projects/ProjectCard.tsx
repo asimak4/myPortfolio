@@ -107,7 +107,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, link, lin
                 <CodeIcon sx={{ fontSize: '1.5rem' }} />
               </Box>
               <Typography sx={{ color: 'secondary.main', fontFamily: '"IBM Plex Mono", monospace', fontSize: '0.62rem', letterSpacing: '0.12em' }}>
-                CASE STUDY ↗
+                PROJECT
               </Typography>
             </Box>
             <Typography 

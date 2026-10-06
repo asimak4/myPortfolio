@@ -66,7 +66,7 @@ const SkillsPage = () => {
               fontSize: '0.7rem'
             }}
           >
-            05 / CAPABILITIES
+            05 / SKILLS
           </Typography>
           <Typography 
             variant="h2" 
@@ -78,7 +78,7 @@ const SkillsPage = () => {
               mb: { xs: 3, md: 3 },
             }}
           >
-            Tools, systems & <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>fluency.</Box>
+            Technical <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>skills.</Box>
           </Typography>
           <Typography 
             variant="body1" 
@@ -90,7 +90,7 @@ const SkillsPage = () => {
               lineHeight: 1.8
             }}
           >
-            A comprehensive overview of my technical expertise and professional toolkit.
+            Languages, frameworks, platforms, and tools I&apos;ve worked with.
           </Typography>
         </Box>
 

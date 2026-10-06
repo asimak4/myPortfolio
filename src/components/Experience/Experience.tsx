@@ -54,7 +54,7 @@ const Experience: React.FC = () => {
               lineHeight: 0.98,
             }}
           >
-            The work <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>behind the work.</Box>
+            Work <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>experience.</Box>
           </Typography>
           <Typography 
             variant="body1" 
@@ -65,7 +65,7 @@ const Experience: React.FC = () => {
               lineHeight: 1.8,
             }}
           >
-            My professional journey across innovative companies and meaningful projects
+            The roles I&apos;ve held and what I worked on in each one.
           </Typography>
         </Box>
 

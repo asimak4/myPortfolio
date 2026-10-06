@@ -9,9 +9,9 @@ import { scrollToSection } from '../../utils/scroll';
 import TypewriterText from '../shared/TypewriterText';
 
 const rolePhrases = [
-  'Software Engineer',
+  'Software Developer',
   'Full Stack Developer',
-  'Problem Solver',
+  'Backend & Cloud Engineer',
 ];
 
 const fadeIn = keyframes`
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
                 animation: `${fadeIn} 1s ease-out 0.6s backwards`,
               }}
             >
-              I build resilient systems and thoughtful digital products for problems that deserve more than the obvious answer.
+              I&apos;m a software developer at Xcelerate Solutions. I work on data-heavy backend systems and build web applications with React, Node.js, Python, and AWS.
             </Typography>
 
             <Stack 
@@ -275,7 +275,7 @@ const Home: React.FC = () => {
                   borderRadius: '50%',
                 },
                 '&::after': {
-                  content: '"BUILD / THINK / REFINE"',
+                  content: '"REACT / NODE / PYTHON / AWS"',
                   position: 'absolute',
                   bottom: '5%',
                   right: '-2%',
