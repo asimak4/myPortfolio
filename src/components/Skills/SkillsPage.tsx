@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Chip, Card, CardContent, Box, Container, IconButton } from '@mui/material';
+import { Grid, Typography, Chip, Card, CardContent, Box, Container } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { skillsList } from './SkillsandHobbies';
 import CodeIcon from '@mui/icons-material/Code';
@@ -26,12 +26,12 @@ const categoryIcons: { [key: string]: React.ReactNode } = {
 };
 
 const categoryColors: { [key: string]: string } = {
-  'Programming Languages': '#FF6B6B',
-  'Operating Systems': '#4ECDC4', 
-  'Networking': '#45B7D1',
-  'Software/Frameworks': '#96CEB4',
-  'Amazon Web Services': '#FFEAA7',
-  'Foreign Languages': '#DDA0DD',
+  'Programming Languages': '#5B7FD0',
+  'Operating Systems': '#5B7FD0',
+  'Networking': '#5B7FD0',
+  'Software/Frameworks': '#5B7FD0',
+  'Amazon Web Services': '#CF673F',
+  'Foreign Languages': '#CF673F',
 };
 
 const SkillsPage = () => {
@@ -44,15 +44,16 @@ const SkillsPage = () => {
         overflow: "visible",
         display: 'flex',
         alignItems: 'center',
-        py: { xs: 4, md: 6 },
+        py: { xs: 10, md: 16 },
         scrollMarginTop: "80px",
       }}
     >
-      <Container maxWidth="lg" sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', py: { xs: 2, md: 4 } }}>
+      <Container maxWidth={false} sx={{ maxWidth: 1280, width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', px: { xs: 2.5, md: 5 } }}>
         <Box 
           sx={{ 
-            textAlign: 'center', 
+            textAlign: 'left',
             width: '100%', 
+            mb: { xs: 6, md: 9 },
             animation: `${fadeIn} 1s ease-out`,
           }}
         >
@@ -60,42 +61,36 @@ const SkillsPage = () => {
             variant="overline" 
             sx={{ 
               color: 'secondary.main',
-              letterSpacing: 3,
-              mb: 2,
+              mb: 3,
               display: 'block',
-              fontWeight: 600,
-              fontSize: '0.875rem'
+              fontSize: '0.7rem'
             }}
           >
-            EXPERTISE
+            05 / SKILLS
           </Typography>
           <Typography 
             variant="h2" 
             gutterBottom
             sx={{ 
-              fontWeight: 800,
-              background: 'linear-gradient(135deg, #FFFFFF 0%, #74B9FF 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-              mb: { xs: 2, md: 3 },
+              color: 'primary.main',
+              fontSize: { xs: '3.4rem', sm: '4rem', md: '5.5rem' },
+              lineHeight: 0.98,
+              mb: { xs: 3, md: 3 },
             }}
           >
-            Skills & Technologies
+            Technical <Box component="span" sx={{ color: '#CF673F', fontStyle: 'italic' }}>skills.</Box>
           </Typography>
           <Typography 
             variant="body1" 
             sx={{ 
-              color: 'rgba(255,255,255,0.8)',
+              color: 'text.secondary',
               maxWidth: '700px',
-              mx: 'auto',
               mb: { xs: 3, md: 4 },
               fontSize: { xs: '1rem', md: '1.1rem' },
               lineHeight: 1.8
             }}
           >
-            A comprehensive overview of my technical expertise and professional toolkit.
+            Languages, frameworks, platforms, and tools I&apos;ve worked with.
           </Typography>
         </Box>
 
@@ -115,39 +110,35 @@ const SkillsPage = () => {
               <Card
                 sx={{
                   height: '100%',
-                  bgcolor: 'rgba(255, 255, 255, 0.02)',
-                  backdropFilter: 'blur(20px)',
-                  borderRadius: 6,
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  bgcolor: '#0D110F',
+                  borderRadius: 0,
+                  border: '1px solid rgba(243, 239, 228, 0.12)',
                   position: 'relative',
                   overflow: 'hidden',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transition: 'transform 0.35s ease, border-color 0.35s ease',
                   '&::before': {
                     content: '""',
                     position: 'absolute',
                     top: 0,
-                    left: '-100%',
-                    width: '100%',
-                    height: '100%',
-                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent)',
-                    transition: 'left 0.5s ease-in-out',
+                    left: 0,
+                    width: '42px',
+                    height: '2px',
+                    background: categoryColors[category],
+                    transition: 'width 0.4s ease-in-out',
                   },
                   '&:hover': {
-                    transform: 'translateY(-8px) scale(1.02)',
-                    bgcolor: 'rgba(255, 255, 255, 0.08)',
-                    border: `1px solid ${categoryColors[category]}40`,
-                    boxShadow: `0 20px 40px ${categoryColors[category]}20`,
+                    transform: 'translateY(-5px)',
+                    borderColor: `${categoryColors[category]}55`,
+                    boxShadow: '0 24px 60px rgba(0,0,0,0.24)',
                     '&::before': {
-                      left: '100%',
+                      width: '100%',
                     },
                     '& .category-icon': {
-                      transform: 'scale(1.1) rotate(5deg)',
-                      bgcolor: categoryColors[category],
+                      transform: 'rotate(-8deg)',
+                      color: categoryColors[category],
                     },
                     '& .skill-chip': {
-                      transform: 'translateY(-2px)',
-                      bgcolor: `${categoryColors[category]}20`,
-                      border: `1px solid ${categoryColors[category]}40`,
+                      color: 'primary.main',
                     },
                   },
                 }}
@@ -160,25 +151,29 @@ const SkillsPage = () => {
                     gap: { xs: 1.5, md: 2 }, 
                     mb: { xs: 1.5, md: 2 },
                     pb: { xs: 1.5, md: 2 },
-                    borderBottom: `2px solid ${categoryColors[category]}30`
+                    borderBottom: '1px solid rgba(243, 239, 228, 0.1)'
                   }}>
-                    <IconButton
+                    <Box
                       className="category-icon"
-                      size="medium"
                       sx={{
-                        bgcolor: categoryColors[category],
-                        color: 'white',
+                        width: 40,
+                        height: 40,
+                        flexShrink: 0,
+                        display: 'grid',
+                        placeItems: 'center',
+                        borderRadius: '50%',
+                        bgcolor: 'transparent',
+                        color: 'text.secondary',
+                        border: `1px solid ${categoryColors[category]}55`,
                         transition: 'all 0.3s ease-in-out',
-                        boxShadow: `0 4px 12px ${categoryColors[category]}40`,
-                        '&:hover': { bgcolor: categoryColors[category] },
                       }}
                     >
                       {categoryIcons[category] || <CodeIcon />}
-                    </IconButton>
+                    </Box>
                     <Typography
                       variant="h6"
                       sx={{
-                        color: 'white',
+                        color: 'primary.main',
                         fontWeight: 700,
                         fontSize: { xs: '1rem', md: '1.1rem' },
                         lineHeight: 1.3
@@ -203,17 +198,18 @@ const SkillsPage = () => {
                         className="skill-chip"
                         size="small"
                         sx={{
-                          bgcolor: 'rgba(255, 255, 255, 0.1)',
-                          color: 'white',
-                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          bgcolor: 'transparent',
+                          color: 'text.secondary',
+                          border: '1px solid rgba(243, 239, 228, 0.13)',
                           fontWeight: 500,
+                          fontFamily: '"IBM Plex Mono", monospace',
                           fontSize: '0.75rem',
                           transition: 'all 0.3s ease',
                           transitionDelay: `${i * 0.05}s`,
                           '&:hover': {
-                            transform: 'translateY(-2px)',
-                            bgcolor: `${categoryColors[category]}20`,
-                            border: `1px solid ${categoryColors[category]}60`,
+                            color: categoryColors[category],
+                            bgcolor: `${categoryColors[category]}0D`,
+                            borderColor: `${categoryColors[category]}55`,
                           }
                         }}
                       />

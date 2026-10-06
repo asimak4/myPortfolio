@@ -71,7 +71,7 @@ const IconBadge: React.FC<{
         width: '100%',
         height: '100%',
         borderRadius: '50%',
-        bgcolor: '#151C20',
+        bgcolor: '#090C0B',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -126,7 +126,7 @@ const InterestRing: React.FC<{
       sx={{
         fontSize: '0.7rem',
         fontWeight: active ? 700 : 500,
-        color: active ? '#fff' : 'rgba(255,255,255,0.6)',
+        color: active ? 'primary.main' : 'text.secondary',
         textAlign: 'center',
         maxWidth: 80,
         lineHeight: 1.2,
@@ -161,8 +161,9 @@ const OutsideTheIDESection: React.FC = () => {
     <Box
       sx={{
         mt: { xs: 8, md: 12 },
-        pt: { xs: 4, md: 6 },
+        pt: { xs: 8, md: 12 },
         pb: { xs: 6, md: 8 },
+        borderTop: '1px solid rgba(243, 239, 228, 0.14)',
       }}
     >
       <Box
@@ -198,25 +199,20 @@ const OutsideTheIDESection: React.FC = () => {
           variant="overline"
           sx={{
             color: 'secondary.main',
-            letterSpacing: 3,
             mb: 2,
             display: 'block',
-            fontWeight: 600,
-            fontSize: '0.875rem',
+            fontSize: '0.7rem',
           }}
         >
-          WHEN I&apos;M NOT CODING
+          06 / OFF DUTY
         </Typography>
         <Typography
           variant="h2"
           gutterBottom
           sx={{
-            fontWeight: 800,
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #74B9FF 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontSize: { xs: '2rem', sm: '2.5rem', md: '2.75rem' },
+            color: 'primary.main',
+            fontSize: { xs: '3rem', sm: '3.8rem', md: '4.8rem' },
+            lineHeight: 1,
             mb: 2,
           }}
         >
@@ -227,7 +223,7 @@ const OutsideTheIDESection: React.FC = () => {
           <Typography
             className="easter-egg-hint"
             sx={{
-              color: 'rgba(255, 255, 255, 0.45)',
+              color: 'text.secondary',
               fontSize: { xs: '0.8rem', md: '0.85rem' },
               letterSpacing: 0.3,
               mb: 1,
@@ -241,7 +237,7 @@ const OutsideTheIDESection: React.FC = () => {
           <Typography
             variant="body1"
             sx={{
-              color: 'rgba(255,255,255,0.8)',
+              color: 'text.secondary',
               maxWidth: '620px',
               mx: 'auto',
               fontSize: { xs: '1rem', md: '1.1rem' },
@@ -327,7 +323,7 @@ const OutsideTheIDESection: React.FC = () => {
         </Typography>
         <Typography
           sx={{
-            color: 'rgba(255,255,255,0.85)',
+            color: 'text.secondary',
             fontSize: { xs: '1rem', md: '1.08rem' },
             lineHeight: 1.85,
           }}

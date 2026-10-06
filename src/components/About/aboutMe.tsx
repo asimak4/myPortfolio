@@ -1,5 +1,5 @@
 export const aboutMeText =
-  "I am a Software Developer at Xcelerate Solutions specializing in high-volume data architecture, Kafka, and Kubernetes. Previously, I worked as a Full Stack Developer at Deloitte and a Software Engineer at Viasat. I graduated from UMBC with a B.S. in Computer Science and Mathematics. I am dedicated to continuous learning and developing software that streamlines user experiences. In my personal time, I enjoy weightlifting, playing soccer, hiking, and connecting with family and friends.";
+  "I'm a Software Developer at Xcelerate Solutions, where I work with high-volume data architecture, Kafka, and Kubernetes. Before that, I was a Full Stack Developer at Deloitte and a Software Engineer at Viasat. I studied Computer Science and Mathematics at UMBC. I enjoy making complicated software easier to understand and use. Outside of work, I spend my time weightlifting, playing soccer, hiking, and catching up with family and friends.";
 
 
   export const userEmail = 'asimak4@gmail.com'
